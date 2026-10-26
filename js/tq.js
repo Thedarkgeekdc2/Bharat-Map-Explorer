@@ -8,45 +8,59 @@ const TOPICS=[{id:'identity',en:'State and Union Territory identity'},{id:'capit
 const PRACTICE={identity:'State / UT identity practice (Explore Map, tap and name the place)',capital:'Capital identification practice (Play Quiz → Capital Match)',dance:'Classical dance and state matching practice (Discover → Classical Dance)',
   folk:'Folk arts and traditions practice (Discover → All, search a tradition)',festival:'Festival and state matching practice (Discover → Festival Calendar)',food:'Famous food and state matching practice (Discover → Famous Food)',
   animal:'State animal practice (Learn cards, Class 1–2 style)',wildlife:'State wildlife and habitat practice (Discover → All)',places:'Famous places practice (Discover → Places)',map:'Map skills practice (Explore Map, Find the State, Build India)'};
+/* Class rules: topics, word length, option count and language by class. Based on the NCERT EVS (Looking Around) expectations seen in official syllabus documents:
+   Class 1-2: no state-wise lists were found, so only simple topics; Class 3: states and capitals, festivals, food; Class 4-5: location of states, capital, food, festival, famous places, dance/art, national parks. */
+const PROFILE={1:{rec:['animal','festival','food'],maxWords:3,opts:3,lang:'both'},2:{rec:['animal','festival','food'],maxWords:3,opts:3,lang:'both'},
+  3:{rec:['capital','animal','festival','food'],maxWords:4,opts:4,lang:'both'},4:{rec:['identity','capital','dance','folk','festival','food','animal','places'],maxWords:7,opts:4,lang:'en'},
+  5:{rec:['identity','capital','dance','folk','festival','food','animal','wildlife','places'],maxWords:99,opts:4,lang:'en'}};
+const prof=g=>PROFILE[g]||PROFILE[5];
 const tname=id=>id==='map'?'Map skills':(TOPICS.find(t=>t.id===id)||{en:id}).en;
 const shuf=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(p=>p[1]);
 const lab=s=>s.replace(/\s*\(.*?\)\s*/g,' ').trim();
 const cap=r=>CAPITALS[r.id].en;
 /* ---------- candidate bases (one per fact) ---------- */
 function items(useDK){const it=[];REGIONS.forEach(r=>{const D=CONTENT[r.id],K=useDK?(D.dk||{}):{};
-  const add=(cat,a)=>(a||[]).forEach(x=>it.push({cat,r,text:x.en,key:itemKey(x.en)}));
+  const add=(cat,a)=>(a||[]).forEach(x=>it.push({cat,r,text:x.en,hi:x.hi,key:itemKey(x.en)}));
   add('dance',D.classical);add('folk',D.traditions);add('folk',K.folk);add('festival',D.festivals);add('festival',K.festivals);add('food',D.foods);add('food',K.foods);
   add('animal',D.animal?[D.animal]:[]);add('wildlife',K.wildlife);add('places',D.famous);add('places',K.famous);});
   const n={};it.forEach(i=>n[i.key]=(n[i.key]||0)+1);return it.filter(i=>n[i.key]===1&&!/shared|maratha/i.test(i.text));}
-function bases(topic,useDK){
+function bases(topic,useDK,grade){
   if(topic==='identity')return REGIONS.map(r=>({base:'identity|'+r.id,topic,r}));
   if(topic==='capital')return REGIONS.filter(r=>!['chandigarh','puducherry'].includes(r.id)).map(r=>({base:'capital|'+r.id,topic,r}));
-  return items(useDK).filter(i=>i.cat===topic).map(i=>({base:topic+'|'+i.key,topic,r:i.r,label:lab(i.text)}));}
-const capacity=(topics,useDK)=>Object.fromEntries(topics.map(t=>[t,bases(t,useDK).length]));
+  const mw=prof(grade).maxWords;return items(useDK).filter(i=>i.cat===topic&&lab(i.text).split(/\s+/).length<=mw).map(i=>({base:topic+'|'+i.key,topic,r:i.r,label:lab(i.text),hi:i.hi}));}
+const capacity=(topics,useDK,grade)=>Object.fromEntries(topics.map(t=>[t,bases(t,useDK,grade).length]));
 /* ---------- question construction ---------- */
 const PH={dance:l=>`${l} is a classical dance of`,festival:l=>`the festival ${l} is known in`,food:l=>`${l} is famous in`,animal:l=>`the ${l} is the Official State Animal of`,wildlife:l=>`${l} is notable wildlife of`,folk:l=>`the tradition ${l} belongs to`,places:l=>`${l} is in`};
-function make(b,type,sp){
-  const r=b.r,id0=b.base;
-  if(b.topic==='identity'){const kind=r.type==='ut'?'Union Territory':'State',other=kind==='State'?'Union Territory':'State';
-    if(type==='mcq')return{id:id0+'|mcq',topic:b.topic,type,difficulty:'medium',text:`${r.en} is a ...`,options:['State','Union Territory'],correct:kind,explanation:`${r.en} is a ${kind}.`,base:id0};
-    const t=Math.random()<.5,shown=t?kind:other;return{id:id0+'|tf|'+(t?'T':'F'),topic:b.topic,type,difficulty:'easy',text:`True or False: ${r.en} is a ${shown}.`,options:['True','False'],correct:t?'True':'False',explanation:`${r.en} is a ${kind}.`,base:id0};}
-  if(b.topic==='capital'){const c=cap(r);
-    if(type==='mcq'){const o=[c];shuf(REGIONS).forEach(x=>{if(o.length<4&&x.id!==r.id&&cap(x)!==c&&!o.includes(cap(x)))o.push(cap(x));});
-      return{id:id0+'|mcq',topic:b.topic,type,difficulty:'medium',text:sp?`Capital of ${r.en}?`:`What is the capital of ${r.en}?`,options:shuf(o),correct:c,explanation:`The capital of ${r.en} is ${c}.`,base:id0};}
-    const t=Math.random()<.5;let shown=c;if(!t){const x=shuf(REGIONS).find(x=>cap(x)!==c);shown=cap(x);}
-    return{id:id0+'|tf|'+(t?'T':'F'),topic:b.topic,type,difficulty:'easy',text:`True or False: The capital of ${r.en} is ${shown}.`,options:['True','False'],correct:t?'True':'False',explanation:`The capital of ${r.en} is ${c}.`,base:id0};}
-  const ph=PH[b.topic](b.label);
-  if(type==='mcq'){const o=[r.en];shuf(REGIONS).forEach(x=>{if(o.length<4&&x.id!==r.id)o.push(x.en);});
-    return{id:id0+'|mcq',topic:b.topic,type,difficulty:'medium',text:sp?`Which state: ${b.label}?`:`Which state or UT: ${ph} ...?`,options:shuf(o),correct:r.en,explanation:`${b.label} — ${r.en}.`,base:id0};}
-  const t=Math.random()<.5,sh=t?r.en:shuf(REGIONS.filter(x=>x.id!==r.id))[0].en;
-  return{id:id0+'|tf|'+(t?'T':'F'),topic:b.topic,type,difficulty:'easy',text:sp?`${b.label} is from ${sh}. True or False?`:`True or False: ${ph} ${sh}.`,options:['True','False'],correct:t?'True':'False',explanation:`${b.label} — ${r.en}.`,base:id0};}
+const PHH={dance:l=>`${l} किस राज्य का शास्त्रीय नृत्य है?`,festival:l=>`त्योहार ${l} किस राज्य में प्रसिद्ध है?`,food:l=>`${l} किस राज्य में प्रसिद्ध है?`,animal:l=>`${l} किस राज्य का राज्य पशु है?`,wildlife:l=>`${l} किस राज्य या केंद्रशासित प्रदेश का प्रमुख वन्यजीव है?`,folk:l=>`${l} किस राज्य की कला या परंपरा है?`,places:l=>`${l} किस राज्य में है?`};
+/* language helpers: 'en', 'hi' or 'both' (Hindi + English) */
+const tx=(lg,e,h)=>lg==='en'?e:lg==='hi'?h:h+'\n'+e;
+const SN=(r,lg)=>lg==='en'?r.en:lg==='hi'?r.hi:`${r.hi} (${r.en})`;
+const CN=(r,lg)=>{const c=CAPITALS[r.id];return lg==='en'||c.hi===c.en?c.en:lg==='hi'?c.hi:`${c.hi} (${c.en})`;};
+const TFO=lg=>lg==='en'?['True','False']:lg==='hi'?['सही','गलत']:['True / सही','False / गलत'];
+const KN=(ut,lg)=>{const e=ut?'Union Territory':'State',h=ut?'केंद्रशासित प्रदेश':'राज्य';return lg==='en'?e:lg==='hi'?h:`${h} (${e})`;};
+function make(b,type,o){o=o||{};const lg=o.lg||'en',sp=!!o.sp,np=o.nopt||4,r=b.r,id0=b.base,tfo=TFO(lg);
+  const tf=(t,text,expl)=>({id:id0+'|tf|'+(t?'T':'F'),topic:b.topic,type:'tf',difficulty:'easy',text,options:tfo,correct:t?tfo[0]:tfo[1],explanation:expl,base:id0});
+  const mc=(text,opts,correct,expl)=>({id:id0+'|mcq',topic:b.topic,type:'mcq',difficulty:'medium',text,options:shuf(opts),correct,explanation:expl,base:id0});
+  if(b.topic==='identity'){const ut=r.type==='ut';
+    if(type==='mcq')return mc(tx(lg,`${r.en} is a ...`,`${r.hi} एक ... है।`),[KN(false,lg),KN(true,lg)],KN(ut,lg),tx(lg,`${r.en} is a ${ut?'Union Territory':'State'}.`,`${r.hi} एक ${ut?'केंद्रशासित प्रदेश':'राज्य'} है।`));
+    const t=Math.random()<.5,u2=t?ut:!ut;return tf(t,tx(lg,`True or False: ${r.en} is a ${u2?'Union Territory':'State'}.`,`सही या गलत: ${r.hi} एक ${u2?'केंद्रशासित प्रदेश':'राज्य'} है।`),tx(lg,`${r.en} is a ${ut?'Union Territory':'State'}.`,`${r.hi} एक ${ut?'केंद्रशासित प्रदेश':'राज्य'} है।`));}
+  if(b.topic==='capital'){const c=CAPITALS[r.id],ex=tx(lg,`The capital of ${r.en} is ${c.en}.`,`${r.hi} की राजधानी ${c.hi} है।`);
+    if(type==='mcq'){const o2=[CN(r,lg)];shuf(REGIONS).forEach(x=>{if(o2.length<np&&x.id!==r.id&&CAPITALS[x.id].en!==c.en&&!o2.includes(CN(x,lg)))o2.push(CN(x,lg));});
+      return mc(tx(lg,sp?`Capital of ${r.en}?`:`What is the capital of ${r.en}?`,`${r.hi} की राजधानी क्या है?`),o2,CN(r,lg),ex);}
+    const t=Math.random()<.5;let sh=c;if(!t){const x=shuf(REGIONS).find(x=>CAPITALS[x.id].en!==c.en);sh=CAPITALS[x.id];}
+    return tf(t,tx(lg,`True or False: The capital of ${r.en} is ${sh.en}.`,`सही या गलत: ${r.hi} की राजधानी ${sh.hi} है।`),ex);}
+  const lh=lab(b.hi||b.label),ex=tx(lg,`${b.label} — ${r.en}.`,`${lh} — ${r.hi}।`);
+  if(type==='mcq'){const o2=[SN(r,lg)];shuf(REGIONS).forEach(x=>{if(o2.length<np&&x.id!==r.id)o2.push(SN(x,lg));});
+    return mc(tx(lg,sp?`Which state: ${b.label}?`:`Which state or UT: ${PH[b.topic](b.label)} ...?`,PHH[b.topic](lh)),o2,SN(r,lg),ex);}
+  const t=Math.random()<.5,x2=t?r:shuf(REGIONS.filter(x=>x.id!==r.id))[0];
+  return tf(t,tx(lg,sp?`${b.label} is from ${x2.en}. True or False?`:`True or False: ${PH[b.topic](b.label)} ${x2.en}.`,`सही या गलत: ${lh} का संबंध ${x2.hi} से है।`),ex);}
 /* ---------- map questions (use the real clickable map) ---------- */
 const TINY=['delhi','chandigarh','goa','dadra-and-nagar-haveli-and-daman-and-diu','lakshadweep','puducherry'];
 function mapTargets(grade){const d=window.BMap&&BMap.info&&BMap.info();if(!d)return null;return REGIONS.filter(r=>r.id!=='ladakh'&&d.groups[r.id]&&(grade>=4||!TINY.includes(r.id)));}
-const mapQ=r=>({id:'map|'+r.id+'|map',topic:'map',type:'map',difficulty:'medium',text:`Tap ${r.en} on the map.`,options:[],correct:r.id,explanation:`${r.en} on the map.`,base:'map|'+r.id,target:r.id});
+const mapQ=(r,lg)=>({id:'map|'+r.id+'|map',topic:'map',type:'map',difficulty:'medium',text:tx(lg||'en',`Tap ${r.en} on the map.`,`नक्शे पर ${r.hi} को छुओ।`),options:[],correct:r.id,explanation:`${r.en} on the map.`,base:'map|'+r.id,target:r.id});
 /* ---------- generation: each roll gets its own form with the same topic / type / map mix ---------- */
 function makePlanFor(s,R){const mcq=s.typeMode==='mcq'?R:s.typeMode==='tf'?0:Math.ceil(R/2);return{mcq,tf:R-mcq};}
-function makePlan(s){const caps=capacity(s.topics,s.includeDK),total=s.mcq+s.tf,q={};s.topics.forEach(t=>q[t]=0);
+function makePlan(s){const caps=capacity(s.topics,s.includeDK,s.grade),total=s.mcq+s.tf,q={};s.topics.forEach(t=>q[t]=0);
   let left=total,prog=true;while(left>0&&prog){prog=false;for(const t of s.topics){if(left>0&&q[t]<caps[t]){q[t]++;left--;prog=true;}}}
   const plan={};let mLeft=s.mcq;s.topics.forEach((t,i)=>{const n=q[t];let m=i===s.topics.length-1?mLeft:Math.min(n,Math.round(n*s.mcq/Math.max(total,1)));m=Math.max(0,Math.min(n,m,mLeft));mLeft-=m;plan[t]={mcq:m,tf:n-m};});
   let rem=mLeft;for(const t of s.topics){while(rem>0&&plan[t].tf>0){plan[t].tf--;plan[t].mcq++;rem--;}}
@@ -56,16 +70,16 @@ function generate(s,o){o=o||{};const sp=(o.grade||0)<=2,N=s.students,reg={},form
   const mapN=o.mapN!==undefined?o.mapN:(s.mapShare>0?Math.round(s.total*s.mapShare/100):0);
   if(mapN>0&&(!mt||!mt.length))return{error:'The map is not available (it needs the internet the first time). Connect once, or set the map share to 0.'};
   const R=s.total-mapN,mix=makePlanFor(s,R);let plan=o.plan;
-  if(!plan){const p=makePlan({topics:s.topics,includeDK:s.includeDK,mcq:mix.mcq,tf:mix.tf});if(p.shortfall>0)return{error:`Only ${R-p.shortfall} non-map questions can be made from the selected topics. Reduce the number of questions or add topics.`};plan=p.plan;}
+  if(!plan){const p=makePlan({topics:s.topics,includeDK:s.includeDK,grade:o.grade,mcq:mix.mcq,tf:mix.tf});if(p.shortfall>0)return{error:`Only ${R-p.shortfall} non-map questions can be made from the selected topics. Reduce the number of questions or add topics.`};plan=p.plan;}
   const ord={};let among=false;
-  for(const t of s.topics){const need=plan[t]||{mcq:0,tf:0},n=need.mcq+need.tf;ord[t]=shuf(bases(t,s.includeDK));if(n&&ord[t].length<n)return{error:`Not enough data for topic "${tname(t)}" (${ord[t].length} facts, ${n} needed).`};if(n&&ord[t].length<n*N)among=true;}
-  const mord=shuf(mt||[]);const getQ=(b,type)=>{const k=b.base+'|'+type;return reg[k]||(reg[k]=make(b,type,sp));};
+  for(const t of s.topics){const need=plan[t]||{mcq:0,tf:0},n=need.mcq+need.tf;ord[t]=shuf(bases(t,s.includeDK,o.grade));if(n&&ord[t].length<n)return{error:`Not enough data for topic "${tname(t)}" (${ord[t].length} facts, ${n} needed).`};if(n&&ord[t].length<n*N)among=true;}
+  const lg=s.lang||'en',nopt=s.nopt||prof(o.grade).opts,mord=shuf(mt||[]);const getQ=(b,type)=>{const k=b.base+'|'+type;return reg[k]||(reg[k]=make(b,type,{lg,sp,nopt}));};
   for(let r=1;r<=N;r++){const av=(o.avoid&&o.avoid[r])||new Set(),ids=[],re=[];
     for(const t of s.topics){const need=plan[t]||{mcq:0,tf:0},n=need.mcq+need.tf;if(!n)continue;const L=ord[t],off=((r-1)*n)%L.length,rot=[...L.slice(off),...L.slice(0,off)];
       const pick=[...rot.filter(b=>!av.has(b.base)),...rot.filter(b=>av.has(b.base))].slice(0,n);
       pick.forEach((b,i)=>{const q=getQ(b,i<need.mcq?'mcq':'tf');ids.push(q.id);if(av.has(b.base))re.push(q.id);});}
     if(mapN){const off=((r-1)*mapN)%mord.length,rot=[...mord.slice(off),...mord.slice(0,off)],pick=[...rot.filter(x=>!av.has('map|'+x.id)),...rot.filter(x=>av.has('map|'+x.id))].slice(0,mapN);
-      pick.forEach(x=>{const k='map|'+x.id+'|map';reg[k]=reg[k]||mapQ(x);ids.push(k);if(av.has('map|'+x.id))re.push(k);});
+      pick.forEach(x=>{const k='map|'+x.id+'|map';reg[k]=reg[k]||mapQ(x,lg);ids.push(k);if(av.has('map|'+x.id))re.push(k);});
       if(pick.length<mapN)return{error:'There are not enough map targets for the map share chosen. Reduce the map share.'};if(mord.length<mapN*N)among=true;}
     forms[r]=shuf(ids);if(re.length)reused[r]=re;}
   const nre=Object.values(reused).reduce((a,x)=>a+x.length,0),warnings=[];
@@ -103,7 +117,7 @@ function validate(o,kind){const e=[];if(!o||typeof o!=='object')return['The file
   return e;}
 function compat(b,a){const w=[];const same=(x,y,n)=>{if(x!==y)w.push(`${n} differs: BEFORE "${x}" vs AFTER "${y}".`);};
   same(b.school.name,a.school.name,'School name');same(b.school.code,a.school.code,'KV code');same(b.academicYear,a.academicYear,'Academic year');same(b.class,a.class,'Class');same(b.section,a.section,'Section');same(b.students,a.students,'Student count');
-  same(JSON.stringify(b.settings.topics),JSON.stringify(a.settings.topics),'Topics');same(b.settings.typeMode,a.settings.typeMode,'Question type');same(b.questions.length>0&&Object.values(b.forms)[0].length,Object.values(a.forms)[0].length,'Questions per student');same(b.settings.mapN||0,a.settings.mapN||0,'Map questions');return w;}
+  same(JSON.stringify(b.settings.topics),JSON.stringify(a.settings.topics),'Topics');same(b.settings.typeMode,a.settings.typeMode,'Question type');same(b.questions.length>0&&Object.values(b.forms)[0].length,Object.values(a.forms)[0].length,'Questions per student');same(b.settings.mapN||0,a.settings.mapN||0,'Map questions');same(b.settings.lang||'en',a.settings.lang||'en','Question language');return w;}
 /* ---------- remedial analysis (rules in the Teacher Guide) ---------- */
 function band(acc,th){return acc>=th.strong?'Strong performance; consider extension questions.':acc>=th.practice?'Guided practice recommended.':'Priority practice recommended.';}
 function remedial(a,roll,th,b){const sc=score(a,roll),sb=b?score(b,roll):null,out=[];
@@ -152,5 +166,5 @@ function sheets(a,b,an){const isA=a.kind==='after',c=counts(a),th=(an&&an.thresh
   done.forEach(i=>{const t=score(a,i).topic.map;if(t)ms.push([i,t.attempted,t.correct,t.acc,t.missed.map(id=>(regionById(id)||{en:id}).en).join('; ')]);});
   const qd=[QH,...(isA?qdet(b,'BEFORE'):[]),...qdet(a,a.kind.toUpperCase())];
   return[{name:'Class Summary',rows:sum},{name:'Individual Progress',rows:ip},{name:'Topic-wise Progress',rows:tp},{name:'Remedial Plan',rows:rp},{name:'Map Skills',rows:ms},{name:'Question Details',rows:qd}];}
-return{CFG,TOPICS,tname,capacity,makePlan,generate,create,setAnswer,finish,markAbsent,score,counts,formQs,validate,normalize,compat,analyse,remedial,sheets,band,PRACTICE,mapTargets};
+return{PROFILE,prof,CFG,TOPICS,tname,capacity,makePlan,generate,create,setAnswer,finish,markAbsent,score,counts,formQs,validate,normalize,compat,analyse,remedial,sheets,band,PRACTICE,mapTargets};
 })();

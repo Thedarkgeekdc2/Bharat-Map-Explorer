@@ -16,14 +16,14 @@ function home(){
   <div class="classes">${[1,2,3,4,5].map(n=>`<a class="cls c${n}" href="#/class/${n}"><b>${n}</b><span>${t('cls')} ${n}</span></a>`).join('')}</div>
   <h2 class="sec">${t('themeTitle')}</h2>
   <form class="sbar" id="hs"><input id="hq" type="search" placeholder="${t('searchPh')}" aria-label="${t('searchBtn')}"><button>${t('searchBtn')}</button></form>
-  <div class="themes">${THEMES.map(([id,ico,k,col])=>`<a class="theme ${col}" href="#/discover/${id}"><span>${ico}</span>${t(k)}</a>`).join('')}</div>
-  <div class="themes" style="margin-top:14px"><a class="theme plum" href="#/teacher"><span>👩‍🏫</span>${t('teacherCorner')}</a></div>`;
+  <div class="themes">${THEMES.map(([id,ico,k,col])=>`<a class="theme ${col}" href="#/discover/${id}"><span>${ico}</span>${t(k)}</a>`).join('')}</div>`;
   document.getElementById('hs').onsubmit=e=>{e.preventDefault();try{sessionStorage.setItem('bme.q',document.getElementById('hq').value);}catch(x){}location.hash='#/discover/all';};
 }
 function modes(){
   app.innerHTML=`<p class="level">${t('levels')[S.grade]}</p><h2 class="sec">${t('modesTitle')}</h2>
   <div class="modes">${MODES.map(m=>`<a class="mode ${m.color}" href="#/mode/${m.id}"><span class="ico">${m.icon}</span>
-  <strong>${t(m.id)}</strong><em>${t(m.id+'D')}</em>${m.status==='soon'?`<span class="tag">${t('soon')}</span>`:''}</a>`).join('')}</div>`;
+  <strong>${t(m.id)}</strong><em>${t(m.id+'D')}</em>${m.status==='soon'?`<span class="tag">${t('soon')}</span>`:''}</a>`).join('')}</div>
+  <div class="tcbottom"><a class="theme plum" href="#/teacher"><span>👩‍🏫</span>${t('teacherCorner')}</a></div>`;
 }
 function mode(id){
   const m=MODES.find(x=>x.id===id); if(!m){location.hash='#/class/'+S.grade;return;}
@@ -42,7 +42,7 @@ function route(){
   if(a==='class'){const n=Number(b); if(n>=1&&n<=5){S.grade=n;ls.set('bme.grade',n);} else {location.hash='#/home';return;}}
   if(a==='mode'&&!S.grade){location.hash='#/home';return;}
   app.onclick=app.oninput=app.onchange=app.onsubmit=app.onkeydown=null;
-  if(a==='teacher'){app.innerHTML='';TEACHER.render(app,ctx());} else if(a==='squiz'){const r=regionById(b);app.innerHTML=`<h2 class="sec">🎯 ${r?esc(name(r)):''}</h2><div id="sqv"></div>`;STATEQUIZ.render(document.getElementById('sqv'),ctx(),b);}
+  if(a==='teacher'){app.innerHTML='';TEACHER.render(app,ctx());} else if(a==='thelp'){app.innerHTML=THELP.html();} else if(a==='squiz'){const r=regionById(b);app.innerHTML=`<h2 class="sec">🎯 ${r?esc(name(r)):''}</h2><div id="sqv"></div>`;STATEQUIZ.render(document.getElementById('sqv'),ctx(),b);}
   else if(a==='class') modes(); else if(a==='mode') mode(b); else if(a==='discover') discover(b); else if(a==='state') stateView(b); else home();
   chrome(a||'home'); app.focus({preventScroll:true}); window.scrollTo(0,0);
 }
@@ -51,12 +51,12 @@ function chrome(a){
   document.getElementById('brandName').textContent=t('brand');
   document.getElementById('langBtn').textContent=t('lang');
   document.getElementById('footNote').textContent=t('foot');
-  const back=document.getElementById('backBtn'); back.hidden=!['class','mode','discover','state','teacher','squiz'].includes(a); back.setAttribute('aria-label',t('back'));
+  const back=document.getElementById('backBtn'); back.hidden=!['class','mode','discover','state','teacher','squiz','thelp'].includes(a); back.setAttribute('aria-label',t('back'));
   const g=document.getElementById('gradeBadge'); g.hidden=!(a==='class'||a==='mode'); g.textContent=`${t('cls')} ${S.grade}`;
   document.title=t('brand')+' | Classes I–V';
 }
 document.getElementById('backBtn').onclick=()=>{const a=location.hash.split('/')[1];
-  if(a==='mode')location.hash='#/class/'+S.grade; else if((a==='state'||a==='squiz')&&history.length>1)history.back(); else location.hash='#/home';};
+  if(a==='mode')location.hash='#/class/'+S.grade; else if(a==='thelp')location.hash='#/teacher'; else if(a==='teacher')location.hash=S.grade?'#/class/'+S.grade:'#/home'; else if((a==='state'||a==='squiz')&&history.length>1)history.back(); else location.hash='#/home';};
 document.getElementById('langBtn').onclick=()=>{S.lang=S.lang==='en'?'hi':'en';ls.set('bme.lang',S.lang);route();};
 addEventListener('hashchange',route); route();
 })();

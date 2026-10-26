@@ -1,4 +1,12 @@
 # Changelog
+## M7c (build M7c-teacher)
+- **Class rules (NCERT EVS based):** each class has its own open topics, maximum words in item names, number of options and default language. Topics outside the class are disabled.
+- **Question language:** English, Hindi or Hindi + English for questions, options, True/False and map questions (saved and restored for AFTER).
+- **Teacher Corner moved:** removed from the top bar and Home page; now the last item on every class page (below Learn / Play / Explore).
+- **Teacher Corner Help:** button below Login, and a Help link inside; a colourful help page in simple English (`js/thelp.js`).
+- **Phones:** header no longer overflows on the right; notch-safe margins (`viewport-fit=cover`); landscape layout for short screens; checked at 6 phone sizes in portrait and landscape.
+- Fixed: after typing in a setup field, the first tap on **Continue** was lost (found by browser test).
+
 ## M7b — Learning Evidence Corner improvements (build M7b-teacher)
 - Class now comes from the main class selector (read-only in the form; no second Class dropdown).
 - **Map questions** (share 20/30/40/50 %, default 40 %) use the real clickable map; answers saved as the tapped state.

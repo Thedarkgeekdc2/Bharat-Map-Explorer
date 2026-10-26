@@ -1,10 +1,10 @@
-# Learning Evidence Corner — Teacher Guide (M7b)
+# Learning Evidence Corner — Teacher Guide (M7c)
 
 ## What this does
 It creates anonymous, Roll-Number-based assessment evidence before and after students learn with Bharat Map Explorer. No server, no online database, no student names.
 
 ## Teacher entry
-Open **Teacher Corner** (top bar or Home page). Username `KV2KGP`, password `1261`.
+Choose a class on the Home page, then scroll to the bottom of the class page and tap **Teacher Corner** (it is not in the top bar or anywhere else). The login page has a **Teacher Corner Help** button with a simple, colourful help page. Username `KV2KGP`, password `1261`.
 These values sit in public JavaScript. This is a convenience gate, **not secure authentication**, and must not protect confidential data. Students can use every learning mode without it.
 
 ## Select the class first
@@ -13,12 +13,23 @@ Choose Class 1–5 on the main class selector (Home page), then open Teacher Cor
 ## BEFORE assessment
 1. Choose **BEFORE**. Enter School name (required), KV code (optional), Academic Year.
 2. Choose Section and number of students.
-3. Choose topics (*Select All Topics* / *Clear Selection*; topics without verified data are greyed out unless you tick *Also use items marked (reviewed by DK)*).
+3. Choose topics. **Only topics that fit the class are open** (table below). *Select All Topics for this class* / *Clear Selection*; topics with no official-source data are greyed out unless you tick *Also use items marked (reviewed by DK)*.
+   Choose the **question language**: English, Hindi or Hindi + English (default: Hindi + English for Classes 1–3, English for 4–5).
 4. Choose MCQ, True/False or Mixed; questions per student (**5 / 10 / 15 / 20**); **map-question share** (None / 20 / 30 / 40 / 50 %, default 40 %). Map questions ask the student to tap a state on the real map (internet needed the first time).
 5. Read the summary and warnings, tick the warning, start.
 6. **Each roll gets its own set of questions** with the same topic, type and map mix. Questions are ordered differently per roll. Classes 1–2 get simpler prompts. If the data bank is too small for every roll to be different, a message says so.
 7. Tap a Roll Number (or *Next roll number*). Finish each roll, or press **Mark Roll Absent**. Absent is *insufficient evidence*, not a zero. *Download progress backup (JSON)* any time; *Resume from a saved JSON file* continues later.
 8. *Finish and get reports* → download the **Excel workbook** and the **JSON backup** before refreshing, closing or leaving the page.
+
+## Class rules (age and language)
+| Class | Open topics | Words and options | Default language |
+|---|---|---|---|
+| 1–2 | State animals, festivals, foods + map (big states only) | item names of 3 words or fewer, 3 options, very short prompts | Hindi + English |
+| 3 | Capitals, state animals, festivals, foods + map (big states) | names up to 4 words, 4 options, short prompts | Hindi + English |
+| 4 | State/UT identity, capitals, classical dance, folk arts, festivals, foods, animals, famous places + map | names up to 7 words | English |
+| 5 | All topics (adds notable wildlife) + map | any length | English |
+
+**Basis:** the NCERT EVS course *Looking Around* (Classes 3–5), as shown in official syllabus papers (e.g. Class IV: locating states on the map of India, and for each state its capital, food, festival, famous places and traditional dance/art; Class V: marking states and national parks on the map). I could not find state-wise lists in NCERT EVS for Classes 1–2, so only easy topics are open there. I could not open the NCERT textbook PDFs themselves, so **please check these rules against your own class plan**; the rules are in one place (`PROFILE` in `js/tq.js`).
 
 ## Learning period
 Let students use Learn, Explore Map, Build India, Quiz, Discover and state-card quizzes for the chosen period. The Evidence Corner does not track this period in the background; it records only explicit assessment attempts.

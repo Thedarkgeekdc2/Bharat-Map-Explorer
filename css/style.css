@@ -111,3 +111,24 @@ a:focus-visible,button:focus-visible{outline:4px solid var(--saffron);outline-of
 
 .roll.absent{background:#e3e6ee;border-color:#9aa5bf;color:#5a6785}.lg.absent{background:#e3e6ee}.classro{font-size:20px;margin:6px 0}.classro b{font-size:28px;color:var(--saffron)}.classro small{display:block;color:#5a6785;font-size:13px}
 .quizmap .region.selected path{fill:var(--saffron)}
+
+/* ---- phone fixes: no sideways overflow, notch-safe, landscape ---- */
+html{-webkit-text-size-adjust:100%}body{overflow-x:hidden;padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right)}
+.top{flex-wrap:wrap;gap:8px 10px;padding-left:max(clamp(14px,3vw,32px),env(safe-area-inset-left));padding-right:max(clamp(14px,3vw,32px),env(safe-area-inset-right))}
+.brand{min-width:0;flex:1 1 140px;font-size:clamp(16px,4.4vw,26px)}#brandName{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.foot{padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right))}
+img,svg,table{max-width:100%}.tcard,.card,.lcard{min-width:0}.opt,.game,.act,.tb2{white-space:normal;overflow-wrap:anywhere}
+@media(max-width:420px){.back,.lang,.badge{padding:0 12px;min-height:44px}main{padding:14px}.rollbig b{font-size:44px}.theme{font-size:19px;padding:0 14px}}
+@media(orientation:landscape) and (max-height:520px){main{padding:10px 18px}.top{padding-top:6px;padding-bottom:6px}.hero h1{font-size:26px;margin:0 0 4px}.hero p{margin:0 0 8px}.sec{margin:.6em 0 .4em}
+ .maparea svg,.buildmap svg,.quizmap svg{height:76vh}.cls{min-height:90px}.cls b{font-size:40px}.mode{min-height:130px;padding:14px}.ico{font-size:36px}.emo{font-size:60px}.theme{min-height:64px}
+ .lcard,.learn .lcard{min-height:0}.piece{min-height:100px}.tcard{padding:12px 16px}}
+.tcbottom{margin-top:22px}.tcbottom .theme{max-width:420px}
+.qt{white-space:pre-line}
+/* ---- Teacher Corner help page ---- */
+.helpbtn{display:block;margin:14px 0 4px;text-align:center;padding:14px;border-radius:14px;background:linear-gradient(90deg,#7a3b8f,#1b3a8c);color:#fff;font-weight:800;text-decoration:none}
+.tbh{color:var(--blue);font-weight:700;margin-right:8px;text-decoration:none}.tbar span{display:flex;align-items:center;gap:6px}
+.hhero{background:linear-gradient(120deg,#f28c28,#7a3b8f 55%,#1b3a8c);color:#fff;border-radius:22px;padding:20px 24px;margin-bottom:14px}.hhero h2{margin:0 0 4px;font-size:clamp(24px,5vw,38px)}.hhero p{margin:0;font-size:18px}
+.hc{background:#fff;border:3px solid var(--c);border-left-width:12px;border-radius:20px;padding:6px 20px 12px;margin-bottom:14px}.hc h3{display:flex;align-items:center;gap:10px;color:var(--c);font-size:22px}.hc h3 span{font-size:30px}
+.hc ol,.hc ul{padding-left:22px;margin:6px 0}.hc li{margin:6px 0}.hc .note{background:#fff3dc;border-radius:12px;padding:8px 12px;font-size:15px}
+.c1{--c:#138a4e}.c2{--c:#1b3a8c}.c3{--c:#c46a0c}.c4{--c:#7a3b8f}.c5{--c:#1b3a8c}.c6{--c:#138a4e}.c7{--c:#0b7a8a}.c8{--c:#c46a0c}.c9{--c:#7a3b8f}.c10{--c:#b3261e}.c11{--c:#1b3a8c}
+.help .center{text-align:center;margin:18px 0}.help .act{display:inline-block;text-decoration:none;line-height:56px}

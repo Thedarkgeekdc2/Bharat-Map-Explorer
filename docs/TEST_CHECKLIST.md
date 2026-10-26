@@ -3,6 +3,10 @@ Automated results are in VALIDATION_REPORT.md. Please repeat these on a real pho
 
 - [ ] Correct login enters; wrong login shows an error; Enter key works; Show/Hide works; Logout works
 - [ ] Learn, Explore, Build India, Quiz still open without any login
+- [ ] Teacher Corner is NOT in the top bar or on Home; it is the last item on each class page (Classes 1–5)
+- [ ] Login page: Help button below Login opens the help page; Back returns
+- [ ] Class 1–2: only animals / festivals / foods are open; questions show Hindi + English; MCQ has 3 options
+- [ ] Turn your phone sideways: nothing is cut on the right side; try Home, a class, Explore, Quiz, Teacher Corner
 - [ ] Class is shown read-only from the main class selector; no Class dropdown
 - [ ] Setup: School name required; 42 students creates Roll Numbers 1–42 exactly
 - [ ] Map share (None/20–50 %) and 5/10/15/20 questions work; map questions open the real map and a tap is recorded
