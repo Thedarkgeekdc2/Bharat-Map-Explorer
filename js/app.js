@@ -16,7 +16,8 @@ function home(){
   <div class="classes">${[1,2,3,4,5].map(n=>`<a class="cls c${n}" href="#/class/${n}"><b>${n}</b><span>${t('cls')} ${n}</span></a>`).join('')}</div>
   <h2 class="sec">${t('themeTitle')}</h2>
   <form class="sbar" id="hs"><input id="hq" type="search" placeholder="${t('searchPh')}" aria-label="${t('searchBtn')}"><button>${t('searchBtn')}</button></form>
-  <div class="themes">${THEMES.map(([id,ico,k,col])=>`<a class="theme ${col}" href="#/discover/${id}"><span>${ico}</span>${t(k)}</a>`).join('')}</div>`;
+  <div class="themes">${THEMES.map(([id,ico,k,col])=>`<a class="theme ${col}" href="#/discover/${id}"><span>${ico}</span>${t(k)}</a>`).join('')}</div>
+  <div class="homenote"><b>📝 ${t('homeNote')}</b><br><a href="https://wa.me/918126956997" target="_blank" rel="noopener">💬 ${t('homeNoteNo')}</a></div>`;
   document.getElementById('hs').onsubmit=e=>{e.preventDefault();try{sessionStorage.setItem('bme.q',document.getElementById('hq').value);}catch(x){}location.hash='#/discover/all';};
 }
 function modes(){

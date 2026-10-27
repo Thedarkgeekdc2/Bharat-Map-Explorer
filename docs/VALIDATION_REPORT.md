@@ -1,5 +1,11 @@
-# Validation Report — M7d
+# Validation Report — M8 (final)
 Date: 25 Oct 2026. Environment: headless Chromium (desktop 1100 px and mobile 390 px, opening the project from local files), Node.js, openpyxl, LibreOffice.
+
+## Passed in M8
+- **Browser (28 checks):** at 1280x720, 1366x768 and 1920x1080 Explore and Learn show the map beside the details with no page scrolling; tapping the map changes the details/card; quiz opens inside the Explore side panel and returns to details; footer has no Build/prototype/trial text and links to the GitHub portfolio; Home note (English and Hindi) sits above the footer with the number; Review buttons appear instead of "reviewed by DK", open a prefilled WhatsApp link, and show a teacher's name once listed in `reviewed.js`; no security wording on the login or Help pages; no screen says "reviewed by DK"; no sideways overflow on phones (portrait and landscape).
+- Teacher resume suite (13 checks) re-run and passing.
+- Map checks used a stand-in map file (no internet here); the real map package was not exercised.
+- WhatsApp opening was verified by capturing the link; the WhatsApp app/website itself was not opened.
 
 ## Passed in M7d
 - **Browser (13 checks, 50-student class):** 12 rolls completed + 1 absent + 1 partly answered, progress backup downloaded; resumed in a **fresh browser session** from the BEFORE page with every roll's answers, absent status and questions unchanged; same assessment ID after export; AFTER resume offered on the AFTER page, wrong-kind file rejected with guidance; AFTER resumed in a fresh session still compares with its embedded BEFORE; backup reminder after 10 rolls; no page errors.

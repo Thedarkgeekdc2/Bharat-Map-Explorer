@@ -1,4 +1,11 @@
 # Changelog
+## M8 — final publish version
+- **Panel layout:** Explore and Learn show the map beside the state's details (capital, dance, festivals, foods, animal, places) and the state quiz, so a panel screen shows everything at once without scrolling. Pick a state on the map or from the list. Narrow screens still stack.
+- **Review button** replaces "(reviewed by DK)": opens WhatsApp to Mr DK with a prefilled message; once reviewed the credit shows "(reviewed by <teacher name>)" (`js/data/reviewed.js`).
+- **Home note** above the footer explains the review process (English and Hindi) with the WhatsApp number.
+- **Footer:** Build/prototype wording removed; credit now links to the GitHub portfolio.
+- Security wording removed from the login page and Help page (kept only in `docs/DEVELOPER_NOTES.md`).
+
 ## M7d (build M7d-teacher)
 - **Resume from backup JSON** is now on the BEFORE setup page and on the AFTER import page (also still on Teacher Corner home). Wrong file kind gets a clear message.
 - A reminder to download a progress backup appears after every 10 completed rolls; help page and guide explain how to split a big class over several sittings.

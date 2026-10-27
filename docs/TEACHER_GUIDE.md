@@ -4,8 +4,8 @@
 It creates anonymous, Roll-Number-based assessment evidence before and after students learn with Bharat Map Explorer. No server, no online database, no student names.
 
 ## Teacher entry
-Choose a class on the Home page, then scroll to the bottom of the class page and tap **Teacher Corner** (it is not in the top bar or anywhere else). The login page has a **Teacher Corner Help** button with a simple, colourful help page. Username `KV2KGP`, password `1261`.
-These values sit in public JavaScript. This is a convenience gate, **not secure authentication**, and must not protect confidential data. Students can use every learning mode without it.
+Choose a class on the Home page, then scroll to the bottom of the class page and tap **Teacher Corner** (it is not in the top bar or anywhere else). The login page has a **Teacher Corner Help** button with a simple, colourful help page. Use the teacher username and password given to you.
+Students can use every learning mode without it.
 
 ## Select the class first
 Choose Class 1–5 on the main class selector (Home page), then open Teacher Corner. The form shows that class **read-only**; there is no second Class dropdown. If no class is selected the form tells you to choose one. Then pick Section A–D and the number of students (1–50); Roll Numbers 1…N are created automatically.
@@ -13,7 +13,7 @@ Choose Class 1–5 on the main class selector (Home page), then open Teacher Cor
 ## BEFORE assessment
 1. Choose **BEFORE**. Enter School name (required), KV code (optional), Academic Year.
 2. Choose Section and number of students.
-3. Choose topics. **Only topics that fit the class are open** (table below). *Select All Topics for this class* / *Clear Selection*; topics with no official-source data are greyed out unless you tick *Also use items marked (reviewed by DK)*.
+3. Choose topics. **Only topics that fit the class are open** (table below). *Select All Topics for this class* / *Clear Selection*; topics with no official-source data are greyed out unless you tick *Also use items still under Review*.
    Choose the **question language**: English, Hindi or Hindi + English (default: Hindi + English for Classes 1–3, English for 4–5).
 4. Choose MCQ, True/False or Mixed; questions per student (**5 / 10 / 15 / 20**); **map-question share** (None / 20 / 30 / 40 / 50 %, default 40 %). Map questions ask the student to tap a state on the real map (internet needed the first time).
 5. Read the summary and warnings, tick the warning, start.

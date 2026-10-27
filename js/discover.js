@@ -24,7 +24,7 @@ window.DISCOVER=(function(){
     <div class="tabs">${TABS.map(x=>`<a class="tab${x===tab?' on':''}" href="#/discover/${x}">${t(TAB_KEY[x])}</a>`).join('')}</div>
     ${cal?`<div class="tabs months">${MON[lang].map((m,i)=>`<button class="tab${i+1===MONTH?' on':''}" data-m="${i+1}">${m}</button>`).join('')}</div><p class="small">${t('calNote')}</p>`:''}<ul class="res" id="rl"></ul>`;
     const list=()=>{const r=search(Q,tab,lang,t,MONTH);
-      el.querySelector('#rl').innerHTML=r.length?r.map(it=>`<li><a href="#/state/${it.r.id}">${thumb(it.en)}<span><b>${esc((lang==='hi'&&it.hi)||it.en)}</b>${it.dk?' <span class="dk">(reviewed by DK)</span>':''}${it.info&&descOf(it.info,lang)?`<i class="desc">${esc(descOf(it.info,lang))}</i>`:''}<small>${esc(name(it.r))} · ${t(CAT_KEY[it.cat])}</small></span></a></li>`).join(''):`<li class="none">${t(cal?'noFestMonth':'noResult')}</li>`;};
+      el.querySelector('#rl').innerHTML=r.length?r.map(it=>`<li><a href="#/state/${it.r.id}">${thumb(it.en)}<span><b>${esc((lang==='hi'&&it.hi)||it.en)}</b>${it.dk?reviewTag({en:it.en},it.r.en,lang):''}${it.info&&descOf(it.info,lang)?`<i class="desc">${esc(descOf(it.info,lang))}</i>`:''}<small>${esc(name(it.r))} · ${t(CAT_KEY[it.cat])}</small></span></a></li>`).join(''):`<li class="none">${t(cal?'noFestMonth':'noResult')}</li>`;};
     const inp=el.querySelector('#sq');inp.oninput=()=>{Q=inp.value;list();};
     el.querySelector('#sf').onsubmit=e=>{e.preventDefault();Q=inp.value;list();};
     el.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{MONTH=+b.dataset.m;el.querySelectorAll('[data-m]').forEach(x=>x.classList.toggle('on',+x.dataset.m===MONTH));list();});

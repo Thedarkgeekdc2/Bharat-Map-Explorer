@@ -13,9 +13,11 @@ const EMO=[['lion','🦁'],['rhinoceros','🦏'],['elephant','🐘'],['buffalo',
 const emo=r=>{const a=((CONTENT[r.id].animal||{}).en||'').toLowerCase();const m=EMO.find(x=>a.includes(x[0]));return m?m[1]:(a?'🐾':'🗺️');};
 MODE_VIEWS.learn=function(el,c){
   const {t,esc,name,lang,grade}=c, g=grade||1, L=o=>esc(o[lang]||o.en);
+  el.innerHTML=`<div class="xsplit lsplit"><div class="xmap card"><div class="maparea" id="lmapArea"></div></div><div class="xside" id="lui"></div></div>`;
+  const ui=el.querySelector('#lui');
   const S={reg:'all',i:0,open:false};
   const deck=()=>REGIONS.filter(r=>S.reg==='all'||G[S.reg].includes(r.id));
-  const tag=x=>x&&x.dk?' <span class="dk">(reviewed by DK)</span>':'';
+  const tag=x=>x&&x.dk?reviewTag(x,'',lang):'';
   const first=(r,key)=>{const D=CONTENT[r.id],K=D.dk||{};const v=key==='dance'?[...D.classical,...D.traditions,...(K.folk||[])]:key==='fest'?[...D.festivals,...(K.festivals||[])]:key==='place'?[...D.famous,...(K.famous||[])]:[];return v[0]||null;};
   const row=(lab,x)=>x?`<li><span>${lab}</span><b>${L(x)}${tag(x)}</b></li>`:'';
   const facts=r=>{const D=CONTENT[r.id],cap=CAPITALS[r.id];
@@ -32,13 +34,15 @@ MODE_VIEWS.learn=function(el,c){
       card=S.open?`<h3 class="big">${esc(name(r))} ${spk(name(r))}</h3>${renderCard(r,c)}`:`<p class="q">${t('whichState')}</p><ul class="clues">${cl.map(x=>`<li>${x}</li>`).join('')}</ul><button class="act" data-a="open">${t('showState')}</button>`;
     }else if(g===4){card=`<h3 class="big">${esc(name(r))} ${spk(name(r))}</h3>${renderCard(r,c)}`;}
     else card=`<div class="emo">${emo(r)}</div><h3 class="big">${esc(name(r))} ${spk(name(r))}</h3>`+(S.open?facts(r):`<button class="act" data-a="open">${t('tapReveal')}</button>`);
-    el.innerHTML=`<div class="learn lv${g<=2?'12':g}"><p class="small">${t('acts')[g]}</p><div class="tabs">${chips}</div>
+    ui.innerHTML=`<div class="learn lv${g<=2?'12':g}"><p class="small">${t('acts')[g]}</p><div class="tabs">${chips}</div>
     <div class="lcard">${card}</div><div class="nav"><button data-a="prev">← ${t('prev')}</button><span>${S.i+1} / ${d.length}</span><button data-a="next">${t('next')} →</button></div></div>`;
   }
-  el.onclick=e=>{const b=e.target.closest&&e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,n=deck().length;
+  const mapMark=()=>{try{if(BMap.info())BMap.mark(deck()[S.i].id,'selected');}catch(e){}};
+  ui.onclick=e=>{const b=e.target.closest&&e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,n=deck().length;
     if(a==='reg'){S.reg=b.dataset.v;S.i=0;S.open=false;}else if(a==='open')S.open=true;
     else if(a==='next'){S.i=(S.i+1)%n;S.open=false;}else if(a==='prev'){S.i=(S.i-1+n)%n;S.open=false;}
-    view();};
+    view();mapMark();};
   view();
+  BMap.load().then(()=>{BMap.draw(el.querySelector('#lmapArea'),{onTap:id=>{S.reg='all';S.i=Math.max(0,REGIONS.findIndex(r=>r.id===id));S.open=false;view();mapMark();}});mapMark();}).catch(()=>{});
 };
 })();

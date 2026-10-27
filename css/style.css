@@ -132,3 +132,17 @@ img,svg,table{max-width:100%}.tcard,.card,.lcard{min-width:0}.opt,.game,.act,.tb
 .hc ol,.hc ul{padding-left:22px;margin:6px 0}.hc li{margin:6px 0}.hc .note{background:#fff3dc;border-radius:12px;padding:8px 12px;font-size:15px}
 .c1{--c:#138a4e}.c2{--c:#1b3a8c}.c3{--c:#c46a0c}.c4{--c:#7a3b8f}.c5{--c:#1b3a8c}.c6{--c:#138a4e}.c7{--c:#0b7a8a}.c8{--c:#c46a0c}.c9{--c:#7a3b8f}.c10{--c:#b3261e}.c11{--c:#1b3a8c}
 .help .center{text-align:center;margin:18px 0}.help .act{display:inline-block;text-decoration:none;line-height:56px}
+
+.dk.rv{display:inline-block;background:#fff3dc;color:#8a4a07;border:1px solid #e9c27a;border-radius:99px;padding:1px 10px;font-size:12px;font-style:normal;font-weight:700;cursor:pointer;white-space:nowrap}.dk.rv:hover{background:#ffe3b0}.dk.ok{font-style:normal;color:#0d5c37}
+.homenote{margin:22px 0 4px;background:linear-gradient(120deg,#fff3dc,#e8f1ff);border:2px dashed var(--saffron);border-radius:18px;padding:14px 18px;font-size:15px;line-height:1.5}.homenote a{display:inline-block;margin-top:6px;font-weight:800;color:var(--green);text-decoration:none}
+.foot a.credit{color:var(--blue);text-decoration:none;font-weight:800}.foot a.credit:hover{text-decoration:underline}
+
+/* ---- map beside the details (interactive panel / desktop): everything on one screen ---- */
+.xsplit{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(320px,1fr);gap:14px;align-items:stretch}
+.xmap{padding:8px;min-height:0}.xmap .maparea{min-height:260px;width:100%}.xside{min-width:0}.xside.card{padding:14px 18px}
+.pick{display:block;font-weight:800;color:var(--blue)}.pick select{display:block;width:100%;min-height:50px;margin-top:4px;font:inherit;font-size:18px;border:2px solid var(--line);border-radius:12px;padding:0 10px;background:#fff;color:var(--ink)}
+.xt{margin:8px 0 4px;font-size:clamp(24px,2.6vw,34px);color:var(--green)}.xbody{margin-top:6px}
+@media(min-width:900px) and (min-height:560px){
+ .xsplit{height:calc(100vh - 322px);min-height:360px}.xmap{display:flex}.xmap .maparea{flex:1;height:100%}.xmap svg{height:100%!important;width:100%}
+ .xside{overflow:auto;height:100%;padding-right:6px}.lsplit .xside{padding-right:6px}.xside .cats{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}}
+@media(max-width:899px),(max-height:559px){.xsplit{display:block}.lsplit .xmap{display:none}.xmap{margin-bottom:12px}}

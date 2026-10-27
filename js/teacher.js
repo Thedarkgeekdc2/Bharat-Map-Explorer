@@ -22,7 +22,7 @@ function login(){el.innerHTML=`<div class="tcard narrow"><h2>👩‍🏫 Teacher
  <label>Password<span class="pw"><input id="lp" type="password" autocomplete="current-password"><button type="button" class="tb2" data-t="showpw">Show</button></span></label>
  ${T.err?`<p class="tmsg no">${esc(T.err)}</p>`:''}<button class="act" type="submit">Login</button></form>
  <a class="helpbtn" href="#/thelp">❓ Teacher Corner Help</a>
- <p class="small">This is a simple convenience gate, not strong security: the username and password can be read in the public JavaScript of the website.</p></div>`;}
+ </div>`;}
 function home(){const dr=ss.get(DK);let drTxt='';try{if(dr&&!T.a){const d=JSON.parse(dr);drTxt=`${d.mode.toUpperCase()} · Class ${d.a.class}-${d.a.section} · ${Q.counts(d.a).completed}/${d.a.students} completed`;}}catch(e){}
   el.innerHTML=`${hdr()}<div class="tcard"><h2>LEARNING EVIDENCE CORNER</h2><p class="small">Before Assessment • Learning Period • After Assessment • Learning Outcome Report</p>${banner()}
   ${drTxt?`<div class="tmsg warn">Unsaved session found in this tab: <b>${esc(drTxt)}</b> <button class="tb2" data-t="resumeDraft">Resume</button> <button class="tb2" data-t="discardDraft">Discard</button></div>`:''}
@@ -32,7 +32,7 @@ function home(){const dr=ss.get(DK);let drTxt='';try{if(dr&&!T.a){const d=JSON.p
   <input type="file" id="fjson" accept=".json,application/json" hidden>
   <p class="small">No online database is used. Downloaded files contain educational records: store them responsibly.</p></div>`;}
 function topicBox(f){const P=Q.prof(T.grade),cap=Q.capacity(Q.TOPICS.map(t=>t.id),f.includeDK,T.grade);
-  return Q.TOPICS.map(t=>{const c=cap[t.id],ok=P.rec.includes(t.id),off=!ok||c<1;return `<label class="chk ${off?'dim':''}"><input type="checkbox" name="topic" value="${t.id}" ${f.topics.includes(t.id)?'checked':''} ${off?'disabled':''}> ${esc(t.en)} <small>(${ok?c+' facts'+(c<1?' — none with an official source; tick "also use items reviewed by DK"':''):'not part of the Class '+T.grade+' list'})</small></label>`;}).join('');}
+  return Q.TOPICS.map(t=>{const c=cap[t.id],ok=P.rec.includes(t.id),off=!ok||c<1;return `<label class="chk ${off?'dim':''}"><input type="checkbox" name="topic" value="${t.id}" ${f.topics.includes(t.id)?'checked':''} ${off?'disabled':''}> ${esc(t.en)} <small>(${ok?c+' facts'+(c<1?' — none with an official source; tick "Also use items still under Review"':''):'not part of the Class '+T.grade+' list'})</small></label>`;}).join('');}
 function setup(){const f=T.form,m=T.mode;T.lastLive=liveHtml(f);
   el.innerHTML=`${hdr()}<div class="tcard"><h2>${m.toUpperCase()} — Assessment setup</h2>${banner()}
   <div class="tmsg warn">Is the class big, or did you stop halfway? <button class="tb2" data-t="resBefore">Resume BEFORE from backup JSON</button><input type="file" id="fresB" accept=".json,application/json" hidden></div>
@@ -46,7 +46,7 @@ function setup(){const f=T.form,m=T.mode;T.lastLive=liveHtml(f);
   <label>Number of Students (1–${CFG.maxStudents})<input name="students" type="number" min="1" max="${CFG.maxStudents}" value="${f.students}"></label>
   <p class="small">Roll Numbers 1 to ${esc(f.students)} are created automatically. No student names are needed.</p></fieldset>
   <fieldset><legend>Topics</legend><div class="rowbtn"><button class="tb2" data-t="allTopics">Select All Topics for this class</button><button class="tb2" data-t="noTopics">Clear Selection</button></div>
-  <label class="chk"><input type="checkbox" name="includeDK" ${f.includeDK?'checked':''}> Also use items marked (reviewed by DK)</label>${topicBox(f)}</fieldset>
+  <label class="chk"><input type="checkbox" name="includeDK" ${f.includeDK?'checked':''}> Also use items still under Review</label>${topicBox(f)}</fieldset>
   <fieldset><legend>Questions</legend>${[['mcq','MCQ'],['tf','True / False'],['mixed','Mixed']].map(([v,l])=>`<label class="chk"><input type="radio" name="typeMode" value="${v}" ${f.typeMode===v?'checked':''}> ${l}</label>`).join('')}
   <label>Question language<select name="lang">${[['en','English'],['hi','Hindi'],['both','Hindi + English']].map(([v,l])=>`<option value="${v}" ${f.lang===v?'selected':''}>${l}</option>`).join('')}</select></label>
   <label>Questions per student<select name="total">${CFG.counts.map(n=>`<option ${n===f.total?'selected':''}>${n}</option>`).join('')}</select></label>
@@ -189,7 +189,7 @@ function onChange(e){if(e.target.id==='fjson'&&e.target.files[0])readFile(e.targ
     const w=[],c=Q.counts(o);if(c.completed<o.students)w.push(`${o.students-c.completed} student(s) did not complete the BEFORE assessment. They cannot be compared and will be shown as "Insufficient data".`);
     const caps=Q.capacity(o.settings.topics,o.settings.includeDK,o.class);const tight=o.settings.topics.filter(t=>{const n=(o.settings.plan[t]||{mcq:0,tf:0});return caps[t]<2*(n.mcq+n.tf);});
     if(tight.length)w.push('Some topics have few facts ('+tight.map(Q.tname).join(', ')+'), so an AFTER question may repeat a fact the same student met in BEFORE. This is flagged in the Excel report.');
-    if(o.settings.includeDK)w.push('The BEFORE assessment included items marked (reviewed by DK); the same setting is restored.');
+    if(o.settings.includeDK)w.push('The BEFORE assessment included items still under Review; the same setting is restored.');
     o._warn=w;T.imp=o;T.th={...(o.settings.thresholds||CFG.thresholds)};T.err='';T.msg='';render();});
   else if(e.target.id==='ack'){T.ack=e.target.checked;}
   else onInput(e);}

@@ -1,4 +1,4 @@
-/* Items NOT yet matched to an official source. Shown on cards with "(reviewed by DK)".
+/* Items NOT yet matched to an official source. Shown on cards with a Review button (WhatsApp) until a teacher reviews them.
    When an item gets verified, move it into cards.js and delete it here.
    One line per place: id | (unused) | folk dances | festivals | foods | notable wildlife | famous places */
 (function(){

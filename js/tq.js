@@ -1,5 +1,5 @@
 /* Learning Evidence Corner — engine: question generation from the existing data bank, scoring, BEFORE/AFTER comparison, report rows.
-   No server, no database. The login below is only a convenience gate (visible in public source), not security. */
+   No server, no database. */
 window.TQ=(function(){
 const CFG={auth:{user:'KV2KGP',pass:'1261'},classes:[1,2,3,4,5],sections:['A','B','C','D'],maxStudents:50,years:['2025–26','2026–27','2027–28','2028–29'],
   thresholds:{strong:80,practice:60},minTopicQ:2,version:2,counts:[5,10,15,20],mapShares:[20,30,40,50],defaultMapShare:40};
@@ -152,7 +152,7 @@ function sheets(a,b,an){const isA=a.kind==='after',c=counts(a),th=(an&&an.thresh
   let mA=0,mN=0;done.forEach(i=>{const t=score(a,i).topic.map;if(t){mA+=t.correct;mN+=t.n;}});
   const sum=[['Field','Value'],['School Name',a.school.name],['KV Code',a.school.code],['Academic Year',a.academicYear],['Assessment Type',a.kind.toUpperCase()],['Assessment ID',a.assessmentId],['Assessment Date',d(a.createdAt)],['Class',a.class],['Section',a.section],
    ['Total Students',a.students],['Completed',c.completed],['Absent',c.absent],['Incomplete',c.incomplete],['Topics',S.topics.map(tname).join('; ')],['Question Type',mix(a)],['Questions per student',S.total||Object.values(a.forms)[0].length],['Map questions per student',S.mapN||0],
-   ['Average Accuracy of completed rolls (%)',avg],['Map accuracy (%)',mN?Math.round(1000*mA/mN)/10:''],['Thresholds (strong / practise %)',`${th.strong} / ${th.practice}`],['Includes items marked (reviewed by DK)',S.includeDK?'Yes':'No']];
+   ['Average Accuracy of completed rolls (%)',avg],['Map accuracy (%)',mN?Math.round(1000*mA/mN)/10:''],['Thresholds (strong / practise %)',`${th.strong} / ${th.practice}`],['Includes items still under Review',S.includeDK?'Yes':'No']];
   if(isA)sum.push(['BEFORE Assessment ID',b.assessmentId],['BEFORE Assessment Date',d(b.createdAt)],['Matched completed rolls',an.matched],['Average BEFORE Accuracy (%)',an.avgBefore],['Average AFTER Accuracy (%)',an.avgAfter],['Average Improvement (percentage points)',an.avgDelta],['Rolls improved',an.improved],['Rolls unchanged',an.unchanged],['Rolls reduced',an.decreased],['Insufficient evidence (absent, incomplete or unmatched)',an.skipped]);
   sum.push(['Note','Absent or incomplete rolls are insufficient evidence, not zero scores. Parallel forms are topic-matched, not perfectly equivalent.']);
   const ip=[['Student Name','Roll Number','Status','Attempted','Correct','Incorrect','Unanswered','Score','Maximum Score','Accuracy (%)','Map Accuracy (%)',...(isA?['BEFORE Score','BEFORE Accuracy (%)','Improvement (percentage points)','Comparison Status']:[]),'Summary Recommendation']];

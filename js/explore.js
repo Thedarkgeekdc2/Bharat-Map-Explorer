@@ -1,24 +1,16 @@
-/* MODULE 1 — Explore Map */
-window.MODE_VIEWS=window.MODE_VIEWS||{};
+/* MODULE 1 + 2 — Explore Map: map on one side, the state's details and quiz on the other, so a panel screen shows everything at once. */
 MODE_VIEWS.explore=function(el,c){
   const {t,name,esc,lang}=c, other=r=>lang==='hi'?r.en:r.hi;
-  el.innerHTML=`<div class="explore"><div class="card"><p class="hint">${t('tapHint')}</p><div class="maparea" id="mapArea"><p class="load">${t('mapLoading')}</p></div></div>
-  <aside class="card side"><div id="stateInfo" class="stateinfo"><h3>${t('pickOne')}</h3></div><p class="hint">${t('small')}</p>
-  <ul class="chips mini">${REGIONS.map(r=>`<li><button class="chip ${r.type}" data-id="${r.id}">${esc(name(r))}</button></li>`).join('')}</ul></aside></div><section class="card statecard" id="stateCard" hidden></section><p class="diag" id="diag"></p>`;
-  const show=id=>{
-    const r=regionById(id); if(!r)return;
-    BMap.mark(id,'selected');
-    el.querySelectorAll('.chip').forEach(b=>b.classList.toggle('on',b.dataset.id===id));
-    const sc=el.querySelector('#stateCard');sc.hidden=false;sc.innerHTML=`<h3>${esc(name(r))}</h3>`+renderCard(r,c);
-    const sh=(BMap.info()||{}).shared||{};
-    const mate=sh[id]?regionById(sh[id]):(Object.keys(sh).find(k=>sh[k]===id)?regionById(Object.keys(sh).find(k=>sh[k]===id)):null);
-    el.querySelector('#stateInfo').innerHTML=`<h3>${esc(name(r))} ${spk(name(r))}</h3><p class="kind ${r.type}">${t(r.type)}</p><p class="alt">${t('alsoCalled')}: <b>${esc(other(r))}</b></p>`+(mate?`<p class="note">${t('sharedNote')}: <b>${esc(name(mate))}</b></p>`:'');
-  };
-  el.querySelectorAll('.chip').forEach(b=>b.onclick=()=>show(b.dataset.id));
-  BMap.load().then(d=>{
-    BMap.draw(el.querySelector('#mapArea'),{onTap:show});
-    const bad=d.missing.length||d.unknown.length||Object.keys(d.shared).length;
-    el.querySelector('#diag').textContent=`Map check: ${REGIONS.length-d.missing.length}/${REGIONS.length} regions linked`+(d.missing.length?` · ${t('mapMissing')}: ${d.missing.join(', ')}`:'')+(Object.keys(d.shared).length?` · Shared shape: ${Object.keys(d.shared).map(k=>regionById(k).en+' → '+regionById(d.shared[k]).en).join(', ')}`:'')+(d.unknown.length?` · Unknown shapes: ${d.unknown.join(', ')}`:'');
-    if(!bad)el.querySelector('#diag').classList.add('ok');
-  }).catch(e=>{console.error(e);el.querySelector('#mapArea').innerHTML=`<p class="fail">${t('mapFail')}<br><small>${esc(e.message||e)}</small></p>`;});
+  el.innerHTML=`<div class="xsplit"><div class="xmap card"><div class="maparea" id="mapArea"><p class="load">${t('mapLoading')}</p></div></div>
+  <aside class="xside card" id="xside"><label class="pick"><span>${t('pickOne')}</span><select id="xsel"><option value="">—</option>${REGIONS.map(r=>`<option value="${r.id}">${esc(name(r))}</option>`).join('')}</select></label>
+  <p class="small">${t('small')}</p><div id="xbody" class="xbody"><p class="hint">${t('tapHint')}</p></div></aside></div>`;
+  const body=el.querySelector('#xbody'),sel=el.querySelector('#xsel');let cur=null;
+  const show=id=>{const r=regionById(id);if(!r)return;cur=id;try{BMap.mark(id,'selected');}catch(e){}sel.value=id;
+    const sh=(BMap.info()||{}).shared||{},mk=Object.keys(sh).find(k=>sh[k]===id),mate=sh[id]?regionById(sh[id]):(mk?regionById(mk):null);
+    body.innerHTML=`<h3 class="xt">${esc(name(r))} ${spk(name(r))}</h3><p class="kind ${r.type}">${t(r.type)}</p> <span class="alt">${t('alsoCalled')}: <b>${esc(other(r))}</b></span>`+(mate?`<p class="note">${t('sharedNote')}: <b>${esc(name(mate))}</b></p>`:'')+renderCard(r,c);body.scrollTop=0;};
+  sel.onchange=()=>show(sel.value);
+  el.querySelector('#xside').addEventListener('click',e=>{const q=e.target.closest&&e.target.closest('a.quizbtn');if(q&&cur){e.preventDefault();STATEQUIZ.render(body,c,cur);return;}
+    const b=e.target.closest&&e.target.closest('a[href^="#/state/"]');if(b&&cur){e.preventDefault();show(cur);}});
+  BMap.load().then(()=>{BMap.draw(el.querySelector('#mapArea'),{onTap:show});if(cur)BMap.mark(cur,'selected');})
+   .catch(e=>{console.error(e);el.querySelector('#mapArea').innerHTML=`<p class="fail">${t('mapFail')}<br><small>${esc(e.message||e)}</small></p>`;});
 };

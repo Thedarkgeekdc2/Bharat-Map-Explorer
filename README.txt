@@ -11,5 +11,5 @@ js/modules.js       — activity registry (Learn / Explore Map / Build India / P
 js/app.js           — router + screens (home -> class -> mode)
 
 MODULE 1: Explore Map (js/map/map.js engine + js/explore.js). Map data CDN se aata hai; offline ke liye js/map/README.txt dekhein.
-MODULE 7 (M7c): Teacher Corner, Learning Evidence Corner (BEFORE/AFTER), state-card quiz. Guide: docs/TEACHER_GUIDE.md
+MODULE 7 (final): Teacher Corner, Learning Evidence Corner (BEFORE/AFTER), state-card quiz. Guide: docs/TEACHER_GUIDE.md
 Storage: sirf class aur language (localStorage). Koi personal data nahi.
