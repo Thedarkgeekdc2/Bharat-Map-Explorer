@@ -18,7 +18,7 @@ Choose Class 1–5 on the main class selector (Home page), then open Teacher Cor
 4. Choose MCQ, True/False or Mixed; questions per student (**5 / 10 / 15 / 20**); **map-question share** (None / 20 / 30 / 40 / 50 %, default 40 %). Map questions ask the student to tap a state on the real map (internet needed the first time).
 5. Read the summary and warnings, tick the warning, start.
 6. **Each roll gets its own set of questions** with the same topic, type and map mix. Questions are ordered differently per roll. Classes 1–2 get simpler prompts. If the data bank is too small for every roll to be different, a message says so.
-7. Tap a Roll Number (or *Next roll number*). Finish each roll, or press **Mark Roll Absent**. Absent is *insufficient evidence*, not a zero. *Download progress backup (JSON)* any time; *Resume from a saved JSON file* continues later.
+7. Tap a Roll Number (or *Next roll number*). Finish each roll, or press **Mark Roll Absent**. Absent is *insufficient evidence*, not a zero. A big class cannot always finish in one sitting (50 students in 40 minutes is hard): use *Class overview → Download progress backup (JSON)* any time (the app reminds you after every 10 completed rolls). To continue, open **BEFORE** and tap **Resume BEFORE from backup JSON** (also on the Teacher Corner home page); in **AFTER** use **Resume AFTER from backup JSON**. Answers, absent rolls and every roll's own questions are restored.
 8. *Finish and get reports* → download the **Excel workbook** and the **JSON backup** before refreshing, closing or leaving the page.
 
 ## Class rules (age and language)

@@ -1,5 +1,10 @@
-# Validation Report — M7c
+# Validation Report — M7d
 Date: 25 Oct 2026. Environment: headless Chromium (desktop 1100 px and mobile 390 px, opening the project from local files), Node.js, openpyxl, LibreOffice.
+
+## Passed in M7d
+- **Browser (13 checks, 50-student class):** 12 rolls completed + 1 absent + 1 partly answered, progress backup downloaded; resumed in a **fresh browser session** from the BEFORE page with every roll's answers, absent status and questions unchanged; same assessment ID after export; AFTER resume offered on the AFTER page, wrong-kind file rejected with guidance; AFTER resumed in a fresh session still compares with its embedded BEFORE; backup reminder after 10 rolls; no page errors.
+- Phone check of Teacher home, BEFORE setup and AFTER import at 360x740 and 740x360: no overflow.
+- Note: the earlier M7c browser suites were re-run before this change; after the working folder was reset, only the new resume suite and the overflow check were re-run (the other suites' scripts were lost, not the product).
 
 ## Passed in M7c
 - **Browser (20 checks):** no Teacher Corner in the top bar, Home or Discover; it is the last item below the mode cards in Classes 1–5; Help button below Login, 11-section help page in English only, Back works; Class 1 topics limited to animals/festivals/foods, language defaults to Hindi + English, every question has Hindi and English, MCQ has 3 options, map questions bilingual.

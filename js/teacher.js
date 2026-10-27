@@ -35,6 +35,7 @@ function topicBox(f){const P=Q.prof(T.grade),cap=Q.capacity(Q.TOPICS.map(t=>t.id
   return Q.TOPICS.map(t=>{const c=cap[t.id],ok=P.rec.includes(t.id),off=!ok||c<1;return `<label class="chk ${off?'dim':''}"><input type="checkbox" name="topic" value="${t.id}" ${f.topics.includes(t.id)?'checked':''} ${off?'disabled':''}> ${esc(t.en)} <small>(${ok?c+' facts'+(c<1?' — none with an official source; tick "also use items reviewed by DK"':''):'not part of the Class '+T.grade+' list'})</small></label>`;}).join('');}
 function setup(){const f=T.form,m=T.mode;T.lastLive=liveHtml(f);
   el.innerHTML=`${hdr()}<div class="tcard"><h2>${m.toUpperCase()} — Assessment setup</h2>${banner()}
+  <div class="tmsg warn">Is the class big, or did you stop halfway? <button class="tb2" data-t="resBefore">Resume BEFORE from backup JSON</button><input type="file" id="fresB" accept=".json,application/json" hidden></div>
   <fieldset><legend>School</legend><label>School Name / Kendriya Vidyalaya Name *<input name="school" value="${esc(f.school)}" placeholder="Kendriya Vidyalaya …"></label>
   <label>KV Code (optional)<input name="code" value="${esc(f.code)}"></label>
   <label>Academic Year<select name="year">${CFG.years.map(y=>`<option ${y===f.year?'selected':''}>${y}</option>`).join('')}</select></label>
@@ -90,7 +91,8 @@ function rollDone(){const a=T.a,s=Q.score(a,T.roll),c=Q.counts(a);
   el.innerHTML=`${hdr()}<div class="tcard"><h2>Roll Number ${T.roll} completed ✔</h2><p class="score">Score: <b>${s.correct} / ${s.max}</b> (${s.acc}%)${s.unanswered?` · Unanswered: ${s.unanswered}`:''}</p>
   <p class="small">${Object.keys(s.topic).map(t=>`${esc(Q.tname(t))}: ${s.topic[t].correct}/${s.topic[t].n}`).join(' · ')}</p><p><b>Completed: ${c.completed} of ${c.total} students</b></p>
   <div class="rowbtn"><button class="act" data-t="nextPending" ${c.completed+c.absent===c.total?'disabled':''}>Next Roll Number →</button><button class="tb2" data-t="dash">Class overview</button>${c.completed+c.absent===c.total?`<button class="act" data-t="finishAll">All done: get reports</button>`:''}</div>
-  <p class="tmsg warn">Remember to download your report and JSON backup when the class is finished.</p></div>`;}
+  ${c.completed%10===0&&c.completed>0&&c.completed<c.total?`<p class="tmsg no">${c.completed} rolls done. Please tap <b>Class overview → Download progress backup (JSON)</b> now, in case this page closes.</p>`:''}
+  <p class="tmsg warn">Remember to download your report and JSON backup when the class is finished. If you run out of time, download the progress backup and resume later.</p></div>`;}
 function exportView(){const a=T.a,c=Q.counts(a),isA=a.kind==='after';
   if(isA&&!T.an)T.an=Q.analyse(a.baseline.data,a,T.th);
   const an=T.an;
@@ -109,6 +111,7 @@ function afterSummary(an,a){const b=a.baseline.data,tn=Q.tname;
   <p class="small">These are Remedial Practice Suggestions based on topic-wise evidence, not a judgement of any child's ability. Topic suggestions appear only where a topic had at least ${CFG.minTopicQ} questions.</p>`;}
 function afterImport(){const i=T.imp;
   el.innerHTML=`${hdr()}<div class="tcard"><h2>AFTER — Post-Learning Assessment</h2>${banner()}<p>Import the BEFORE JSON backup saved earlier. The BEFORE browser session does not need to be open.</p>
+  <div class="tmsg warn">Already started the AFTER assessment and stopped halfway? <button class="tb2" data-t="resAfter">Resume AFTER from backup JSON</button><input type="file" id="fresA" accept=".json,application/json" hidden></div>
   <button class="act" data-t="pickBefore">Import Previous BEFORE Assessment JSON</button><input type="file" id="fbefore" accept=".json,application/json" hidden>
   ${i?`<div class="tsum"><b>BEFORE file read successfully</b><br>${esc(i.school.name)} ${i.school.code?'('+esc(i.school.code)+')':''} · ${esc(i.academicYear)} · Class ${i.class}-${i.section} · ${i.students} students<br>Language: ${i.settings.lang==='both'?'Hindi + English':i.settings.lang==='hi'?'Hindi':'English'} · BEFORE date ${esc(String(i.createdAt).slice(0,10))} · Topics: ${esc(i.settings.topics.map(Q.tname).join('; '))}<br>Questions per student: ${Object.values(i.forms)[0].length} (${i.settings.mapN||0} map) · Completed students: ${Q.counts(i).completed} of ${i.students}</div>
   ${i._warn.map(w=>`<p class="tmsg warn">${esc(w)}</p>`).join('')}<div class="rowbtn"><button class="act" data-t="impConfirm2">Confirm and continue</button></div>`:''}
@@ -119,16 +122,19 @@ function render(){if(!el)return;if(!logged()){login();return;}
 function openRoll(r){T.roll=r;const rec=T.a.records[r];const un=Q.formQs(T.a,r).findIndex(q=>rec.answers[q.id]===undefined);T.qi=rec.status==='completed'||rec.status==='absent'||un<0?0:un;T.view='student';save();render();}
 function nextPending(){const a=T.a,p=Object.values(a.records).find(r=>!['completed','absent'].includes(r.status)&&r.roll>T.roll)||Object.values(a.records).find(r=>!['completed','absent'].includes(r.status));if(p)openRoll(p.roll);else{note('All roll numbers are completed.');}}
 function readFile(file,cb){const fr=new FileReader();fr.onload=()=>{try{cb(JSON.parse(fr.result));}catch(e){note('This file could not be read: it is not valid JSON.',1);}};fr.onerror=()=>note('The file could not be opened.',1);fr.readAsText(file);}
-function loadAny(o){const e=Q.validate(o);if(e.length)return note(e.join(' '),1);
+function loadAny(o,expect){const e=Q.validate(o);if(e.length)return note(e.join(' '),1);
+  if(expect&&o.kind!==expect)return note(expect==='after'?'This is a BEFORE file. To start the AFTER assessment, use "Import Previous BEFORE Assessment JSON". To resume AFTER, choose your AFTER backup file.':'This is an AFTER file. To resume it, open AFTER and use "Resume AFTER from backup JSON".',1);
   if(o.kind==='after'){if(!o.baseline||!o.baseline.data)return note('This AFTER file has no BEFORE baseline inside, so it cannot be resumed.',1);}
-  if(o.kind==='after')Q.normalize(o.baseline.data);T.mode=o.kind;T.a=o;T.base=o.kind==='after'?o.baseline.data:null;T.exported=true;T.th={...(o.settings.thresholds||CFG.thresholds)};T.an=null;T.view='dash';T.msg=`Loaded ${o.kind.toUpperCase()} file for Class ${o.class}-${o.section}.`;T.err='';save();render();}
+  if(o.kind==='after')Q.normalize(o.baseline.data);T.roll=0;T.mode=o.kind;T.a=o;T.base=o.kind==='after'?o.baseline.data:null;T.exported=true;T.th={...(o.settings.thresholds||CFG.thresholds)};T.an=null;T.view='dash';T.msg=`Loaded ${o.kind.toUpperCase()} file for Class ${o.class}-${o.section}.`;T.err='';save();render();}
 function onClick(e){const b=e.target.closest&&e.target.closest('[data-t]');if(!b)return;const a=b.dataset.t;T.msg=T.msg&&a==='x'?'':T.msg;
   if(a==='showpw'){const p=el.querySelector('#lp');p.type=p.type==='password'?'text':'password';b.textContent=p.type==='password'?'Show':'Hide';return;}
   if(a==='logout'){if(T.a&&!T.exported&&!confirm('You have assessment data that has not been downloaded. Logout anyway? (The data stays in this tab only until it is closed.)'))return;ss.del(SK);T.view='home';render();return;}
   if(a==='startBefore'){T.mode='before';T.form=defForm();{const P=Q.prof(T.grade);T.form.lang=P.lang;T.form.topics=P.rec.filter(t=>Q.capacity([t],false,T.grade)[t]>0);}T.a=null;T.view='setup';T.msg=T.err='';render();return;}
   if(a==='startAfter'){T.mode='after';T.imp=null;T.view='afterImport';T.msg=T.err='';render();return;}
+  if(a==='resBefore'){el.querySelector('#fresB').click();return;}
+  if(a==='resAfter'){el.querySelector('#fresA').click();return;}
   if(a==='loadjson'){el.querySelector('#fjson').click();return;}
-  if(a==='resumeDraft'){try{const d=JSON.parse(ss.get(DK));T.mode=d.mode;T.a=d.a;T.base=d.base;T.exported=d.exported;T.view=d.view==='student'?'dash':d.view;T.th={...(d.a.settings.thresholds||CFG.thresholds)};T.msg='Session restored from this tab.';render();}catch(x){note('The saved session could not be restored.',1);}return;}
+  if(a==='resumeDraft'){try{const d=JSON.parse(ss.get(DK));T.roll=0;T.mode=d.mode;T.a=d.a;T.base=d.base;T.exported=d.exported;T.view=d.view==='student'?'dash':d.view;T.th={...(d.a.settings.thresholds||CFG.thresholds)};T.msg='Session restored from this tab.';render();}catch(x){note('The saved session could not be restored.',1);}return;}
   if(a==='discardDraft'){if(confirm('Discard the unsaved session in this tab? This cannot be undone.')){ss.del(DK);render();}return;}
   if(a==='home'){if(T.a&&!T.exported&&!confirm('Go to the start? Un-downloaded assessment data stays in this tab, use "Resume".'))return;T.view='home';T.a=null;T.msg=T.err='';render();return;}
   if(a==='toSetup'){T.view='setup';render();return;}
@@ -155,7 +161,7 @@ function onClick(e){const b=e.target.closest&&e.target.closest('[data-t]');if(!b
     if(r==='xlsx'){note('Excel download started. Check your Downloads folder.');}else if(r==='csv'){note('Excel export was not possible here, so CSV files were downloaded instead (one per sheet).');}else note('The download could not be started.',1);return;}
   if(a==='dlj'){const ok=dl(new Blob([JSON.stringify(T.a,null,1)],{type:'application/json'}),fname(T.a.kind.toUpperCase(),'json'));if(ok)T.exported=true;note(ok?'JSON backup download started. Keep this file safely'+(T.a.kind==='before'?' for the AFTER assessment.':'.'):'The download could not be started.',!ok);return;}
   if(a==='endSession'){if(!T.exported&&!confirm('The JSON backup has not been downloaded in this session. Close anyway? The data will be removed from this page.'))return;if(!confirm('Close this assessment and remove its data from this page?'))return;T.a=null;T.base=null;ss.del(DK);T.exported=true;T.view='home';render();return;}}
-function finishStart(w){T.exported=true;T.an=null;T.view='dash';T.msg=(w&&w.length?w.join(' '):'')||`${T.a.kind.toUpperCase()} assessment created for Roll Numbers 1 to ${T.a.students}.`;save();render();}
+function finishStart(w){T.roll=0;T.exported=true;T.an=null;T.view='dash';T.msg=(w&&w.length?w.join(' '):'')||`${T.a.kind.toUpperCase()} assessment created for Roll Numbers 1 to ${T.a.students}.`;save();render();}
 function startAssessment(){
   const mapFail=()=>{T.view=T.mode==='after'?'afterImport':'setup';note('The map could not load, so map questions cannot be created. Connect to the internet once (or add the offline map file).',1);};
   if(T.mode==='before'){const f=T.form,set=mkSettings(f),s={...set,students:+f.students};
@@ -176,7 +182,9 @@ function onInput(e){const n=e.target.name,f=T.form;if(!n||!f||T.view!=='setup')r
 function live(){const l=el.querySelector('#live');if(!l)return;const h=liveHtml(T.form);if(h!==T.lastLive){T.lastLive=h;l.innerHTML=h;}}
 function onSubmit(e){e.preventDefault();if(e.target.id!=='lf')return;const u=el.querySelector('#lu').value.trim(),p=el.querySelector('#lp').value;
   if(u===CFG.auth.user&&p===CFG.auth.pass){ss.set(SK,'1');T.err='';T.view='home';render();}else{T.err='Incorrect username or password. Please try again.';login();}}
-function onChange(e){if(e.target.id==='fjson'&&e.target.files[0])readFile(e.target.files[0],loadAny);
+function onChange(e){if(e.target.id==='fjson'&&e.target.files[0])readFile(e.target.files[0],o=>loadAny(o));
+  else if(e.target.id==='fresB'&&e.target.files[0])readFile(e.target.files[0],o=>loadAny(o,'before'));
+  else if(e.target.id==='fresA'&&e.target.files[0])readFile(e.target.files[0],o=>loadAny(o,'after'));
   else if(e.target.id==='fbefore'&&e.target.files[0])readFile(e.target.files[0],o=>{const er=Q.validate(o,'before');if(er.length){T.imp=null;return note(er.join(' '),1);}
     const w=[],c=Q.counts(o);if(c.completed<o.students)w.push(`${o.students-c.completed} student(s) did not complete the BEFORE assessment. They cannot be compared and will be shown as "Insufficient data".`);
     const caps=Q.capacity(o.settings.topics,o.settings.includeDK,o.class);const tight=o.settings.topics.filter(t=>{const n=(o.settings.plan[t]||{mcq:0,tf:0});return caps[t]<2*(n.mcq+n.tf);});

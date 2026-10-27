@@ -1,4 +1,9 @@
 # Changelog
+## M7d (build M7d-teacher)
+- **Resume from backup JSON** is now on the BEFORE setup page and on the AFTER import page (also still on Teacher Corner home). Wrong file kind gets a clear message.
+- A reminder to download a progress backup appears after every 10 completed rolls; help page and guide explain how to split a big class over several sittings.
+- Fixed: after one session, "Next roll number" could skip Roll 1 and start from the old roll position. It now always starts from the first unfinished roll.
+
 ## M7c (build M7c-teacher)
 - **Class rules (NCERT EVS based):** each class has its own open topics, maximum words in item names, number of options and default language. Topics outside the class are disabled.
 - **Question language:** English, Hindi or Hindi + English for questions, options, True/False and map questions (saved and restored for AFTER).
