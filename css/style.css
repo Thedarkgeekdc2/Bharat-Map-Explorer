@@ -146,3 +146,13 @@ img,svg,table{max-width:100%}.tcard,.card,.lcard{min-width:0}.opt,.game,.act,.tb
  .xsplit{height:calc(100vh - 322px);min-height:360px}.xmap{display:flex}.xmap .maparea{flex:1;height:100%}.xmap svg{height:100%!important;width:100%}
  .xside{overflow:auto;height:100%;padding-right:6px}.lsplit .xside{padding-right:6px}.xside .cats{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}}
 @media(max-width:899px),(max-height:559px){.xsplit{display:block}.lsplit .xmap{display:none}.xmap{margin-bottom:12px}}
+
+/* ---- install pop-up ---- */
+.pwapop{position:fixed;inset:0;z-index:300;display:flex;align-items:flex-end;justify-content:center;padding:16px;background:rgba(0,13,31,.55)}
+.pwabox{display:flex;gap:16px;align-items:flex-start;max-width:520px;width:100%;background:#fff;border:3px solid var(--blue);border-radius:22px;padding:16px 18px;box-shadow:0 10px 40px #0007;margin-bottom:max(0px,env(safe-area-inset-bottom))}
+.pwabox img{border-radius:18px;flex:none;box-shadow:0 2px 10px #0004}.pwabox h3{margin:0 0 4px;color:var(--blue);font-size:20px}.pwabox p{margin:0 0 10px;font-size:15px;color:#33405e}
+.pwabtns{display:flex;flex-wrap:wrap;gap:10px}.pwabtns .act{min-height:48px;font-size:17px}.pwabtns .tb2{min-height:48px}
+.pwabtn{border:2px solid var(--blue);background:#fff;color:var(--blue);font:inherit;font-weight:800;border-radius:12px;padding:6px 12px;cursor:pointer}.pwabtn[hidden]{display:none}
+@media(min-width:700px){.pwapop{align-items:center}}
+@media(display-mode:standalone){.pwabtn{display:none!important}}
+.top{padding-top:max(12px,env(safe-area-inset-top))}

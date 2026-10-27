@@ -1,6 +1,10 @@
 # Validation Report — M8 (final)
 Date: 25 Oct 2026. Environment: headless Chromium (desktop 1100 px and mobile 390 px, opening the project from local files), Node.js, openpyxl, LibreOffice.
 
+## Passed in M9 (install support)
+Tested in Chromium over `http://localhost` (install needs https or localhost): manifest parsed with no errors; Chrome's own installability check returned **no errors**; service worker active; app files cached; home, Learn and Discover work with the network switched **off**; the install pop-up (simulated install event) shows the icon and name, the Install button calls the browser prompt, Not now does not nag again, the footer Install button works, Hindi text; iPhone Safari user-agent shows the Add to Home Screen steps. Layout and Teacher suites re-run and passing.
+**Not tested:** the real browser install dialog on an Interactive Panel / Android / Windows (the install event was simulated); GitHub Pages https hosting; offline use of the real India map data (needs one online visit first; this environment has no internet); panels that block app installs.
+
 ## Passed in M8
 - **Browser (28 checks):** at 1280x720, 1366x768 and 1920x1080 Explore and Learn show the map beside the details with no page scrolling; tapping the map changes the details/card; quiz opens inside the Explore side panel and returns to details; footer has no Build/prototype/trial text and links to the GitHub portfolio; Home note (English and Hindi) sits above the footer with the number; Review buttons appear instead of "reviewed by DK", open a prefilled WhatsApp link, and show a teacher's name once listed in `reviewed.js`; no security wording on the login or Help pages; no screen says "reviewed by DK"; no sideways overflow on phones (portrait and landscape).
 - Teacher resume suite (13 checks) re-run and passing.

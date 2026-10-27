@@ -1,4 +1,10 @@
 # Changelog
+## M9 — installable app (PWA)
+- The website can be **installed** on Interactive Panels, phones and laptops, with your poster as the app icon (192, 512, maskable, Apple touch icon, favicons).
+- An **Install pop-up** (English / Hindi) appears when the browser allows installing; "Not now" hides it for the visit; a footer **Install app** button stays available. iPhone/iPad Safari shows the Add to Home Screen steps.
+- **Works offline** after the first visit (app files and, once opened, the India map data are cached). Opens full-screen like an app.
+- Files: `manifest.webmanifest`, `sw.js`, `js/pwa.js`, `icons/`, `tools/build_sw.py`, `docs/INSTALL_GUIDE.md`.
+
 ## M8 — final publish version
 - **Panel layout:** Explore and Learn show the map beside the state's details (capital, dance, festivals, foods, animal, places) and the state quiz, so a panel screen shows everything at once without scrolling. Pick a state on the map or from the list. Narrow screens still stack.
 - **Review button** replaces "(reviewed by DK)": opens WhatsApp to Mr DK with a prefilled message; once reviewed the credit shows "(reviewed by <teacher name>)" (`js/data/reviewed.js`).

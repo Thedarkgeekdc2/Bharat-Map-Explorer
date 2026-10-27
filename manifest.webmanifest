@@ -1,0 +1,19 @@
+{
+  "id": "./",
+  "name": "Bharat Map Explorer",
+  "short_name": "Bharat Map",
+  "description": "A fun and interactive India map learning game for classes I–V. Explore, Learn, Play.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#000d1f",
+  "theme_color": "#1b3a8c",
+  "lang": "en-IN",
+  "categories": ["education", "kids"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

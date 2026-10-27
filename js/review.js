@@ -4,7 +4,7 @@ window.WA_NUMBER='918126956997';
 window.reviewTag=function(x,stateName,lang){
   const k=itemKey(x.en),who=(window.REVIEWED||{})[k];
   if(who)return ` <span class="dk ok">(${lang==='hi'?'समीक्षक':'reviewed by'} ${String(who).replace(/[&<>"]/g,'')})</span>`;
-  const msg=`Review request - Bharat Map Explorer\nState/UT: ${stateName||''}\nItem: ${lab(x.en)}\nMy name: \n(I am attaching a screenshot.)`;
+  const msg=`Review request - Bharat Map Explorer\nState/UT: ${stateName||''}\nItem: ${lab(x.en)}\nMy name: \nReview data (Correct data with source) : \n(I am attaching a screenshot of the source.)`;
   const url='https://wa.me/'+WA_NUMBER+'?text='+encodeURIComponent(msg);
   return ` <span class="dk rv" role="link" tabindex="0" data-url="${url}">${lang==='hi'?'समीक्षा':'Review'}</span>`;
 };
