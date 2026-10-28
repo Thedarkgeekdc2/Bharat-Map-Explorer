@@ -8,7 +8,8 @@ window.renderCard=function(r,c){
   if(!data)return h;
   const k=data.dk||{folk:[],festivals:[],foods:[],wildlife:[],famous:[]};
   const dances=[...data.classical.map(x=>({en:x.en+' ('+t('classicalTag')+')',hi:x.hi?x.hi+' ('+t('classicalTag')+')':undefined})),...data.traditions,...k.folk];
-  h+=`<div class="cats">`+sec('💃',t('dances'),dances)+sec('🎉',t('festivals'),[...data.festivals,...k.festivals])+
+  const lg=data.langs?`<section class="cat"><h4><span>🗣️</span>${t('languages')}</h4><p class="langs">${esc((lang==='hi'?data.langs.hi:data.langs.en).join(' · '))}${reviewTag({en:'Languages of '+r.en},r.en,lang)}</p></section>`:'';
+  h+=`<div class="cats">`+lg+sec('💃',t('dances'),dances)+sec('🎉',t('festivals'),[...data.festivals,...k.festivals])+
      sec('🍛',t('foods'),[...(data.foods||[]),...k.foods])+sec('🐾',t('stateAnimal'),data.animal?[data.animal]:[])+sec('🦌',t('wildlife'),k.wildlife)+
      sec('🏛️',t('famous'),[...data.famous,...k.famous])+`</div>`;
   return h+`<p class="small review">${t('sources')}</p><a class="quizbtn on" href="#/squiz/${r.id}">🎯 ${t('playQuiz')}</a>`;

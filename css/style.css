@@ -172,3 +172,5 @@ img,svg,table{max-width:100%}.tcard,.card,.lcard{min-width:0}.opt,.game,.act,.tb
  body.fill .learn .lcard{min-height:0}body.fill .learn .big{font-size:clamp(32px,3vw,56px)}
  body.fill .cap{font-size:1.05em}body.fill .quizbtn{min-height:56px;font-size:1.05em}
  body.fill .foot{padding-top:8px;padding-bottom:8px}}
+
+.langs{margin:4px 0;line-height:1.7;font-weight:600}
