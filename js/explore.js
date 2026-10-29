@@ -7,7 +7,7 @@ MODE_VIEWS.explore=function(el,c){
   const body=el.querySelector('#xbody'),sel=el.querySelector('#xsel');let cur=null;
   /* Interactive panel: make the details text as large as possible while everything still fits inside the box (no scrolling). */
   const panel=()=>document.body.classList.contains('fill')&&matchMedia('(min-width:1200px) and (min-height:640px)').matches;
-  const fit=()=>{body.style.fontSize='';if(!panel()||!body.querySelector('.cats'))return;let lo=15,hi=Math.max(lo,Math.min(72,Math.round(innerWidth/46)));
+  const fit=()=>{body.style.fontSize='';if(!panel()||!body.querySelector('.cats'))return;let lo=13,hi=Math.max(lo,Math.min(72,Math.round(innerWidth/46)));
     const ok=px=>{body.style.fontSize=px+'px';return body.scrollHeight<=body.clientHeight+1;};
     if(ok(hi))return;while(hi-lo>1){const m=(lo+hi)>>1;if(ok(m))lo=m;else hi=m;}body.style.fontSize=lo+'px';};
   addEventListener('resize',()=>{if(cur&&body.querySelector('.cats'))fit();});

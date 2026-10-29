@@ -1,0 +1,11 @@
+/* Canonical school-facing list: 8 classical dance forms. Regional and folk forms remain in Folk/Traditional categories. */
+window.CLASSICAL_DANCES = [
+  {id:'bharatanatyam',en:'Bharatanatyam',hi:'भरतनाट्यम',stateId:'tamil-nadu',detail:'Known for precise footwork, expressive hand gestures (mudras), rhythmic patterns and storytelling.',detailHi:'सटीक पदचालन, हाथों की भाव-भंगिमाएँ (मुद्राएँ), लय और कहानी कहने की शैली के लिए प्रसिद्ध।'},
+  {id:'kathak',en:'Kathak',hi:'कथक',stateId:'uttar-pradesh',detail:'Combines rhythmic footwork, spins and expressive storytelling through movement.',detailHi:'लयबद्ध पदचालन, घूमने की गतियों और भावपूर्ण कहानी-कथन का सुंदर मेल।'},
+  {id:'kathakali',en:'Kathakali',hi:'कथकली',stateId:'kerala',detail:'A dance-drama tradition recognised for elaborate costumes, colourful make-up and expressive facial movements.',detailHi:'भव्य वेशभूषा, रंगीन मुख-सज्जा और चेहरे के भावों के लिए प्रसिद्ध नृत्य-नाट्य शैली।'},
+  {id:'kuchipudi',en:'Kuchipudi',hi:'कुचिपुड़ी',stateId:'andhra-pradesh',detail:'A lively dance tradition that blends graceful movements, rhythm, drama and storytelling.',detailHi:'सुंदर गतियों, लय, नाटकीय अभिनय और कहानी-कथन का जीवंत संगम।'},
+  {id:'manipuri',en:'Manipuri',hi:'मणिपुरी',stateId:'manipur',detail:'Known for gentle, flowing movements and devotional themes, including stories of Radha and Krishna.',detailHi:'कोमल, प्रवाहमयी गतियों और राधा-कृष्ण जैसे भक्ति-आधारित विषयों के लिए प्रसिद्ध।'},
+  {id:'mohiniyattam',en:'Mohiniyattam',hi:'मोहिनीअट्टम',stateId:'kerala',detail:'A graceful Kerala dance form with soft, flowing movements and expressive gestures.',detailHi:'केरल की मनमोहक नृत्य शैली, जिसमें कोमल, लयपूर्ण गतियाँ और भावपूर्ण मुद्राएँ होती हैं।'},
+  {id:'odissi',en:'Odissi',hi:'ओडिसी',stateId:'odisha',detail:'Known for sculptural poses, fluid torso movements and devotional storytelling.',detailHi:'मूर्तियों जैसी मुद्राओं, शरीर की लयपूर्ण गतियों और भक्ति-कथाओं के लिए प्रसिद्ध।'},
+  {id:'sattriya',en:'Sattriya',hi:'सत्रिया',stateId:'assam',detail:'A classical dance tradition associated with Assam’s Vaishnav monasteries, blending dance, music and drama.',detailHi:'असम के वैष्णव सत्रों से जुड़ी शास्त्रीय नृत्य परंपरा, जिसमें नृत्य, संगीत और अभिनय का मेल है।'}
+].map((dance,i)=>({...dance,order:i+1}));

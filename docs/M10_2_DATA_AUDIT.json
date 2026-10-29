@@ -1,0 +1,6133 @@
+{
+  "version": "M10.2",
+  "base": "Bharat_Map_Explorer_M10_1_UT_Map_Fix.zip (M10.1)",
+  "sourceFile": "state-info-bank.json",
+  "sourceFileVersion": "3.0.0",
+  "sourceFileItems": 709,
+  "policy": "Keep existing M10 verified fields and separate cards.js/cards-dk.js structure. Use item-level source URLs from the user JSON without re-search. Only claims lacking a claim-specific source URL were checked against official sources/NCERT. Unresolved claims stay Review; animal conflicts are display-only and are not scored.",
+  "sourceJsonItemsWithUrlRecorded": 153,
+  "sourceJsonItemsWithoutUrl": 556,
+  "newVerifiedByCategory": {
+    "classicalDance": 0,
+    "folkArts": 48,
+    "festivals": 52,
+    "foods": 34,
+    "stateAnimal": 2,
+    "notableWildlife": 11,
+    "famousThings": 30
+  },
+  "newReviewByCategory": {
+    "classicalDance": 8,
+    "folkArts": 19,
+    "festivals": 10,
+    "foods": 13,
+    "stateAnimal": 10,
+    "notableWildlife": 65,
+    "famousThings": 22
+  },
+  "resultCounts": {
+    "already-in-M10-verified": 116,
+    "verified-added-from-json": 119,
+    "already-review-or-duplicate": 276,
+    "verified-added-from-online": 48,
+    "added-to-review": 129,
+    "animal-conflict-kept-for-review": 8,
+    "regional-classical-added-to-review": 8,
+    "duplicate-in-new-data": 3,
+    "state-animal-candidate-review-only": 2,
+    "existing-M10-review-promoted-to-verified": 10
+  },
+  "sourcesUsed": [
+    {
+      "label": "NCERT — India: Unity in Cultural Diversity",
+      "url": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "supports": "Selected source-less culture, food and festival claims including regional cuisine/festivals; only items matched to a claim are tagged online-verified."
+    },
+    {
+      "label": "Sangeet Natak Akademi — Intangible Cultural Heritage",
+      "url": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "supports": "Folk arts, folk theatre, ritual/cultural traditions in its published state-wise list."
+    },
+    {
+      "label": "NCERT — Teachers’ Handbook",
+      "url": "https://www.ncert.nic.in/desm/pdf/teacher%27shandbook.pdf",
+      "supports": "Regional food examples, including Odisha Pakhala."
+    },
+    {
+      "label": "Government of Assam Tourism — Culinary Treasures",
+      "url": "https://assamtourism.gov.in/cuisine.php",
+      "supports": "Khar as a traditional Assamese dish."
+    },
+    {
+      "label": "Government of Assam Tourism — Bihu Festival",
+      "url": "https://assamtourism.gov.in/bihu-festival.php",
+      "supports": "Bihu traditions and Ambubachi Mela."
+    },
+    {
+      "label": "Goa Tourism — Sao Joao",
+      "url": "https://goa-tourism.com/festival/sao-joao/",
+      "supports": "Sao Joao festival."
+    },
+    {
+      "label": "Government of Himachal Pradesh Tourism — Ethnic dances",
+      "url": "https://himachaltourism.gov.in/destination/ethnic/",
+      "supports": "Nati dance."
+    },
+    {
+      "label": "Government of Jharkhand Tourism — Cultural/folk dance page",
+      "url": "https://tourism.jharkhand.gov.in/historic-jharkhand",
+      "supports": "Paika, Jhumar and local traditions listed by Jharkhand Tourism."
+    },
+    {
+      "label": "Karnataka Tourism — Kambala Festival",
+      "url": "https://karnatakatourism.org/en/events/kambala-festival/",
+      "supports": "Kambala in coastal Karnataka."
+    },
+    {
+      "label": "Bihar Tourism — Sonepur Mela",
+      "url": "https://tourism.bihar.gov.in/en/experiences/festivals-and-fairs/fairs/sonepur-mela",
+      "supports": "Sonepur Mela."
+    },
+    {
+      "label": "Madhya Pradesh Tourism — Events and Festivals",
+      "url": "https://www.mptourism.com/eventslisting.php",
+      "supports": "Tansen Samaroh and Khajuraho Dance Festival."
+    },
+    {
+      "label": "Tourism Nagaland — Tribes and Festivals",
+      "url": "https://tourism.nagaland.gov.in/tribes/",
+      "supports": "Sekrenyi/Moatsu and their community association."
+    },
+    {
+      "label": "Odisha Tourism — Events and Festivals",
+      "url": "https://odishatourism.gov.in/en/events",
+      "supports": "Nuakhai."
+    },
+    {
+      "label": "Meghalaya Tourism — Indigenous Cuisines",
+      "url": "https://www.meghalayatourism.in/experiences/culture-%26-lifestyle/indigenous-cuisines/",
+      "supports": "Tungrymbai, Jadoh, Dohneiiong."
+    },
+    {
+      "label": "IP India — Geographical Indications register",
+      "url": "https://search.ipindia.gov.in/GIRPublicSearch",
+      "supports": "Items specifically listed as registered GI such as Channapatna Toys & Dolls, Blue Pottery of Jaipur and Phulkari."
+    },
+    {
+      "label": "National Portal of India — Chamba Rumal",
+      "url": "https://www.india.gov.in/explore-india/odop/details/chamba-rumal",
+      "supports": "Chamba Rumal craft / GI tag."
+    },
+    {
+      "label": "Delhi Forest Department — Delhi’s Forest at a Glance",
+      "url": "https://forest.delhi.gov.in/sites/default/files/generic_multiple_files/delhi_s_forest_at_a_glance.pdf",
+      "supports": "Nilgai as the state animal of NCT Delhi."
+    },
+    {
+      "label": "UT Ladakh — International Snow Leopard Day",
+      "url": "https://ladakh.gov.in/international-snow-leopard-day-2025/",
+      "supports": "Snow leopard as the state animal of Ladakh."
+    },
+    {
+      "label": "Telangana Government — State Symbols",
+      "url": "https://www.telangana.gov.in/About/State-Symbols/",
+      "supports": "Deer/Jinka as Telangana state animal; retained only as a Review candidate because it conflicts with existing M10 entry."
+    },
+    {
+      "label": "UT Government-hosted fact sheet",
+      "url": "https://cdnbbsr.s3waas.gov.in/s32d2ca7eedf739ef4c3800713ec482e1a/uploads/2023/09/2023092156.pdf",
+      "supports": "Alpine musk deer; retained as a Review candidate because the existing M10 state-animal record is not overwritten."
+    }
+  ],
+  "audit": [
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "classicalDance",
+      "item": "Kuchipudi",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://publiclibraries.ap.gov.in/"
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "folkArts",
+      "item": "Oggukatha",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "folkArts",
+      "item": "Burrakatha",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "folkArts",
+      "item": "Dhimsa",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "festivals",
+      "item": "Sankranti and Kanuma",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "festivals",
+      "item": "Tirupati Brahmotsavam",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.tirumala.org/Bramhostavam.aspx",
+      "sourceLabel": "Tirumala Tirupati Devasthanams — Brahmotsavam"
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "festivals",
+      "item": "Ugadi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "festivals",
+      "item": "Sankranti",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "foods",
+      "item": "Pesarattu",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "foods",
+      "item": "Gongura pachadi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "stateAnimal",
+      "item": "Blackbuck",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://forests.ap.gov.in/",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "notableWildlife",
+      "item": "Coringa Wildlife Sanctuary and mangrove forests",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://ncert.nic.in/textbook/pdf/eeev102.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "notableWildlife",
+      "item": "Coringa mangrove forests",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "notableWildlife",
+      "item": "Blackbuck",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "notableWildlife",
+      "item": "Tiger (Nagarjunasagar-Srisailam)",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "famousThings",
+      "item": "Kondapalli toys",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://search.ipindia.gov.in/GIRPublicSearch/Application/Details/44",
+      "sourceLabel": "IP India — Kondapalli Bommallu GI registration"
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "famousThings",
+      "item": "Tirumala Venkateswara Temple",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "famousThings",
+      "item": "Araku Valley",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "famousThings",
+      "item": "Borra Caves",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andhra Pradesh",
+      "stateId": "andhra-pradesh",
+      "category": "famousThings",
+      "item": "Nagarjunsagar-Srisailam Tiger Reserve",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "folkArts",
+      "item": "Aji Lamu pantomime",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "folkArts",
+      "item": "Ponung dance",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "folkArts",
+      "item": "Ponung",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "folkArts",
+      "item": "Aji Lhamu",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "festivals",
+      "item": "Dree and Murung",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "festivals",
+      "item": "Nyokum Festival",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "festivals",
+      "item": "Solung Festival",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "festivals",
+      "item": "Losar",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "festivals",
+      "item": "Solung",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "foods",
+      "item": "Pehak",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "foods",
+      "item": "Thukpa",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "foods",
+      "item": "Momo",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "stateAnimal",
+      "item": "Mithun",
+      "result": "animal-conflict-kept-for-review",
+      "sourceUrl": "https://www.pib.gov.in/newsite/PrintRelease.aspx?lang=2&reg=48&relid=148473",
+      "note": "Existing M10 value retained: Hoolock gibbon"
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "stateAnimal",
+      "item": "Hoolock gibbon",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "notableWildlife",
+      "item": "Namdapha National Park wildlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "notableWildlife",
+      "item": "Mithun",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "notableWildlife",
+      "item": "Red panda",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "famousThings",
+      "item": "Monpa art",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "famousThings",
+      "item": "Tawang Monastery",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "famousThings",
+      "item": "Sela Pass",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Arunachal Pradesh",
+      "stateId": "arunachal-pradesh",
+      "category": "famousThings",
+      "item": "Namdapha Tiger Reserve",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "classicalDance",
+      "item": "Sattriya dance",
+      "result": "regional-classical-added-to-review",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/tinei101.pdf"
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "folkArts",
+      "item": "Ankiya Nat",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "folkArts",
+      "item": "Bihu dance",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "folkArts",
+      "item": "Bihu",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://assamtourism.gov.in/bihu-festival.php",
+      "sourceLabel": "Assam Tourism — Bihu Festival"
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "festivals",
+      "item": "Bihu",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://assamtourism.gov.in/bihu-festival.php"
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "festivals",
+      "item": "Ambubachi Mela",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://assamtourism.gov.in/bihu-festival.php",
+      "sourceLabel": "Assam Tourism — Ambubachi Festival"
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "festivals",
+      "item": "Durga Puja",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "foods",
+      "item": "Pitha and Tilor Laru",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://assamtourism.gov.in/cuisine.php",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "foods",
+      "item": "Khar",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://assamtourism.gov.in/cuisine.php",
+      "sourceLabel": "Assam Tourism — Culinary Treasures of Assam"
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "foods",
+      "item": "Masor tenga",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "foods",
+      "item": "Pitha",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "stateAnimal",
+      "item": "Indian one-horned rhinoceros",
+      "result": "animal-conflict-kept-for-review",
+      "sourceUrl": "https://forest.assam.gov.in/sites/default/files/swf_utility_folder/departments/pccf_lipl_in_oid_4/menu/information_and_services/hand_book_vol-i_compendium.pdf",
+      "note": "Existing M10 value retained: One-horned rhinoceros"
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "notableWildlife",
+      "item": "Kaziranga wildlife",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://forest.assam.gov.in/portlets/national-park",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "notableWildlife",
+      "item": "Manas National Park wildlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "notableWildlife",
+      "item": "One-horned rhinoceros",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "notableWildlife",
+      "item": "Wild water buffalo",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "famousThings",
+      "item": "Assam tea",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://assamtourism.gov.in/cuisine.php",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "famousThings",
+      "item": "Muga silk",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://search.ipindia.gov.in/GIRPublicSearch",
+      "sourceLabel": "IP India — Register of Geographical Indications"
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "famousThings",
+      "item": "Kaziranga National Park",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "famousThings",
+      "item": "Majuli river island",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "famousThings",
+      "item": "Tea gardens",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "famousThings",
+      "item": "Manas National Park",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Assam",
+      "stateId": "assam",
+      "category": "famousThings",
+      "item": "Moidams of the Ahom dynasty (UNESCO, 2024)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "classicalDance",
+      "item": "Kathak — North Indian tradition",
+      "result": "regional-classical-added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "folkArts",
+      "item": "Hirni Birni Lok Gatha",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "folkArts",
+      "item": "Bidesia folk theatre",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "sourceLabel": "Sangeet Natak Akademi — Intangible Cultural Heritage catalogue"
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "folkArts",
+      "item": "Jhijhiya",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "folkArts",
+      "item": "Jat-Jatin",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "festivals",
+      "item": "Chhath Puja",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://tourism.bihar.gov.in/en/experiences/festivals-and-fairs/festivals",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "festivals",
+      "item": "Sonepur Mela",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://tourism.bihar.gov.in/en/experiences/festivals-and-fairs/fairs/sonepur-mela",
+      "sourceLabel": "Bihar Tourism — Sonepur Mela"
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "festivals",
+      "item": "Sama-Chakeva",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "foods",
+      "item": "Litti Chokha",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://tourism.bihar.gov.in/en/experiences/food-and-cuisine/main-course",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "foods",
+      "item": "Khichdi",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://tourism.bihar.gov.in/en/experiences/food-and-cuisine/main-course/khichdi",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "foods",
+      "item": "Thekua",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "stateAnimal",
+      "item": "Gaur",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "notableWildlife",
+      "item": "Valmiki Tiger Reserve",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "notableWildlife",
+      "item": "Gangetic dolphin",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "notableWildlife",
+      "item": "Gharial",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "famousThings",
+      "item": "Sikki painting",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.india.gov.in/explore-india/odop/details/sikki-painting",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "famousThings",
+      "item": "Nalanda Mahavihara ruins",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "famousThings",
+      "item": "Mahabodhi Temple, Bodh Gaya",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "famousThings",
+      "item": "Nalanda ruins",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Bihar",
+      "stateId": "bihar",
+      "category": "famousThings",
+      "item": "Nalanda Mahavihara (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "folkArts",
+      "item": "Nacha folk theatre",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "folkArts",
+      "item": "Panthi dance",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "folkArts",
+      "item": "Panthi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "folkArts",
+      "item": "Karma",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "festivals",
+      "item": "Bastar Dussehra",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://tourism.cgstate.gov.in/destinations/Bastar",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "festivals",
+      "item": "Hareli",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "foods",
+      "item": "Bore Basi",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "foods",
+      "item": "Chila",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "foods",
+      "item": "Fara",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "stateAnimal",
+      "item": "Wild water buffalo",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "notableWildlife",
+      "item": "Achanakmar Tiger Reserve",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "notableWildlife",
+      "item": "Wild buffalo",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "notableWildlife",
+      "item": "Tiger (Indravati)",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "famousThings",
+      "item": "Chitrakote Waterfall",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://tourism.cgstate.gov.in/destinations/Bastar",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "famousThings",
+      "item": "“Rice bowl of India”",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "famousThings",
+      "item": "Dhokra metal craft",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://search.ipindia.gov.in/GIRPublicSearch",
+      "sourceLabel": "IP India — Register of Geographical Indications (Bastar Dhokra)"
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "famousThings",
+      "item": "Indravati Tiger Reserve",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chhattisgarh",
+      "stateId": "chhattisgarh",
+      "category": "famousThings",
+      "item": "Achanakmar Tiger Reserve",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "folkArts",
+      "item": "Ranmale",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "folkArts",
+      "item": "Fugdi dance",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://dip.goa.gov.in/people-of-goa/",
+      "sourceLabel": "Government of Goa — People of Goa"
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "folkArts",
+      "item": "Dekhni",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://dip.goa.gov.in/people-of-goa/",
+      "sourceLabel": "Government of Goa — People of Goa"
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "folkArts",
+      "item": "Fugdi",
+      "result": "duplicate-in-new-data",
+      "sourceUrl": "https://dip.goa.gov.in/people-of-goa/"
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "festivals",
+      "item": "Shigmo",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://goa-tourism.com/event-details/",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "festivals",
+      "item": "Sao Joao Festival",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://goa-tourism.com/festival/sao-joao/",
+      "sourceLabel": "Goa Tourism — Sao Joao"
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "festivals",
+      "item": "Carnival",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "foods",
+      "item": "Alsanyache Tonak",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://goa-tourism.com/food/know-your-favourite-dishes/",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "foods",
+      "item": "Bebinca",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "foods",
+      "item": "Fish curry rice",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "stateAnimal",
+      "item": "Gaur (Indian bison)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://forest.goa.gov.in/",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "notableWildlife",
+      "item": "Wildlife of Bondla Forest",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.goa.gov.in/places/bondla-forest/",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "notableWildlife",
+      "item": "Salim Ali Bird Sanctuary",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "notableWildlife",
+      "item": "Gaur (Indian bison)",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "notableWildlife",
+      "item": "Flying lizard",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "famousThings",
+      "item": "Churches and Convents of Old Goa",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "famousThings",
+      "item": "Beaches",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "famousThings",
+      "item": "Basilica of Bom Jesus",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Goa",
+      "stateId": "goa",
+      "category": "famousThings",
+      "item": "Churches and Convents of Goa (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "folkArts",
+      "item": "Garba",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH"
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "folkArts",
+      "item": "Tippani dance",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "folkArts",
+      "item": "Dandiya Raas",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "festivals",
+      "item": "Navratri in Gujarat",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "festivals",
+      "item": "Rann Utsav",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.incredibleindia.gov.in/en/festivals-and-events/gujarat/Rann-Utsav0",
+      "sourceLabel": "Incredible India / Gujarat Tourism — Rann Utsav"
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "festivals",
+      "item": "Navratri",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "festivals",
+      "item": "Uttarayan (kite festival)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "foods",
+      "item": "Undhiyu",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "foods",
+      "item": "Dhokla",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "foods",
+      "item": "Thepla",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "foods",
+      "item": "Khandvi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "stateAnimal",
+      "item": "Asiatic lion",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "notableWildlife",
+      "item": "Asiatic lion of Gir",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://gujarattourism.com/saurashtra/gir-somnath/gir-national-park.html",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "notableWildlife",
+      "item": "Gir National Park and Sanctuary",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "notableWildlife",
+      "item": "Asiatic lion",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "notableWildlife",
+      "item": "Wild ass (Little Rann of Kutch)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "famousThings",
+      "item": "Lothal",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "famousThings",
+      "item": "Salt pans of Gujarat",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://ncert.nic.in/textbook/pdf/eeev101.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "famousThings",
+      "item": "Rani ki Vav",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "famousThings",
+      "item": "Statue of Unity",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "famousThings",
+      "item": "Gir National Park",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "famousThings",
+      "item": "Rann of Kutch",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "famousThings",
+      "item": "Champaner-Pavagadh (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "famousThings",
+      "item": "Historic City of Ahmedabad (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Gujarat",
+      "stateId": "gujarat",
+      "category": "famousThings",
+      "item": "Dholavira (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "classicalDance",
+      "item": "Kathak — North Indian tradition",
+      "result": "regional-classical-added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "folkArts",
+      "item": "Saang folk theatre",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "folkArts",
+      "item": "Phag",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "folkArts",
+      "item": "Ghoomar",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "festivals",
+      "item": "Teej celebrations",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "festivals",
+      "item": "Teej",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "festivals",
+      "item": "Baisakhi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "foods",
+      "item": "Bajra khichri",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "foods",
+      "item": "Bajra khichdi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "foods",
+      "item": "Lassi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "stateAnimal",
+      "item": "Blackbuck",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://wildlife.haryanaforest.gov.in/circular-notifications/",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "notableWildlife",
+      "item": "Sultanpur National Park birdlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "notableWildlife",
+      "item": "Blackbuck",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "notableWildlife",
+      "item": "Peacock",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "famousThings",
+      "item": "Surajkund Crafts Mela",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://haryanatourism.gov.in/fair-and-festivals/",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "famousThings",
+      "item": "Kurukshetra heritage sites",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Haryana",
+      "stateId": "haryana",
+      "category": "famousThings",
+      "item": "Kurukshetra",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "folkArts",
+      "item": "Nati dance",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://himachaltourism.gov.in/destination/ethnic/",
+      "sourceLabel": "Himachal Tourism — Ethnic dances"
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "folkArts",
+      "item": "Nati",
+      "result": "duplicate-in-new-data",
+      "sourceUrl": "https://himachaltourism.gov.in/destination/ethnic/"
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "folkArts",
+      "item": "Kullu Nati",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "festivals",
+      "item": "Kullu Dussehra",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://himachaltourism.gov.in/fairs-fests/",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "festivals",
+      "item": "Minjar Fair",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "foods",
+      "item": "Dham",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://himachaltourism.gov.in/cusine/",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "foods",
+      "item": "Siddu",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "stateAnimal",
+      "item": "Snow leopard",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://himachal.gov.in/Content/HtmlPage?qs=LdEF%2BAuYkB4CxHJY%2Bd8E%2FA%3D%3D",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "notableWildlife",
+      "item": "Great Himalayan National Park wildlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "notableWildlife",
+      "item": "Snow leopard",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "notableWildlife",
+      "item": "Himalayan monal",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "famousThings",
+      "item": "Pashmina shawls",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "famousThings",
+      "item": "Chamba Rumal embroidery",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.india.gov.in/explore-india/odop/details/chamba-rumal",
+      "sourceLabel": "National Portal of India — Chamba Rumal (GI Tag)"
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "famousThings",
+      "item": "Shimla",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "famousThings",
+      "item": "Manali",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "famousThings",
+      "item": "Kullu valley",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "famousThings",
+      "item": "Great Himalayan National Park (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Himachal Pradesh",
+      "stateId": "himachal-pradesh",
+      "category": "famousThings",
+      "item": "Kalka-Shimla Railway (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "folkArts",
+      "item": "Chhau mask making",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "folkArts",
+      "item": "Jhumar dance and songs",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://tourism.jharkhand.gov.in/historic-jharkhand",
+      "sourceLabel": "Jharkhand Tourism — Folk Dance"
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "folkArts",
+      "item": "Chhau (Seraikella)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "folkArts",
+      "item": "Paika",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://tourism.jharkhand.gov.in/historic-jharkhand",
+      "sourceLabel": "Jharkhand Tourism — Folk Dance"
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "festivals",
+      "item": "Sarhul Festival",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "festivals",
+      "item": "Tusu Parab",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "festivals",
+      "item": "Sarhul",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://tourism.jharkhand.gov.in/historic-jharkhand",
+      "sourceLabel": "Jharkhand Tourism — Culture and Festivals"
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "festivals",
+      "item": "Karam",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "foods",
+      "item": "Dhuska",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "foods",
+      "item": "Litti",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "stateAnimal",
+      "item": "Asian elephant",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://www.jharkhand.gov.in/home/AboutState",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "notableWildlife",
+      "item": "Wildlife of Jharkhand",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://jbb.jharkhand.gov.in/",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "notableWildlife",
+      "item": "Betla National Park wildlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "notableWildlife",
+      "item": "Asian elephant",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "notableWildlife",
+      "item": "Tiger (Betla)",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "famousThings",
+      "item": "Sohrai painting",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://search.ipindia.gov.in/GIRPublicSearch/Application/Details/658",
+      "sourceLabel": "IP India — Sohrai-Khovar Painting GI registration"
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "famousThings",
+      "item": "Baidyanath Dham, Deoghar",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "famousThings",
+      "item": "Netarhat",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "famousThings",
+      "item": "Betla National Park",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "famousThings",
+      "item": "Palamau Tiger Reserve",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "folkArts",
+      "item": "Alabida",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "folkArts",
+      "item": "Yakshagana",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://karnatakatourism.org/en/blogs/where-stories-come-alive-in-rhythm-and-colour/",
+      "sourceLabel": "Karnataka Tourism — Performing arts"
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "folkArts",
+      "item": "Dollu Kunitha",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "festivals",
+      "item": "Mysuru Dasara",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://karnatakatourism.org/en/experiences/experience-the-mysuru-dasara-festivities-in-karnataka",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "festivals",
+      "item": "Kambala buffalo race",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://karnatakatourism.org/en/events/kambala-festival/",
+      "sourceLabel": "Karnataka Tourism — Kambala Festival"
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "festivals",
+      "item": "Ugadi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "foods",
+      "item": "Bisi bele bath",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "foods",
+      "item": "Mysore pak",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "foods",
+      "item": "Masala dosa",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "stateAnimal",
+      "item": "Indian elephant",
+      "result": "state-animal-candidate-review-only",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "notableWildlife",
+      "item": "Bandipur Tiger Reserve",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "notableWildlife",
+      "item": "Asian elephant",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "notableWildlife",
+      "item": "Tiger (Bandipur, Nagarhole)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "famousThings",
+      "item": "Channapatna wooden toys",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://search.ipindia.gov.in/GIRPublicSearch/Application/Details/23",
+      "sourceLabel": "IP India — Channapatna Toys & Dolls GI registration"
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "famousThings",
+      "item": "Mysore Palace",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "famousThings",
+      "item": "Hampi",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "famousThings",
+      "item": "Jog Falls",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "famousThings",
+      "item": "Pattadakal (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Karnataka",
+      "stateId": "karnataka",
+      "category": "famousThings",
+      "item": "Hoysala temples (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "classicalDance",
+      "item": "Kathakali",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://forest.kerala.gov.in/en/kerala-at-a-glance/"
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "classicalDance",
+      "item": "Mohiniyattam",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "folkArts",
+      "item": "Ottan Thullal",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "folkArts",
+      "item": "Theyyam",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "folkArts",
+      "item": "Thiruvathira",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "folkArts",
+      "item": "Mudiyettu (UNESCO list, 2010)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "folkArts",
+      "item": "Kutiyattam (UNESCO list, 2008)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "festivals",
+      "item": "Onam",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://www.keralatourism.org/onam/ona-sadya/sadya"
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "festivals",
+      "item": "Vishu",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://ncert.nic.in/textbook/pdf/ceev103.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "festivals",
+      "item": "Thrissur Pooram",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "foods",
+      "item": "Sadya",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.keralatourism.org/onam/ona-sadya/sadya",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "foods",
+      "item": "Appam with stew",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "foods",
+      "item": "Puttu",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "sourceLabel": "NCERT — India: Unity in Cultural Diversity"
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "stateAnimal",
+      "item": "Indian elephant",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://forest.kerala.gov.in/en/kerala-at-a-glance/",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "notableWildlife",
+      "item": "Silent Valley National Park wildlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "notableWildlife",
+      "item": "Asian elephant",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "notableWildlife",
+      "item": "Nilgiri tahr",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "famousThings",
+      "item": "Kerala backwaters",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "famousThings",
+      "item": "Alappuzha backwaters",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "famousThings",
+      "item": "Munnar tea gardens",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "famousThings",
+      "item": "Western Ghats (UNESCO, shared with other states)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "folkArts",
+      "item": "Rangpanchmi’s Gerr",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "folkArts",
+      "item": "Rai dance",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "sourceLabel": "Sangeet Natak Akademi — Intangible Cultural Heritage catalogue"
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "folkArts",
+      "item": "Matki",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "folkArts",
+      "item": "Gond dances",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "festivals",
+      "item": "Bhagoria tribal festival",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.mptourism.com/bhagoria-tribal-festival.htm",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "festivals",
+      "item": "Kumbh Mela at Ujjain",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://ncert.nic.in/textbook/pdf/ceev102.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "festivals",
+      "item": "Tansen Samaroh",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.mptourism.com/eventslisting.php",
+      "sourceLabel": "Madhya Pradesh Tourism — Events and Festivals"
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "festivals",
+      "item": "Khajuraho Dance Festival",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.mptourism.com/eventslisting.php",
+      "sourceLabel": "Madhya Pradesh Tourism — Events and Festivals"
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "festivals",
+      "item": "Diwali",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "foods",
+      "item": "Dal bafla",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "foods",
+      "item": "Poha-jalebi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "foods",
+      "item": "Bhutte ka kees",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "stateAnimal",
+      "item": "Hard-ground barasingha",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://mpforest.gov.in/img/files/LU_MP_Report120417.pdf",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "notableWildlife",
+      "item": "Tigers of Madhya Pradesh",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://mpforest.gov.in/img/files/WL_MP_Wildlife_Action_Plan.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "notableWildlife",
+      "item": "Kanha Tiger Reserve wildlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "notableWildlife",
+      "item": "Tiger (Kanha, Bandhavgarh)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "notableWildlife",
+      "item": "Barasingha",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "famousThings",
+      "item": "Sanchi Stupa",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "famousThings",
+      "item": "Khajuraho temples",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "famousThings",
+      "item": "Sanchi (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "famousThings",
+      "item": "Khajuraho (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Madhya Pradesh",
+      "stateId": "madhya-pradesh",
+      "category": "famousThings",
+      "item": "Bhimbetka (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "folkArts",
+      "item": "Dashavatar folk theatre",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "folkArts",
+      "item": "Lavani dance",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "folkArts",
+      "item": "Lavani",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "folkArts",
+      "item": "Koli dance",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "festivals",
+      "item": "Ganesh Chaturthi",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://maharashtratourism.gov.in/festivals/ganesh-chaturthi/",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "festivals",
+      "item": "Kumbh Mela at Nashik",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://ncert.nic.in/textbook/pdf/ceev102.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "festivals",
+      "item": "Ashadhi Wari pilgrimage",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "festivals",
+      "item": "Gudi Padwa",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "foods",
+      "item": "Ukadiche Modak",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://maharashtratourism.gov.in/festivals/ganesh-chaturthi/",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "foods",
+      "item": "Puran poli",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://maharashtratourism.gov.in/wp-content/uploads/2025/06/Maharashtra-Booklet_compressed.pdf",
+      "sourceLabel": "Maharashtra Tourism — The Best of Maharashtra Pocket Guide"
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "foods",
+      "item": "Vada pav",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://maharashtratourism.gov.in/wp-content/uploads/2025/06/Maharashtra-Booklet_compressed.pdf",
+      "sourceLabel": "Maharashtra Tourism — The Best of Maharashtra Pocket Guide"
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "foods",
+      "item": "Misal pav",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "stateAnimal",
+      "item": "Indian giant squirrel (Shekru)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://divcompune.maharashtra.gov.in/en/about-department/introduction/",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "notableWildlife",
+      "item": "Tadoba-Andhari Tiger Reserve",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "notableWildlife",
+      "item": "Indian giant squirrel",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "notableWildlife",
+      "item": "Tiger (Tadoba)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "famousThings",
+      "item": "Hiware Bazar",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://ncert.nic.in/textbook/pdf/eeev101.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "famousThings",
+      "item": "Origin of the Godavari at Trimbakeshwar",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://ncert.nic.in/textbook/pdf/eeev102.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "famousThings",
+      "item": "Ajanta Caves",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "famousThings",
+      "item": "Gateway of India",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "famousThings",
+      "item": "Ajanta and Ellora Caves",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "famousThings",
+      "item": "Ellora Caves (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "famousThings",
+      "item": "Elephanta Caves (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "famousThings",
+      "item": "Chhatrapati Shivaji Maharaj Terminus (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Maharashtra",
+      "stateId": "maharashtra",
+      "category": "famousThings",
+      "item": "Maratha Military Landscapes (UNESCO, 2025)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "classicalDance",
+      "item": "Manipuri dance",
+      "result": "regional-classical-added-to-review",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/constituent-units-akademi/JNMDA"
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "classicalDance",
+      "item": "Manipuri",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "folkArts",
+      "item": "Moirang folklore",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "folkArts",
+      "item": "Pung Cholom dance",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "folkArts",
+      "item": "Lai Haraoba",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "folkArts",
+      "item": "Pung Cholom",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "folkArts",
+      "item": "Sankirtana (UNESCO list, 2013)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "festivals",
+      "item": "Yaosang",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://manipurtourism.gov.in/festivals-in-manipur/",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "festivals",
+      "item": "Lai Haraoba",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "festivals",
+      "item": "Yaoshang",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://manipurtourism.gov.in/festivals-in-manipur/",
+      "sourceLabel": "Manipur Tourism — Festivals in Manipur"
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "foods",
+      "item": "Chak-Hao Kheer",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://manipurtourism.gov.in/highlights/",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "foods",
+      "item": "Eromba",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "stateAnimal",
+      "item": "Sangai deer",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://manipurtourism.gov.in/about-us/",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "stateAnimal",
+      "item": "Sangai (brow-antlered deer)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "notableWildlife",
+      "item": "Keibul Lamjao National Park",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://manipurtourism.gov.in/nature-and-wildlife/",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "notableWildlife",
+      "item": "Loktak Lake wetland wildlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "notableWildlife",
+      "item": "Sangai (brow-antlered deer)",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "famousThings",
+      "item": "Keibul Lamjao National Park",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://ncert.nic.in/textbook/pdf/eeev101.pdf"
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "famousThings",
+      "item": "Ima Keithel market",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "famousThings",
+      "item": "Loktak Lake",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Manipur",
+      "stateId": "manipur",
+      "category": "famousThings",
+      "item": "Keibul Lamjao floating park",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "folkArts",
+      "item": "Ka Shad Nongkrem dance",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "folkArts",
+      "item": "Wangala dance",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "folkArts",
+      "item": "Wangala",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "folkArts",
+      "item": "Nongkrem dance",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "festivals",
+      "item": "Wangala Festival",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.meghalayatourism.in/experiences-4/wangala-festival/",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "festivals",
+      "item": "Nongkrem Dance Festival",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "festivals",
+      "item": "Wangala",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.meghalayatourism.in/explore/about-meghalaya/dance-music/wangala-dance/",
+      "sourceLabel": "Meghalaya Tourism — Wangala"
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "festivals",
+      "item": "Nongkrem",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.meghalayatourism.in/explore/about-meghalaya/dance-music/shad-nongkrem/",
+      "sourceLabel": "Meghalaya Tourism — Shad Nongkrem"
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "foods",
+      "item": "Jadoh",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "foods",
+      "item": "Tungrymbai",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.meghalayatourism.in/experiences/culture-%26-lifestyle/indigenous-cuisines/",
+      "sourceLabel": "Meghalaya Tourism — Indigenous Cuisines"
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "foods",
+      "item": "Dohneiiong",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.meghalayatourism.in/experiences/culture-%26-lifestyle/indigenous-cuisines/",
+      "sourceLabel": "Meghalaya Tourism — Indigenous Cuisines"
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "stateAnimal",
+      "item": "Clouded leopard",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://megbiodiversity.nic.in/faunal-diversity",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "notableWildlife",
+      "item": "Nokrek Biosphere Reserve",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "notableWildlife",
+      "item": "Clouded leopard",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "notableWildlife",
+      "item": "Hoolock gibbon",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "famousThings",
+      "item": "Meghalaya’s whistled language",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "famousThings",
+      "item": "Living root bridges",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "famousThings",
+      "item": "Cherrapunji",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "famousThings",
+      "item": "Mawlynnong",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "famousThings",
+      "item": "Nokrek Biosphere Reserve",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Mizoram",
+      "stateId": "mizoram",
+      "category": "folkArts",
+      "item": "Cheraw (bamboo) dance",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Mizoram",
+      "stateId": "mizoram",
+      "category": "folkArts",
+      "item": "Khuallam dance",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Mizoram",
+      "stateId": "mizoram",
+      "category": "folkArts",
+      "item": "Cheraw (bamboo dance)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Mizoram",
+      "stateId": "mizoram",
+      "category": "folkArts",
+      "item": "Khuallam",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Mizoram",
+      "stateId": "mizoram",
+      "category": "festivals",
+      "item": "Chapchar Kut",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Mizoram",
+      "stateId": "mizoram",
+      "category": "festivals",
+      "item": "Pawl Kut",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Mizoram",
+      "stateId": "mizoram",
+      "category": "foods",
+      "item": "Bai",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Mizoram",
+      "stateId": "mizoram",
+      "category": "foods",
+      "item": "Sawhchiar",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Mizoram",
+      "stateId": "mizoram",
+      "category": "stateAnimal",
+      "item": "Red serow",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://forest.mizoram.gov.in/uploads/attachments/fee48ed5b2e8f6f05ec63f5308035a31/pages-205-soer-mizoram-2016.pdf",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Mizoram",
+      "stateId": "mizoram",
+      "category": "stateAnimal",
+      "item": "Serow",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Mizoram",
+      "stateId": "mizoram",
+      "category": "notableWildlife",
+      "item": "Dampa Tiger Reserve",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Mizoram",
+      "stateId": "mizoram",
+      "category": "notableWildlife",
+      "item": "Hoolock gibbon",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Mizoram",
+      "stateId": "mizoram",
+      "category": "notableWildlife",
+      "item": "Himalayan serow",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Mizoram",
+      "stateId": "mizoram",
+      "category": "famousThings",
+      "item": "Phawngpui (Blue Mountain)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Mizoram",
+      "stateId": "mizoram",
+      "category": "famousThings",
+      "item": "Vantawng Falls",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Mizoram",
+      "stateId": "mizoram",
+      "category": "famousThings",
+      "item": "Dampa Tiger Reserve",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "folkArts",
+      "item": "Chokri Naga folk songs",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "folkArts",
+      "item": "Naga warrior and community dances",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "folkArts",
+      "item": "Naga tribal dances",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "festivals",
+      "item": "Hornbill Festival",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://tourism.nagaland.gov.in/events/hornbill-festival/"
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "festivals",
+      "item": "Nazhu Festival",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "festivals",
+      "item": "Sekrenyi Festival",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://tourism.nagaland.gov.in/sekrenyi-2/",
+      "sourceLabel": "Tourism Nagaland — Sekrenyi"
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "festivals",
+      "item": "Moatsu",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://tourism.nagaland.gov.in/tribes/",
+      "sourceLabel": "Tourism Nagaland — Tribes and Festivals"
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "foods",
+      "item": "Samanthu",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "foods",
+      "item": "Smoked pork with bamboo shoot",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "foods",
+      "item": "Galho",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "foods",
+      "item": "Bamboo shoot dishes",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "stateAnimal",
+      "item": "Mithun",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://www.pib.gov.in/newsite/PrintRelease.aspx?lang=2&reg=48&relid=148473",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "notableWildlife",
+      "item": "Blyth’s tragopan",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://nsbb.nagaland.gov.in/biodiversity-in-nagaland/",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "notableWildlife",
+      "item": "Intanki National Park wildlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "notableWildlife",
+      "item": "Mithun",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "famousThings",
+      "item": "Hornbill Festival cultural showcase",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "famousThings",
+      "item": "Naga shawls and weaving",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "famousThings",
+      "item": "Kohima War Cemetery",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "famousThings",
+      "item": "Dzukou Valley",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "classicalDance",
+      "item": "Odissi",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://odishatourism.gov.in/en/culture-music-dance"
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "folkArts",
+      "item": "Dalkhai",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://odishatourism.gov.in/en/culture-music-dance",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "folkArts",
+      "item": "Gotipua dance",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://apps.odishatourism.gov.in/folk-dance",
+      "sourceLabel": "Odisha Tourism — Folk Dance"
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "folkArts",
+      "item": "Sambalpuri",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "folkArts",
+      "item": "Chhau (Mayurbhanj)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "festivals",
+      "item": "Ratha Yatra",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://apps.odishatourism.gov.in/cultural-heritage",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "festivals",
+      "item": "Nuakhai Festival",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://odishatourism.gov.in/en/events",
+      "sourceLabel": "Odisha Tourism — Events and Festivals"
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "festivals",
+      "item": "Rath Yatra (Puri)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "festivals",
+      "item": "Raja Parba",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "foods",
+      "item": "Chhena Poda",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://odishatourism.gov.in/en/blog/chhenapoda-odisha-s-sweet-gem",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "foods",
+      "item": "Pakhala bhata",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "foods",
+      "item": "Pakhala",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.ncert.nic.in/desm/pdf/teacher%27shandbook.pdf",
+      "sourceLabel": "NCERT — Teachers’ Handbook, regional food examples"
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "foods",
+      "item": "Rasabali",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "stateAnimal",
+      "item": "Sambar deer",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://magazines.odisha.gov.in/orissareview/2022/Nov/engpdf/18-28.pdf",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "stateAnimal",
+      "item": "Sambar",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "notableWildlife",
+      "item": "Similipal National Park and Tiger Reserve",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "notableWildlife",
+      "item": "Olive ridley turtle",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "notableWildlife",
+      "item": "Irrawaddy dolphin (Chilika)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "famousThings",
+      "item": "Konark Sun Temple",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://odishatourism.gov.in/en/iconic-odisha"
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "famousThings",
+      "item": "Jagannath Temple, Puri",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "famousThings",
+      "item": "Chilika Lake",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "famousThings",
+      "item": "Simlipal Biosphere Reserve",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "folkArts",
+      "item": "Pagri / Safa tying tradition",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "folkArts",
+      "item": "Bhangra and Giddha",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "folkArts",
+      "item": "Bhangra",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "folkArts",
+      "item": "Giddha",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "festivals",
+      "item": "Chhappar Mela",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "festivals",
+      "item": "Lohri",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "festivals",
+      "item": "Baisakhi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "foods",
+      "item": "Sarson ka saag and makki di roti",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "foods",
+      "item": "Makki di roti and sarson da saag",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "foods",
+      "item": "Makki di roti with sarson da saag",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "sourceLabel": "NCERT — India: Unity in Cultural Diversity"
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "foods",
+      "item": "Lassi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "stateAnimal",
+      "item": "Blackbuck",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "notableWildlife",
+      "item": "Harike Wetland birdlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "notableWildlife",
+      "item": "Blackbuck",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "notableWildlife",
+      "item": "Bengal florican",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "famousThings",
+      "item": "Phulkari embroidery",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://search.ipindia.gov.in/GIRPublicSearch",
+      "sourceLabel": "IP India — Register of Geographical Indications"
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "famousThings",
+      "item": "Golden Temple, Amritsar",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "famousThings",
+      "item": "Jallianwala Bagh",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "famousThings",
+      "item": "Wagah border",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Punjab",
+      "stateId": "punjab",
+      "category": "famousThings",
+      "item": "Brass and copper craft of Jandiala Guru (UNESCO list, 2014)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "classicalDance",
+      "item": "Kathak — Jaipur gharana",
+      "result": "regional-classical-added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "folkArts",
+      "item": "Phad scroll painting and narration",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "folkArts",
+      "item": "Kachchi Ghodi dance",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "folkArts",
+      "item": "Ghoomar dance",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "folkArts",
+      "item": "Ghoomar",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "folkArts",
+      "item": "Kalbelia",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "festivals",
+      "item": "Gangaur traditions",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "festivals",
+      "item": "Teej Festival",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "festivals",
+      "item": "Pushkar Mela",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "festivals",
+      "item": "Teej",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "festivals",
+      "item": "Gangaur",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "foods",
+      "item": "Dal Baati Churma",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.tourism.rajasthan.gov.in/rajasthani-cuisine.html",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "foods",
+      "item": "Ghevar",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "stateAnimal",
+      "item": "Chinkara",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "notableWildlife",
+      "item": "Great Indian bustard",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://forest.rajasthan.gov.in/content/raj/forest/hi/footernav/department-wings/project-great-indian-bustard.html",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "notableWildlife",
+      "item": "Desert National Park wildlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "notableWildlife",
+      "item": "Chinkara",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "notableWildlife",
+      "item": "Tiger (Ranthambore)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "famousThings",
+      "item": "Johads",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://ncert.nic.in/textbook/pdf/eeev101.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "famousThings",
+      "item": "Luni River",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://ncert.nic.in/textbook/pdf/eeev101.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "famousThings",
+      "item": "Blue pottery of Jaipur",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://search.ipindia.gov.in/GIRPublicSearch",
+      "sourceLabel": "IP India — Register of Geographical Indications"
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "famousThings",
+      "item": "Hawa Mahal",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "famousThings",
+      "item": "Amer Fort",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "famousThings",
+      "item": "Jaisalmer Fort",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "famousThings",
+      "item": "Keoladeo National Park (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "famousThings",
+      "item": "Jantar Mantar, Jaipur (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Rajasthan",
+      "stateId": "rajasthan",
+      "category": "famousThings",
+      "item": "Hill Forts of Rajasthan (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "folkArts",
+      "item": "Singhi Chham dance",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "folkArts",
+      "item": "Singhi Chham (snow lion dance)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "folkArts",
+      "item": "Maruni",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "festivals",
+      "item": "Losar and other Buddhist festivals",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sikkimtourism.gov.in/",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "festivals",
+      "item": "Pang Lhabsol",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "festivals",
+      "item": "Losar",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "festivals",
+      "item": "Saga Dawa",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "foods",
+      "item": "Momos, thukpa and phagshapa",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sikkimtourism.gov.in/",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "foods",
+      "item": "Gundruk",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "foods",
+      "item": "Momo",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "foods",
+      "item": "Thukpa",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "foods",
+      "item": "Sel roti",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "stateAnimal",
+      "item": "Red panda",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://sikkimforest.gov.in/Reports%20and%20Publications/100years/100%20Years%203.pdf",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "notableWildlife",
+      "item": "Wildlife of Khangchendzonga",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sikkim.gov.in/departments/tourism-civil-aviation-department/nature",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "notableWildlife",
+      "item": "Khangchendzonga National Park wildlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "notableWildlife",
+      "item": "Red panda",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "notableWildlife",
+      "item": "Snow leopard",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "famousThings",
+      "item": "Khetala community harvest support",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://ncert.nic.in/textbook/pdf/deev101.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "famousThings",
+      "item": "Khangchendzonga mountain",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "famousThings",
+      "item": "Kangchenjunga",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "famousThings",
+      "item": "Tsomgo Lake",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Sikkim",
+      "stateId": "sikkim",
+      "category": "famousThings",
+      "item": "Khangchendzonga National Park (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "classicalDance",
+      "item": "Bharatanatyam",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://tourism.gov.in/sites/default/files/2020-04/State_TSA_TamilNadu_2009_10_15.pdf"
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "folkArts",
+      "item": "Nattu Adi Murai",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "folkArts",
+      "item": "Karagattam dance",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "folkArts",
+      "item": "Karagattam",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "folkArts",
+      "item": "Oyilattam",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "festivals",
+      "item": "Pongal",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "festivals",
+      "item": "Puthandu (Tamil New Year)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "foods",
+      "item": "Chettinad cuisine",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "foods",
+      "item": "Idli with sambar",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "foods",
+      "item": "Pongal (dish)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "foods",
+      "item": "Filter coffee",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "stateAnimal",
+      "item": "Nilgiri tahr",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://dipr.tn.gov.in/ords/r/dipr/info-prdept103/press-release1?cs=1Fk9wvKVkc_XvT8pKYqsi2cyHWPPS8yx0JBwuaOEcMjhmX1BznYnxWEMHMp_jwy9qj_WdPl92wWSLjgcozuqsjg&p33_file_id=746&request=APPLICATION_PROCESS%3DGET_FILE",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "notableWildlife",
+      "item": "Mudumalai Tiger Reserve",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "notableWildlife",
+      "item": "Nilgiri tahr",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "notableWildlife",
+      "item": "Asian elephant",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "famousThings",
+      "item": "Brihadeeswara Temple",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "famousThings",
+      "item": "Meenakshi Temple, Madurai",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "famousThings",
+      "item": "Brihadeeswara Temple, Thanjavur",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "famousThings",
+      "item": "Marina Beach",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "famousThings",
+      "item": "Great Living Chola Temples (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "famousThings",
+      "item": "Mahabalipuram monuments (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tamil Nadu",
+      "stateId": "tamil-nadu",
+      "category": "famousThings",
+      "item": "Nilgiri Mountain Railway (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "classicalDance",
+      "item": "Perini Shivatandavam",
+      "result": "regional-classical-added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "folkArts",
+      "item": "Chindu Bhagavatham",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "folkArts",
+      "item": "Oggu Katha",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "folkArts",
+      "item": "Perini Thandavam",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "folkArts",
+      "item": "Gussadi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "festivals",
+      "item": "Bathukamma",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://tourism.telangana.gov.in/page/festivals-and-fairs",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "festivals",
+      "item": "Bonalu",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "foods",
+      "item": "Hyderabadi Biryani",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.tourism.telangana.gov.in/experience/gastronomy",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "foods",
+      "item": "Sarva Pindi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "stateAnimal",
+      "item": "Deer (Jinka)",
+      "result": "animal-conflict-kept-for-review",
+      "sourceUrl": "",
+      "note": "Existing M10 value retained: Spotted deer (chital)"
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "stateAnimal",
+      "item": "Spotted deer (chital)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "notableWildlife",
+      "item": "Kawal Tiger Reserve",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "notableWildlife",
+      "item": "Chital (spotted deer)",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "notableWildlife",
+      "item": "Tiger (Amrabad)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "famousThings",
+      "item": "Pochampally Ikat",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://tourism.telangana.gov.in/experience/heritage",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "famousThings",
+      "item": "Ramappa Temple",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "famousThings",
+      "item": "Charminar",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Telangana",
+      "stateId": "telangana",
+      "category": "famousThings",
+      "item": "Golconda Fort",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tripura",
+      "stateId": "tripura",
+      "category": "folkArts",
+      "item": "Hoza Giri dance",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Tripura",
+      "stateId": "tripura",
+      "category": "folkArts",
+      "item": "Garia dance",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tripura",
+      "stateId": "tripura",
+      "category": "folkArts",
+      "item": "Hojagiri",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tripura",
+      "stateId": "tripura",
+      "category": "festivals",
+      "item": "Kharchi Festival",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://tripuratourism.gov.in/images/documents/1729832585.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Tripura",
+      "stateId": "tripura",
+      "category": "festivals",
+      "item": "Garia Puja",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://tripuratourism.gov.in/images/documents/1729832585.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Tripura",
+      "stateId": "tripura",
+      "category": "festivals",
+      "item": "Kharchi Puja",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tripura",
+      "stateId": "tripura",
+      "category": "foods",
+      "item": "Mosdeng Serma",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Tripura",
+      "stateId": "tripura",
+      "category": "foods",
+      "item": "Mui Borok",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tripura",
+      "stateId": "tripura",
+      "category": "foods",
+      "item": "Gudok",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tripura",
+      "stateId": "tripura",
+      "category": "stateAnimal",
+      "item": "Phayre’s langur",
+      "result": "animal-conflict-kept-for-review",
+      "sourceUrl": "https://dste.tripura.gov.in/sites/default/files/2024-01/bookletschoolprog.pdf",
+      "note": "Existing M10 value retained: Phayre's langur"
+    },
+    {
+      "stateOrUT": "Tripura",
+      "stateId": "tripura",
+      "category": "stateAnimal",
+      "item": "Phayre's leaf monkey",
+      "result": "animal-conflict-kept-for-review",
+      "sourceUrl": "",
+      "note": "Existing M10 value retained: Phayre's langur"
+    },
+    {
+      "stateOrUT": "Tripura",
+      "stateId": "tripura",
+      "category": "notableWildlife",
+      "item": "Sepahijala Wildlife Sanctuary",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tripura",
+      "stateId": "tripura",
+      "category": "notableWildlife",
+      "item": "Phayre's langur",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tripura",
+      "stateId": "tripura",
+      "category": "notableWildlife",
+      "item": "Clouded leopard",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tripura",
+      "stateId": "tripura",
+      "category": "famousThings",
+      "item": "Ujjayanta Palace",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Tripura",
+      "stateId": "tripura",
+      "category": "famousThings",
+      "item": "Neermahal",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "classicalDance",
+      "item": "Kathak",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "folkArts",
+      "item": "Nautanki",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "folkArts",
+      "item": "Raslila",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "folkArts",
+      "item": "Charkula",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "festivals",
+      "item": "Kumbh Mela at Prayagraj",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://ncert.nic.in/textbook/pdf/ceev102.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "festivals",
+      "item": "Dev Deepawali of Varanasi",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "festivals",
+      "item": "Dev Deepawali (Varanasi)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "festivals",
+      "item": "Kumbh Mela (Prayagraj)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "foods",
+      "item": "Agra petha",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "foods",
+      "item": "Petha",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "foods",
+      "item": "Kachori-sabzi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "stateAnimal",
+      "item": "Swamp deer",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://v1.wii.gov.in/nmcg/protected-areas-along-ganga/hastinapur-wildlife-sanctuary",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "notableWildlife",
+      "item": "Dudhwa Tiger Reserve",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "notableWildlife",
+      "item": "Barasingha (swamp deer)",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "notableWildlife",
+      "item": "Gharial",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "famousThings",
+      "item": "Banarasi sarees",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://nri.up.gov.in/en/article/state-profile?brd=1",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "famousThings",
+      "item": "Taj Mahal",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "famousThings",
+      "item": "Varanasi ghats",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "famousThings",
+      "item": "Fatehpur Sikri",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttar Pradesh",
+      "stateId": "uttar-pradesh",
+      "category": "famousThings",
+      "item": "Agra Fort (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "folkArts",
+      "item": "Aipan art",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "folkArts",
+      "item": "Choliya dance",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "folkArts",
+      "item": "Jhora folk dance",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "sourceLabel": "Sangeet Natak Akademi — Intangible Cultural Heritage catalogue"
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "folkArts",
+      "item": "Chholiya",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "sourceLabel": "Sangeet Natak Akademi — Intangible Cultural Heritage catalogue"
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "folkArts",
+      "item": "Jagar",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "festivals",
+      "item": "Hill Jatra",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "festivals",
+      "item": "Kumbh Mela at Haridwar",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://ncert.nic.in/textbook/pdf/ceev102.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "festivals",
+      "item": "Nanda Devi Raj Jat",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "festivals",
+      "item": "Harela",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "festivals",
+      "item": "Ramman festival of Garhwal (UNESCO list, 2009)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "foods",
+      "item": "Bal Mithai",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "foods",
+      "item": "Kafuli",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "stateAnimal",
+      "item": "Himalayan musk deer",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://ueppcb.uk.gov.in/files/SoER.pdf",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "stateAnimal",
+      "item": "Alpine musk deer",
+      "result": "animal-conflict-kept-for-review",
+      "sourceUrl": "",
+      "note": "Existing M10 value retained: Himalayan musk deer"
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "notableWildlife",
+      "item": "Jim Corbett National Park wildlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "notableWildlife",
+      "item": "Tiger (Jim Corbett)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "notableWildlife",
+      "item": "Snow leopard",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "famousThings",
+      "item": "Valley of Flowers National Park",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "famousThings",
+      "item": "Rishikesh",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "famousThings",
+      "item": "Haridwar",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "famousThings",
+      "item": "Valley of Flowers",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "famousThings",
+      "item": "Nanda Devi and Valley of Flowers National Parks (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "folkArts",
+      "item": "Chhau dance of Purulia",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH"
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "folkArts",
+      "item": "Baul music tradition",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "sourceLabel": "Sangeet Natak Akademi — Intangible Cultural Heritage catalogue"
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "folkArts",
+      "item": "Santhali dance",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "folkArts",
+      "item": "Raibenshe",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "festivals",
+      "item": "Durga Puja",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://wbtourism.gov.in/durgapuja",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "festivals",
+      "item": "Poila Boishakh",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "festivals",
+      "item": "Durga Puja in Kolkata (UNESCO list, 2021)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "festivals",
+      "item": "Kali Puja",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "foods",
+      "item": "Rosogolla and Sandesh",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "foods",
+      "item": "Mishti doi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "foods",
+      "item": "Rasgulla",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "foods",
+      "item": "Sandesh",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "foods",
+      "item": "Fish curry with rice",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "stateAnimal",
+      "item": "Fishing cat",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "https://wbbis.wb.gov.in/index.php?id=446&tab=view_details_fauna",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "notableWildlife",
+      "item": "Bengal tiger of the Sundarbans",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://wbtourism.gov.in/Wildlife/details?id=638f90b09e20437bfb0ce140&template_id=1",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "notableWildlife",
+      "item": "Sundarbans mangrove wildlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "notableWildlife",
+      "item": "Gangetic dolphin",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "notableWildlife",
+      "item": "Saltwater crocodile",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "famousThings",
+      "item": "Bishnupur terracotta temples",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "famousThings",
+      "item": "Sundarbans National Park (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "famousThings",
+      "item": "Santiniketan (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "famousThings",
+      "item": "Darjeeling Himalayan Railway (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "famousThings",
+      "item": "Victoria Memorial, Kolkata",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "famousThings",
+      "item": "Howrah Bridge",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "famousThings",
+      "item": "Sundarbans mangrove forest",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andaman and Nicobar Islands",
+      "stateId": "andaman-and-nicobar-islands",
+      "category": "folkArts",
+      "item": "Nicobari community dance",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andaman and Nicobar Islands",
+      "stateId": "andaman-and-nicobar-islands",
+      "category": "folkArts",
+      "item": "Nicobarese and Andamanese tribal dances",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andaman and Nicobar Islands",
+      "stateId": "andaman-and-nicobar-islands",
+      "category": "festivals",
+      "item": "Island Tourism Festival",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andaman and Nicobar Islands",
+      "stateId": "andaman-and-nicobar-islands",
+      "category": "foods",
+      "item": "Fish and coconut-based dishes",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andaman and Nicobar Islands",
+      "stateId": "andaman-and-nicobar-islands",
+      "category": "foods",
+      "item": "Fresh fish curry",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andaman and Nicobar Islands",
+      "stateId": "andaman-and-nicobar-islands",
+      "category": "foods",
+      "item": "Coconut-based dishes",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andaman and Nicobar Islands",
+      "stateId": "andaman-and-nicobar-islands",
+      "category": "stateAnimal",
+      "item": "Dugong",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Andaman and Nicobar Islands",
+      "stateId": "andaman-and-nicobar-islands",
+      "category": "notableWildlife",
+      "item": "Coral reefs and sea turtles",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andaman and Nicobar Islands",
+      "stateId": "andaman-and-nicobar-islands",
+      "category": "notableWildlife",
+      "item": "Dugong",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andaman and Nicobar Islands",
+      "stateId": "andaman-and-nicobar-islands",
+      "category": "notableWildlife",
+      "item": "Saltwater crocodile",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andaman and Nicobar Islands",
+      "stateId": "andaman-and-nicobar-islands",
+      "category": "famousThings",
+      "item": "Cellular Jail",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.andamantourism.gov.in/faq.php",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Andaman and Nicobar Islands",
+      "stateId": "andaman-and-nicobar-islands",
+      "category": "famousThings",
+      "item": "Radhanagar Beach",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Andaman and Nicobar Islands",
+      "stateId": "andaman-and-nicobar-islands",
+      "category": "famousThings",
+      "item": "Great Nicobar Biosphere Reserve",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chandigarh",
+      "stateId": "chandigarh",
+      "category": "folkArts",
+      "item": "Bhangra and Giddha",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Chandigarh",
+      "stateId": "chandigarh",
+      "category": "folkArts",
+      "item": "Bhangra",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chandigarh",
+      "stateId": "chandigarh",
+      "category": "folkArts",
+      "item": "Giddha",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chandigarh",
+      "stateId": "chandigarh",
+      "category": "festivals",
+      "item": "Baisakhi in Chandigarh",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Chandigarh",
+      "stateId": "chandigarh",
+      "category": "festivals",
+      "item": "Rose Festival",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chandigarh",
+      "stateId": "chandigarh",
+      "category": "festivals",
+      "item": "Baisakhi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chandigarh",
+      "stateId": "chandigarh",
+      "category": "foods",
+      "item": "Chole-bhature",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Chandigarh",
+      "stateId": "chandigarh",
+      "category": "foods",
+      "item": "Lassi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chandigarh",
+      "stateId": "chandigarh",
+      "category": "stateAnimal",
+      "item": "Nilgai",
+      "result": "state-animal-candidate-review-only",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chandigarh",
+      "stateId": "chandigarh",
+      "category": "notableWildlife",
+      "item": "Sukhna Lake birdlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chandigarh",
+      "stateId": "chandigarh",
+      "category": "notableWildlife",
+      "item": "Migratory birds (Sukhna Lake)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chandigarh",
+      "stateId": "chandigarh",
+      "category": "famousThings",
+      "item": "Rock Garden of Chandigarh",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://chandigarhtourism.gov.in/page/about-chandigarh",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Chandigarh",
+      "stateId": "chandigarh",
+      "category": "famousThings",
+      "item": "Capitol Complex",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chandigarh",
+      "stateId": "chandigarh",
+      "category": "famousThings",
+      "item": "Rock Garden",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Chandigarh",
+      "stateId": "chandigarh",
+      "category": "famousThings",
+      "item": "Sukhna Lake",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Dadra and Nagar Haveli and Daman and Diu",
+      "stateId": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "category": "folkArts",
+      "item": "Tarpa dance",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Dadra and Nagar Haveli and Daman and Diu",
+      "stateId": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "category": "festivals",
+      "item": "Nariyal Poornima",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Dadra and Nagar Haveli and Daman and Diu",
+      "stateId": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "category": "festivals",
+      "item": "Diwali",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Dadra and Nagar Haveli and Daman and Diu",
+      "stateId": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "category": "festivals",
+      "item": "Navratri",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Dadra and Nagar Haveli and Daman and Diu",
+      "stateId": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "category": "foods",
+      "item": "Ubadiyu",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Dadra and Nagar Haveli and Daman and Diu",
+      "stateId": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "category": "foods",
+      "item": "Seafood",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Dadra and Nagar Haveli and Daman and Diu",
+      "stateId": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "category": "foods",
+      "item": "Gujarati snacks",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Dadra and Nagar Haveli and Daman and Diu",
+      "stateId": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "category": "stateAnimal",
+      "item": "Leopard",
+      "result": "animal-conflict-kept-for-review",
+      "sourceUrl": "",
+      "note": "Existing M10 value retained: Four-horned antelope (chowsingha), listed for Dadra and Nagar Haveli"
+    },
+    {
+      "stateOrUT": "Dadra and Nagar Haveli and Daman and Diu",
+      "stateId": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "category": "stateAnimal",
+      "item": "Four-horned antelope (chowsingha), listed for Dadra and Nagar Haveli",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Dadra and Nagar Haveli and Daman and Diu",
+      "stateId": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "category": "notableWildlife",
+      "item": "Vasona Lion Safari and local wildlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Dadra and Nagar Haveli and Daman and Diu",
+      "stateId": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "category": "notableWildlife",
+      "item": "Migratory birds (Diu)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Dadra and Nagar Haveli and Daman and Diu",
+      "stateId": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "category": "famousThings",
+      "item": "Diu Fort",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Dadra and Nagar Haveli and Daman and Diu",
+      "stateId": "dadra-and-nagar-haveli-and-daman-and-diu",
+      "category": "famousThings",
+      "item": "Nagoa Beach",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "classicalDance",
+      "item": "Kathak — Delhi gharana",
+      "result": "regional-classical-added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "folkArts",
+      "item": "Ramlila performance tradition",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "festivals",
+      "item": "Phool Walon Ki Sair",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://delhitourism.gov.in/dt/unexplored_delhi/jahaz_mahal.html",
+      "sourceLabel": "Delhi Tourism — Jahaz Mahal / Phool Walon Ki Sair"
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "festivals",
+      "item": "Diwali",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "festivals",
+      "item": "Republic Day Parade",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "foods",
+      "item": "Delhi chaat and parathas",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "foods",
+      "item": "Chole bhature",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "foods",
+      "item": "Chaat",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "foods",
+      "item": "Parathas",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "stateAnimal",
+      "item": "Nilgai",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://forest.delhi.gov.in/sites/default/files/generic_multiple_files/delhi_s_forest_at_a_glance.pdf",
+      "sourceLabel": "Delhi Forest Department — Nilgai is the NCT state animal"
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "notableWildlife",
+      "item": "Asola Bhatti Wildlife Sanctuary",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "notableWildlife",
+      "item": "Peacock",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "notableWildlife",
+      "item": "Rose-ringed parakeet",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "famousThings",
+      "item": "Mitti Kalakaar (Delhi/NCR)",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "famousThings",
+      "item": "Red Fort",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "famousThings",
+      "item": "India Gate",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "famousThings",
+      "item": "Qutub Minar",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "famousThings",
+      "item": "Red Fort Complex (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "famousThings",
+      "item": "Qutb Minar (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Delhi",
+      "stateId": "delhi",
+      "category": "famousThings",
+      "item": "Humayun's Tomb (UNESCO)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "folkArts",
+      "item": "Bacha Nagma",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "folkArts",
+      "item": "Rouf dance",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://www.jktdc.co.in/info.aspx?id=101",
+      "sourceLabel": "Jammu & Kashmir Tourism Development Corporation — Folk dances"
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "folkArts",
+      "item": "Rouff",
+      "result": "duplicate-in-new-data",
+      "sourceUrl": "https://www.jktdc.co.in/info.aspx?id=101"
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "folkArts",
+      "item": "Dumhal",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "festivals",
+      "item": "Kashmir Tulip Festival",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://ncert.nic.in/textbook/pdf/ceev103.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "festivals",
+      "item": "Navroz celebrations",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "festivals",
+      "item": "Tulip Festival",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "festivals",
+      "item": "Baisakhi",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "foods",
+      "item": "Haakh with rice",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://ncert.nic.in/textbook/pdf/ceev103.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "foods",
+      "item": "Rogan Josh",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "foods",
+      "item": "Kahwa",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "stateAnimal",
+      "item": "Hangul (Kashmir stag)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "notableWildlife",
+      "item": "Dachigam National Park wildlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "notableWildlife",
+      "item": "Hangul (Kashmir stag)",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "notableWildlife",
+      "item": "Himalayan black bear",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "famousThings",
+      "item": "Wular Lake",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://ncert.nic.in/textbook/pdf/eeev101.pdf",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "famousThings",
+      "item": "Dal Lake",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "famousThings",
+      "item": "Gulmarg",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "famousThings",
+      "item": "Shalimar Bagh",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jammu and Kashmir",
+      "stateId": "jammu-and-kashmir",
+      "category": "famousThings",
+      "item": "Hokera Wetland (Ramsar site)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "folkArts",
+      "item": "Cham masked dance",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "folkArts",
+      "item": "Cham (mask dance)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "folkArts",
+      "item": "Jabro",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "festivals",
+      "item": "Losar Festival",
+      "result": "verified-added-from-json",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "note": "Claim-specific URL retained from user JSON; not rechecked in this pass."
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "festivals",
+      "item": "Hemis Festival",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "festivals",
+      "item": "Losar",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "festivals",
+      "item": "Buddhist chanting of Ladakh (UNESCO list, 2012)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "foods",
+      "item": "Skyu",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "foods",
+      "item": "Thukpa",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "foods",
+      "item": "Butter tea",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "stateAnimal",
+      "item": "Snow leopard",
+      "result": "verified-added-from-online",
+      "sourceUrl": "https://ladakh.gov.in/international-snow-leopard-day-2025/",
+      "sourceLabel": "UT Ladakh — Snow Leopard state animal"
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "notableWildlife",
+      "item": "Hemis National Park wildlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "notableWildlife",
+      "item": "Snow leopard",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "notableWildlife",
+      "item": "Tibetan wild ass (kiang)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "famousThings",
+      "item": "Pangong Tso",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "famousThings",
+      "item": "Pangong Lake",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "famousThings",
+      "item": "Hemis Monastery",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "famousThings",
+      "item": "Leh Palace",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Ladakh",
+      "stateId": "ladakh",
+      "category": "famousThings",
+      "item": "Tsomoriri Wetland (Ramsar site)",
+      "result": "already-in-M10-verified",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Lakshadweep",
+      "stateId": "lakshadweep",
+      "category": "folkArts",
+      "item": "Lava dance of Minicoy",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Lakshadweep",
+      "stateId": "lakshadweep",
+      "category": "folkArts",
+      "item": "Lava",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Lakshadweep",
+      "stateId": "lakshadweep",
+      "category": "folkArts",
+      "item": "Kolkali",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Lakshadweep",
+      "stateId": "lakshadweep",
+      "category": "festivals",
+      "item": "Eid celebrations in island communities",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Lakshadweep",
+      "stateId": "lakshadweep",
+      "category": "festivals",
+      "item": "Eid-ul-Fitr",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Lakshadweep",
+      "stateId": "lakshadweep",
+      "category": "foods",
+      "item": "Tuna and coconut-based dishes",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Lakshadweep",
+      "stateId": "lakshadweep",
+      "category": "foods",
+      "item": "Tuna dishes",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Lakshadweep",
+      "stateId": "lakshadweep",
+      "category": "foods",
+      "item": "Coconut sweets",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Lakshadweep",
+      "stateId": "lakshadweep",
+      "category": "stateAnimal",
+      "item": "Green sea turtle",
+      "result": "animal-conflict-kept-for-review",
+      "sourceUrl": "",
+      "note": "Existing M10 value retained: Butterfly fish"
+    },
+    {
+      "stateOrUT": "Lakshadweep",
+      "stateId": "lakshadweep",
+      "category": "stateAnimal",
+      "item": "Butterfly fish",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Lakshadweep",
+      "stateId": "lakshadweep",
+      "category": "notableWildlife",
+      "item": "Coral reef and lagoon wildlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Lakshadweep",
+      "stateId": "lakshadweep",
+      "category": "notableWildlife",
+      "item": "Green turtle",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Lakshadweep",
+      "stateId": "lakshadweep",
+      "category": "notableWildlife",
+      "item": "Coral reef fish",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Lakshadweep",
+      "stateId": "lakshadweep",
+      "category": "famousThings",
+      "item": "Coral atolls and lagoons",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Lakshadweep",
+      "stateId": "lakshadweep",
+      "category": "famousThings",
+      "item": "Coral lagoons",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Lakshadweep",
+      "stateId": "lakshadweep",
+      "category": "famousThings",
+      "item": "Agatti Island",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Puducherry",
+      "stateId": "puducherry",
+      "category": "classicalDance",
+      "item": "Bharatanatyam — Tamil regional tradition",
+      "result": "regional-classical-added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Puducherry",
+      "stateId": "puducherry",
+      "category": "folkArts",
+      "item": "Garadi dance",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Puducherry",
+      "stateId": "puducherry",
+      "category": "festivals",
+      "item": "Masi Magam",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Puducherry",
+      "stateId": "puducherry",
+      "category": "festivals",
+      "item": "Bastille Day (14 July)",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Puducherry",
+      "stateId": "puducherry",
+      "category": "foods",
+      "item": "Tamil-French coastal cuisine",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Puducherry",
+      "stateId": "puducherry",
+      "category": "foods",
+      "item": "Fresh seafood",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Puducherry",
+      "stateId": "puducherry",
+      "category": "foods",
+      "item": "French-style bakery items",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Puducherry",
+      "stateId": "puducherry",
+      "category": "stateAnimal",
+      "item": "Indian palm squirrel",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Puducherry",
+      "stateId": "puducherry",
+      "category": "stateAnimal",
+      "item": "Three-striped palm squirrel",
+      "result": "already-in-M10-verified",
+      "sourceUrl": "",
+      "note": "Existing M10 state-animal fact left unchanged."
+    },
+    {
+      "stateOrUT": "Puducherry",
+      "stateId": "puducherry",
+      "category": "notableWildlife",
+      "item": "Ousteri (Oussudu) Lake birdlife",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Puducherry",
+      "stateId": "puducherry",
+      "category": "notableWildlife",
+      "item": "Indian palm squirrel",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Puducherry",
+      "stateId": "puducherry",
+      "category": "famousThings",
+      "item": "French Quarter of Puducherry",
+      "result": "added-to-review",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Puducherry",
+      "stateId": "puducherry",
+      "category": "famousThings",
+      "item": "Auroville",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Puducherry",
+      "stateId": "puducherry",
+      "category": "famousThings",
+      "item": "Promenade Beach",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Puducherry",
+      "stateId": "puducherry",
+      "category": "famousThings",
+      "item": "French Quarter",
+      "result": "already-review-or-duplicate",
+      "sourceUrl": ""
+    },
+    {
+      "stateOrUT": "Jharkhand",
+      "stateId": "jharkhand",
+      "category": "folkArts",
+      "item": "Jhumar",
+      "result": "existing-M10-review-promoted-to-verified",
+      "sourceUrl": "https://tourism.jharkhand.gov.in/historic-jharkhand",
+      "sourceLabel": "Jharkhand Tourism — Folk Dance",
+      "note": "M10 Review entry has an official source from this pass; it is moved into the verified category."
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "folkArts",
+      "item": "Thiruvathira",
+      "result": "existing-M10-review-promoted-to-verified",
+      "sourceUrl": "https://www.keralatourism.org/faq/ceremonial-dances-of-kerala",
+      "sourceLabel": "Kerala Tourism — Ceremonial dances",
+      "note": "M10 Review entry has an official source from this pass; it is moved into the verified category."
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "folkArts",
+      "item": "Wangala",
+      "result": "existing-M10-review-promoted-to-verified",
+      "sourceUrl": "https://www.meghalayatourism.in/explore/about-meghalaya/dance-music/wangala-dance/",
+      "sourceLabel": "Meghalaya Tourism — Wangala dance",
+      "note": "M10 Review entry has an official source from this pass; it is moved into the verified category."
+    },
+    {
+      "stateOrUT": "Meghalaya",
+      "stateId": "meghalaya",
+      "category": "folkArts",
+      "item": "Nongkrem dance",
+      "result": "existing-M10-review-promoted-to-verified",
+      "sourceUrl": "https://www.meghalayatourism.in/explore/about-meghalaya/dance-music/shad-nongkrem/",
+      "sourceLabel": "Meghalaya Tourism — Shad Nongkrem",
+      "note": "M10 Review entry has an official source from this pass; it is moved into the verified category."
+    },
+    {
+      "stateOrUT": "Nagaland",
+      "stateId": "nagaland",
+      "category": "festivals",
+      "item": "Sekrenyi",
+      "result": "existing-M10-review-promoted-to-verified",
+      "sourceUrl": "https://tourism.nagaland.gov.in/sekrenyi-2/",
+      "sourceLabel": "Tourism Nagaland — Sekrenyi",
+      "note": "M10 Review entry has an official source from this pass; it is moved into the verified category."
+    },
+    {
+      "stateOrUT": "Kerala",
+      "stateId": "kerala",
+      "category": "foods",
+      "item": "Appam",
+      "result": "existing-M10-review-promoted-to-verified",
+      "sourceUrl": "https://www.ncert.nic.in/pdf/publication/otherpublications/Unity_cultural.pdf",
+      "sourceLabel": "NCERT — India: Unity in Cultural Diversity",
+      "note": "M10 Review entry has an official source from this pass; it is moved into the verified category."
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "folkArts",
+      "item": "Gotipua",
+      "result": "existing-M10-review-promoted-to-verified",
+      "sourceUrl": "https://apps.odishatourism.gov.in/folk-dance",
+      "sourceLabel": "Odisha Tourism — Folk Dance",
+      "note": "M10 Review entry has an official source from this pass; it is moved into the verified category."
+    },
+    {
+      "stateOrUT": "Odisha",
+      "stateId": "odisha",
+      "category": "festivals",
+      "item": "Rath Yatra (Puri)",
+      "result": "existing-M10-review-promoted-to-verified",
+      "sourceUrl": "https://apps.odishatourism.gov.in/cultural-heritage",
+      "sourceLabel": "Odisha Tourism — Cultural Heritage",
+      "note": "M10 Review entry has an official source from this pass; it is moved into the verified category."
+    },
+    {
+      "stateOrUT": "Uttarakhand",
+      "stateId": "uttarakhand",
+      "category": "folkArts",
+      "item": "Chholiya dance",
+      "result": "existing-M10-review-promoted-to-verified",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "sourceLabel": "Sangeet Natak Akademi — Intangible Cultural Heritage catalogue",
+      "note": "M10 Review entry has an official source from this pass; it is moved into the verified category."
+    },
+    {
+      "stateOrUT": "West Bengal",
+      "stateId": "west-bengal",
+      "category": "folkArts",
+      "item": "Baul",
+      "result": "existing-M10-review-promoted-to-verified",
+      "sourceUrl": "https://www.sangeetnatak.gov.in/sections/ICH",
+      "sourceLabel": "Sangeet Natak Akademi — Intangible Cultural Heritage catalogue",
+      "note": "M10 Review entry has an official source from this pass; it is moved into the verified category."
+    }
+  ],
+  "notes": [
+    "The original contents/verified facts in M10 cards.js were retained verbatim before the appended M10.2 extension block.",
+    "Source-URL facts from the supplied JSON were not rechecked during this pass, by request. Their original URL/label is retained.",
+    "Items without a claim-specific URL were either tied to an official source URL shown in sourcesUsed or retained as Review.",
+    "All source-less or conflicting State Animal candidates are kept out of the scored animal quiz. The existing M10 animal is not overwritten.",
+    "The original separated files remain in use: js/data/cards.js for verified claims; js/data/cards-dk.js for Review-only claims.",
+    "This source audit is documentation only; it is not loaded as a runtime data bank."
+  ]
+}

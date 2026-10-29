@@ -40,12 +40,12 @@ function stateView(id){
 }
 function route(){
   const [,a,b]=(location.hash||'#/home').split('/');
+  document.body.classList.toggle('fill',a==='mode'&&['explore','learn'].includes(b));
   if(a==='class'){const n=Number(b); if(n>=1&&n<=5){S.grade=n;ls.set('bme.grade',n);} else {location.hash='#/home';return;}}
   if(a==='mode'&&!S.grade){location.hash='#/home';return;}
   app.onclick=app.oninput=app.onchange=app.onsubmit=app.onkeydown=null;
   if(a==='teacher'){app.innerHTML='';TEACHER.render(app,ctx());} else if(a==='thelp'){app.innerHTML=THELP.html();} else if(a==='squiz'){const r=regionById(b);app.innerHTML=`<h2 class="sec">🎯 ${r?esc(name(r)):''}</h2><div id="sqv"></div>`;STATEQUIZ.render(document.getElementById('sqv'),ctx(),b);}
   else if(a==='class') modes(); else if(a==='mode') mode(b); else if(a==='discover') discover(b); else if(a==='state') stateView(b); else home();
-  document.body.classList.toggle('fill',a==='mode'&&['explore','learn'].includes(b));
   chrome(a||'home'); app.focus({preventScroll:true}); window.scrollTo(0,0);
 }
 function chrome(a){

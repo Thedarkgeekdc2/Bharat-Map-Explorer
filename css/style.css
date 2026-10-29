@@ -205,3 +205,28 @@ img,svg,table{max-width:100%}.tcard,.card,.lcard{min-width:0}.opt,.game,.act,.tb
 }
 
 .tsum b{color:var(--blue)}
+
+
+/* ---- M10.3: dedicated Classical Dance cards and 22 scheduled-language cards ---- */
+.classical-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;align-items:stretch}
+.classical-card{position:relative;display:flex;flex-direction:column;overflow:hidden;min-width:0;background:#fff;border:2px solid var(--line);border-radius:22px;color:var(--ink);text-decoration:none;box-shadow:0 5px 0 #14213d12;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+.classical-card:hover{transform:translateY(-3px);box-shadow:0 9px 18px #14213d14;border-color:var(--dance-accent,var(--plum))}
+.dance-c0{--dance-accent:#7a3b8f;--dance-tint:#f1e8f7}.dance-c1{--dance-accent:#1b3a8c;--dance-tint:#eaf2ff}.dance-c2{--dance-accent:#138a4e;--dance-tint:#e5f6eb}.dance-c3{--dance-accent:#c46a0c;--dance-tint:#fff0dc}
+.dance-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px;background:linear-gradient(120deg,var(--dance-tint),#fff)}
+.dance-emoji{display:grid;place-items:center;width:54px;height:54px;border-radius:16px;background:#fff;font-size:33px;box-shadow:0 2px 9px #14213d12}
+.dance-count{font-size:13px;font-weight:900;letter-spacing:.08em;color:var(--dance-accent);border:1px solid var(--line);border-radius:99px;padding:5px 10px;background:#fff}
+.dance-card-body{display:flex;flex:1;flex-direction:column;align-items:flex-start;padding:13px 18px 18px}
+.dance-kicker{font-size:11px;letter-spacing:.13em;font-weight:900;color:var(--dance-accent);text-transform:uppercase}
+.dance-name{font-size:clamp(25px,3vw,31px);font-weight:900;line-height:1.15;color:var(--blue);margin:5px 0 10px}
+.dance-state{font-size:clamp(18px,2.1vw,21px);font-weight:900;color:var(--dance-accent);margin-bottom:8px}
+.dance-detail{margin:0 0 14px;font-size:16px;line-height:1.5;color:#44506b}
+.dance-explore{display:inline-block;margin-top:auto;color:var(--dance-accent);font-weight:900;font-size:15px;border-top:1px solid var(--line);padding-top:10px;width:100%}
+.official-language-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px}
+.official-language-card{display:flex;align-items:center;gap:12px;min-width:0;background:#fff;border:2px solid var(--line);border-radius:16px;padding:12px 14px;box-shadow:0 3px 0 #14213d08}
+.language-letter{display:grid;place-items:center;flex:none;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,#eaf2ff,#f1e8f7);color:var(--blue);font-size:23px;font-weight:900}
+.language-names{display:flex;flex:1;flex-direction:column;min-width:0;gap:2px}.language-names b{font-size:18px;font-weight:900;overflow-wrap:anywhere}.language-names small{font-size:14px;color:#5a6785}
+.language-number{font-size:12px;font-weight:900;color:#7a3b8f;background:#f1e8f7;border-radius:99px;padding:4px 7px;align-self:flex-start}
+.dance-intro{border-left:5px solid var(--plum)}
+@media(max-width:560px){.classical-grid{grid-template-columns:1fr;gap:12px}.dance-name{font-size:27px}.dance-state{font-size:19px}.dance-card-body{padding:12px 16px 16px}.official-language-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr))}.official-language-card{padding:10px;gap:8px}.language-letter{width:38px;height:38px;font-size:20px;border-radius:11px}.language-names b{font-size:16px}.language-names small{font-size:12px}}
+
+.lang-source{margin:12px 2px}.lang-source a{font-weight:800;color:var(--blue)}

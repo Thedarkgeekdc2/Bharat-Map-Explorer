@@ -37,7 +37,7 @@ MODE_VIEWS.learn=function(el,c){
     ui.innerHTML=`<div class="learn lv${g<=2?'12':g}"><p class="small">${t('acts')[g]}</p><div class="tabs">${chips}</div>
     <div class="lcard">${card}</div><div class="nav"><button data-a="prev">← ${t('prev')}</button><span>${S.i+1} / ${d.length}</span><button data-a="next">${t('next')} →</button></div></div>`;fitUI();
   }
-  const fitUI=()=>{ui.style.zoom='';if(!(document.body.classList.contains('fill')&&matchMedia('(min-width:1200px) and (min-height:640px)').matches))return;let lo=1,hi=Math.max(1,Math.min(2.6,innerWidth/1700));const ok=z=>{ui.style.zoom=z;return ui.scrollHeight<=ui.clientHeight+2;};if(ok(hi))return;for(let i=0;i<7;i++){const mid=(lo+hi)/2;if(ok(mid))lo=mid;else hi=mid;}ui.style.zoom=lo;};
+  const fitUI=()=>{ui.style.zoom='';if(!(document.body.classList.contains('fill')&&matchMedia('(min-width:1200px) and (min-height:640px)').matches))return;let lo=0.78,hi=Math.max(1,Math.min(2.6,innerWidth/1700));const ok=z=>{ui.style.zoom=z;return ui.scrollHeight<=ui.clientHeight+2;};if(ok(hi))return;for(let i=0;i<7;i++){const mid=(lo+hi)/2;if(ok(mid))lo=mid;else hi=mid;}ui.style.zoom=lo;};
   addEventListener('resize',()=>{if(ui.isConnected)fitUI();});
   const mapMark=()=>{try{if(BMap.info())BMap.mark(deck()[S.i].id,'selected');}catch(e){}};
   ui.onclick=e=>{const b=e.target.closest&&e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,n=deck().length;

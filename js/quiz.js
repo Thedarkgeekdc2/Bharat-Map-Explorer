@@ -8,7 +8,7 @@ MODE_VIEWS.quiz=function(el,c){
   BMap.load().then(()=>{mapOk=true;}).catch(()=>{});
   function pool(){const items=[];REGIONS.forEach(r=>{const D=CONTENT[r.id],K=useDK?(D.dk||{}):{};
     const add=(cat,a)=>(a||[]).forEach(x=>items.push({cat,r,text:x.en,hi:x.hi,key:itemKey(x.en)}));
-    add('dance',D.classical);add('festival',[...D.festivals,...(K.festivals||[])]);add('food',[...(D.foods||[]),...(K.foods||[])]);
+    add('dance',[...D.classical,...(K.classical||[])]);add('festival',[...D.festivals,...(K.festivals||[])]);add('food',[...(D.foods||[]),...(K.foods||[])]);
     add('place',[...D.famous,...(K.famous||[])]);add('animal',D.animal?[D.animal]:[]);});
     const n={};items.forEach(i=>n[i.key]=(n[i.key]||0)+1);return items.filter(i=>n[i.key]===1&&!/shared|maratha/i.test(i.text));}
   const stateOpts=(r)=>shuf([r,...pick(REGIONS.filter(x=>x.id!==r.id),NOPT-1)]).map(x=>({k:x.id,l:name(x)}));

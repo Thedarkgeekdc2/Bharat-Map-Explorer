@@ -1,4 +1,22 @@
+## M10.3 — Classical Dance and Language UI (2026-10-29)
+
+- Home/Discover Classical Dance now uses a dedicated eight-form list, with larger bold dance names, associated state names, concise descriptions, and responsive styled cards. Folk/traditional dance entries stay separate from the Classical Dance tab.
+- Home theme label changed to “Official language” / “आधिकारिक भाषा”; this view lists only the 22 languages in the Eighth Schedule, with a note distinguishing Scheduled Languages from state-by-state official languages.
+- State details now display a single “Language” section and no longer display the separate official-language section. The underlying spoken-language data remains in `js/data/languages.js`.
+- Added `js/data/classical-dances.js` and `js/data/official-languages.js` as separate maintainable data files.
+- Added `tools/test_m103_ui.js`; run `node tools/test_m103_ui.js` from the project directory to check counts, language separation, and classical-dance cards data.
+
 # Changelog
+## M10.1 — UT name-alias and offline cache hotfix
+- Fixed the map error where the official boundary layer did not provide the combined Dadra and Nagar Haveli and Daman and Diu name. The renderer now accepts the two former-area names separately and combines both geometries under the current UT.
+- Added `js/map/india-data.js` as an optional bundled-data hook, loaded before the renderer. It is a small placeholder in this ZIP, not actual boundary geometry.
+- Added `tools/build_offline_map.py` to bundle an actual downloaded official GeoJSON as `js/map/india-data.js` for first-run offline use.
+- Bumped app asset query versions and service-worker cache to `bme-m10-1` so existing deployments fetch the patched loader.
+- The live service response was not available in the build environment; regression test uses both historical area names and checks all 36 rendered groups.
+
+## M9e (cache bme-m9g)
+- Panel text can shrink a little more on 1366x768 (13 px) so almost every state fits; Learn card resizes itself from the very first open (was only after a tap); phone/panel fix for the full-screen mode switch.
+
 ## M9d — final panel layout + Official language
 - **Layout for Interactive Panels and laptops (1920x1080) and the 4K Ultra HD panel (3840x2160):** slimmer header and heading, map moved left, details box about two thirds of the screen. In Explore the text size adjusts itself to the largest size that fits the box (about 18–36 px on 1920x1080, 54–72 px on 4K), so no scrolling for the states tested. Learn resizes its card the same way. The long sources line is hidden on panels (the footer already says it).
 - **Official language** section in every state's details (and 6 Union Territories) next to **Languages**. Both appear in a new **Discover → Languages** tab (and in All search), plus a Languages button on Home. Facts from the Constitution (Articles 343 and 345, Eighth Schedule: 22 languages) are shown at the top. State-wise lists carry a Review button because no single official table was found.
@@ -63,3 +81,20 @@
 ## Notes
 - No server, database, external API, analytics or student names.
 - The project data bank lives in `js/data/*.js` (there is no separate JSON file); it was not modified.
+
+
+## M10 — Official state map / offline caching
+- Replaced the default old MapSVG-based map fallback with the Survey of India / Esri India state polygon GeoJSON layer.
+- Added local projection from GeoJSON into SVG paths and validation for all 36 States/UTs; Jammu & Kashmir and Ladakh are expected as independent map features.
+- Added service-worker runtime caching for the official GeoJSON query and a best-effort localStorage backup for offline reuse after a successful online load.
+- Updated map source attribution and developer notes.
+- Note: the official GeoJSON is fetched on first use rather than pre-bundled in this ZIP; first successful map load requires internet.
+
+## M10.2 — Category-wise data expansion (29 Oct 2026)
+- Preserved the M10.1 map-loader / UT alias fixes.
+- Kept the original separate verified and Review data files (`js/data/cards.js` and `js/data/cards-dk.js`); no unified source JSON is loaded at runtime.
+- Matched `state-info-bank.json` against the existing M10 items, avoiding duplicate facts.
+- Appended source-linked items from the supplied JSON into their existing category; selected source-less claims were checked against NCERT and official state/UT, tourism, culture and GI sources; unresolved claims remain Review.
+- Added source links to newly added card entries, exposed verified wildlife and review-only regional dance items in Discover/cards, and added source metadata to the Question Details report.
+- Existing state-animal values were not overwritten. Conflicting candidates are display-only Review notes and are excluded from scored State Animal questions.
+- Added `docs/M10_2_DATA_AUDIT.json` and `.md` to document item-level decisions and sources.

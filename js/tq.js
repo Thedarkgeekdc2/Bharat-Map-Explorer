@@ -20,14 +20,14 @@ const lab=s=>s.replace(/\s*\(.*?\)\s*/g,' ').trim();
 const cap=r=>CAPITALS[r.id].en;
 /* ---------- candidate bases (one per fact) ---------- */
 function items(useDK){const it=[];REGIONS.forEach(r=>{const D=CONTENT[r.id],K=useDK?(D.dk||{}):{};
-  const add=(cat,a)=>(a||[]).forEach(x=>it.push({cat,r,text:x.en,hi:x.hi,key:itemKey(x.en)}));
-  add('dance',D.classical);add('folk',D.traditions);add('folk',K.folk);add('festival',D.festivals);add('festival',K.festivals);add('food',D.foods);add('food',K.foods);
-  add('animal',D.animal?[D.animal]:[]);add('wildlife',K.wildlife);add('places',D.famous);add('places',K.famous);});
+  const add=(cat,a)=>(a||[]).forEach(x=>it.push({cat,r,text:x.en,hi:x.hi,key:itemKey(x.en),sourceUrl:x.sourceUrl||'',sourceLabel:x.sourceLabel||''}));
+  add('dance',D.classical);add('dance',K.classical);add('folk',D.traditions);add('folk',K.folk);add('festival',D.festivals);add('festival',K.festivals);add('food',D.foods);add('food',K.foods);
+  add('animal',D.animal?[D.animal]:[]);add('wildlife',D.wildlife);add('wildlife',K.wildlife);add('places',D.famous);add('places',K.famous);});
   const n={};it.forEach(i=>n[i.key]=(n[i.key]||0)+1);return it.filter(i=>n[i.key]===1&&!/shared|maratha/i.test(i.text));}
 function bases(topic,useDK,grade){
   if(topic==='identity')return REGIONS.map(r=>({base:'identity|'+r.id,topic,r}));
   if(topic==='capital')return REGIONS.filter(r=>!['chandigarh','puducherry'].includes(r.id)).map(r=>({base:'capital|'+r.id,topic,r}));
-  const mw=prof(grade).maxWords;return items(useDK).filter(i=>i.cat===topic&&lab(i.text).split(/\s+/).length<=mw).map(i=>({base:topic+'|'+i.key,topic,r:i.r,label:lab(i.text),hi:i.hi}));}
+  const mw=prof(grade).maxWords;return items(useDK).filter(i=>i.cat===topic&&lab(i.text).split(/\s+/).length<=mw).map(i=>({base:topic+'|'+i.key,topic,r:i.r,label:lab(i.text),hi:i.hi,sourceUrl:i.sourceUrl,sourceLabel:i.sourceLabel}));}
 const capacity=(topics,useDK,grade)=>Object.fromEntries(topics.map(t=>[t,bases(t,useDK,grade).length]));
 /* ---------- question construction ---------- */
 const PH={dance:l=>`${l} is a classical dance of`,festival:l=>`the festival ${l} is known in`,food:l=>`${l} is famous in`,animal:l=>`the ${l} is the Official State Animal of`,wildlife:l=>`${l} is notable wildlife of`,folk:l=>`the tradition ${l} belongs to`,places:l=>`${l} is in`};
@@ -73,7 +73,7 @@ function generate(s,o){o=o||{};const sp=(o.grade||0)<=2,N=s.students,reg={},form
   if(!plan){const p=makePlan({topics:s.topics,includeDK:s.includeDK,grade:o.grade,mcq:mix.mcq,tf:mix.tf});if(p.shortfall>0)return{error:`Only ${R-p.shortfall} non-map questions can be made from the selected topics. Reduce the number of questions or add topics.`};plan=p.plan;}
   const ord={};let among=false;
   for(const t of s.topics){const need=plan[t]||{mcq:0,tf:0},n=need.mcq+need.tf;ord[t]=shuf(bases(t,s.includeDK,o.grade));if(n&&ord[t].length<n)return{error:`Not enough data for topic "${tname(t)}" (${ord[t].length} facts, ${n} needed).`};if(n&&ord[t].length<n*N)among=true;}
-  const lg=s.lang||'en',nopt=s.nopt||prof(o.grade).opts,mord=shuf(mt||[]);const getQ=(b,type)=>{const k=b.base+'|'+type;return reg[k]||(reg[k]=make(b,type,{lg,sp,nopt}));};
+  const lg=s.lang||'en',nopt=s.nopt||prof(o.grade).opts,mord=shuf(mt||[]);const getQ=(b,type)=>{const k=b.base+'|'+type;if(!reg[k]){reg[k]=make(b,type,{lg,sp,nopt});reg[k].sourceUrl=b.sourceUrl||'';reg[k].sourceLabel=b.sourceLabel||'';}return reg[k];};
   for(let r=1;r<=N;r++){const av=(o.avoid&&o.avoid[r])||new Set(),ids=[],re=[];
     for(const t of s.topics){const need=plan[t]||{mcq:0,tf:0},n=need.mcq+need.tf;if(!n)continue;const L=ord[t],off=((r-1)*n)%L.length,rot=[...L.slice(off),...L.slice(0,off)];
       const pick=[...rot.filter(b=>!av.has(b.base)),...rot.filter(b=>av.has(b.base))].slice(0,n);
@@ -144,8 +144,8 @@ const cor=q=>q.type==='map'?(regionById(q.correct)||{en:q.correct}).en:q.correct
 const mix=a=>a.settings.typeMode==='mixed'?'Mixed MCQ + True/False':a.settings.typeMode==='mcq'?'MCQ only':'True/False only';
 const stLab={completed:'Completed',absent:'Absent','in-progress':'Incomplete (in progress)',pending:'Incomplete (not started)'};
 function qdet(a,tag){const rows=[];for(let i=1;i<=a.students;i++){const r=a.records[i],re=(a.reused&&a.reused[i])||[];formQs(a,i).forEach(q=>{const s=r.answers[q.id];
-  rows.push([tag,i,q.id,tname(q.topic),q.type==='mcq'?'MCQ':q.type==='tf'?'True/False':'Map',q.type==='map'?'Yes':'No',q.text,q.options.join(' | '),s===undefined?'':sel(a,q,s),cor(q),r.status==='absent'?'Absent':s===undefined?'Unanswered':s===q.correct?'Correct':'Incorrect',re.includes(q.id)?'Yes':'No']);});}return rows;}
-const QH=['Assessment','Roll Number','Question ID','Topic','Type','Map Question','Question','Options','Selected Answer','Correct Answer','Result','Reused Fallback Target'];
+  rows.push([tag,i,q.id,tname(q.topic),q.type==='mcq'?'MCQ':q.type==='tf'?'True/False':'Map',q.type==='map'?'Yes':'No',q.text,q.options.join(' | '),s===undefined?'':sel(a,q,s),cor(q),r.status==='absent'?'Absent':s===undefined?'Unanswered':s===q.correct?'Correct':'Incorrect',re.includes(q.id)?'Yes':'No',q.sourceLabel||'',q.sourceUrl||'']);});}return rows;}
+const QH=['Assessment','Roll Number','Question ID','Topic','Type','Map Question','Question','Options','Selected Answer','Correct Answer','Result','Reused Fallback Target','Source Label','Source URL'];
 function sheets(a,b,an){const isA=a.kind==='after',c=counts(a),th=(an&&an.thresholds)||a.settings.thresholds||CFG.thresholds,S=a.settings,done=[];
   for(let i=1;i<=a.students;i++)if(a.records[i].status==='completed')done.push(i);
   const avg=done.length?Math.round(10*done.reduce((x,i)=>x+score(a,i).acc,0)/done.length)/10:'';
