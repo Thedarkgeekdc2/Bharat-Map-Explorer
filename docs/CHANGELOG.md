@@ -1,4 +1,15 @@
 # Changelog
+## M9d — final panel layout + Official language
+- **Layout for Interactive Panels and laptops (1920x1080) and the 4K Ultra HD panel (3840x2160):** slimmer header and heading, map moved left, details box about two thirds of the screen. In Explore the text size adjusts itself to the largest size that fits the box (about 18–36 px on 1920x1080, 54–72 px on 4K), so no scrolling for the states tested. Learn resizes its card the same way. The long sources line is hidden on panels (the footer already says it).
+- **Official language** section in every state's details (and 6 Union Territories) next to **Languages**. Both appear in a new **Discover → Languages** tab (and in All search), plus a Languages button on Home. Facts from the Constitution (Articles 343 and 345, Eighth Schedule: 22 languages) are shown at the top. State-wise lists carry a Review button because no single official table was found.
+
+## M9c — Languages
+- New **Languages** section in each state's details (28 states, English and Hindi) and language names searchable in Discover → All. Shown with a Review button because the list is not yet matched to an official source. The 8 Union Territories have no list yet.
+
+## M9b — bigger details box for Interactive Panels
+- On big screens (panels, 1200x640 and above) Explore and Learn now use the **whole screen**: no empty space on the right or bottom, map about one third, **details box about two thirds** with balanced columns and larger text. Phones and tablets are unchanged.
+- The state picker stays at the top; only the details list scrolls inside its box when a state has a lot of content.
+
 ## M9 — installable app (PWA)
 - The website can be **installed** on Interactive Panels, phones and laptops, with your poster as the app icon (192, 512, maskable, Apple touch icon, favicons).
 - An **Install pop-up** (English / Hindi) appears when the browser allows installing; "Not now" hides it for the visit; a footer **Install app** button stays available. iPhone/iPad Safari shows the Add to Home Screen steps.

@@ -174,3 +174,34 @@ img,svg,table{max-width:100%}.tcard,.card,.lcard{min-width:0}.opt,.game,.act,.tb
  body.fill .foot{padding-top:8px;padding-bottom:8px}}
 
 .langs{margin:4px 0;line-height:1.7;font-weight:600}
+
+/* ---- FINAL panel layout: slim top, map to the left, big details box (laptop 1920x1080 and 4K panel) ---- */
+@media(min-width:1200px) and (min-height:640px){
+ body.fill .top{padding-top:6px;padding-bottom:6px;border-bottom-width:4px}
+ body.fill .back,body.fill .lang,body.fill .badge{min-height:40px;padding:0 14px}
+ body.fill .chakra{width:24px;height:24px}body.fill .brand{font-size:clamp(18px,1.4vw,26px)}
+ body.fill main{padding:4px .8vw 4px}
+ body.fill main>.sec{font-size:clamp(18px,1.25vw,26px);margin:0 0 4px}
+ body.fill .xsplit{grid-template-columns:minmax(0,.74fr) minmax(0,1.55fr);gap:12px}
+ body.fill .xmap{padding:4px}
+ body.fill .xside{font-size:clamp(17px,1.12vw,28px);padding:12px 18px}
+ body.fill .xside .cats{column-width:13em}
+ body.fill .foot{font-size:11px;padding:3px .8vw;gap:0 16px}
+ body.fill .xside .small.review{display:none}
+ body.fill .xside>.small{display:none}
+ body.fill .pick{display:flex;align-items:center;gap:14px}body.fill .pick select{margin-top:0;min-height:48px;flex:1}
+ body.fill .xside .xt{margin:6px 0 2px}body.fill .xside .kind{margin:0 8px 4px 0}}
+/* 4K Ultra HD panel (3840 x 2160): bigger controls, text and footer */
+@media(min-width:2800px) and (min-height:1500px){
+ body.fill .top{padding-top:12px;padding-bottom:12px;border-bottom-width:6px}
+ body.fill .back,body.fill .lang,body.fill .badge{min-height:72px;padding:0 26px;font-size:30px;border-radius:20px}
+ body.fill .chakra{width:44px;height:44px;border-width:5px}body.fill .brand{font-size:44px}
+ body.fill main>.sec{font-size:44px;margin:4px 0 8px}
+ body.fill .pick{font-size:34px}body.fill .pick select{min-height:80px;font-size:34px;border-radius:18px}
+ body.fill .xside .spk{min-width:52px;min-height:52px;font-size:26px}
+ body.fill .dk.rv{font-size:20px;padding:3px 16px}
+ body.fill .xside .xt{font-size:80px}body.fill .xside .kind{font-size:30px;padding:6px 26px}
+ body.fill .foot{font-size:20px;padding:8px .8vw}
+}
+
+.tsum b{color:var(--blue)}

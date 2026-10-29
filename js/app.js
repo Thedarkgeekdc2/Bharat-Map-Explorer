@@ -9,7 +9,7 @@ const name=r=>S.lang==='hi'?r.hi:r.en;
 const ctx=()=>({lang:S.lang,t,name,esc,grade:S.grade});
 /* Each ready module registers MODE_VIEWS[id]=(el,ctx)=>{...} in its own file. */
 window.MODE_VIEWS=window.MODE_VIEWS||{};
-const THEMES=[['festivals','🎉','tFestivals','green'],['calendar','📅','tCalendar','blue'],['dance','💃','tDance','plum'],['food','🍛','tFood','saffron'],['places','🏛️','tPlaces','blue']];
+const THEMES=[['festivals','🎉','tFestivals','green'],['calendar','📅','tCalendar','blue'],['dance','💃','tDance','plum'],['food','🍛','tFood','saffron'],['places','🏛️','tPlaces','blue'],['languages','🗣️','tLanguages','plum']];
 function home(){
   app.innerHTML=`<section class="hero"><h1>${t('hello')}</h1><p>${t('glance')}</p></section>
   <h2 class="sec">${t('pick')}</h2>

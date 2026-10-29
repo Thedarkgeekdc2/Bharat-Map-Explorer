@@ -9,7 +9,7 @@ Username `KV2KGP`, password `1261` are in `js/tq.js` (`CFG.auth`). This is a con
 - The Home page note explaining this is `homeNote` in `js/i18n.js` (English and Hindi).
 
 ## Panel layout
-`.xsplit` in `css/style.css` puts the map beside the details (Explore, Learn) when the screen is at least 900 px wide and 560 px high; smaller screens stack. The height rule `calc(100vh - 322px)` keeps the whole page inside the screen; change the number if you change the header or footer height.
+`.xsplit` puts the map beside the details (Explore, Learn) on screens at least 900 px wide and 560 px high; smaller screens stack. On **big screens** (1200 px wide, 640 px high or more: interactive panels) `body.fill` (set in `js/app.js` for Explore and Learn) makes the page use the whole screen: full width, map about one third, details box about two thirds with balanced columns and larger text; the state picker stays pinned and only the details list scrolls inside its box when a state has a lot of content. Tune it at the end of `css/style.css` (search "Interactive Panel").
 
 ## Offline map
 The map shapes load from the internet the first time. For a fully offline panel save `js/map/india-data.js` (see `js/map/README.txt`).

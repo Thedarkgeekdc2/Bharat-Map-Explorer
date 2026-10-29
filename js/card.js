@@ -8,7 +8,8 @@ window.renderCard=function(r,c){
   if(!data)return h;
   const k=data.dk||{folk:[],festivals:[],foods:[],wildlife:[],famous:[]};
   const dances=[...data.classical.map(x=>({en:x.en+' ('+t('classicalTag')+')',hi:x.hi?x.hi+' ('+t('classicalTag')+')':undefined})),...data.traditions,...k.folk];
-  const lg=data.langs?`<section class="cat"><h4><span>🗣️</span>${t('languages')}</h4><p class="langs">${esc((lang==='hi'?data.langs.hi:data.langs.en).join(' · '))}${reviewTag({en:'Languages of '+r.en},r.en,lang)}</p></section>`:'';
+  const L2=(ico,title,obj,label)=>obj?`<section class="cat"><h4><span>${ico}</span>${title}</h4><p class="langs">${esc((lang==='hi'?obj.hi:obj.en).join(' · '))}${reviewTag({en:label+' '+r.en},r.en,lang)}</p></section>`:'';
+  const lg=L2('📜',t('offLang'),data.off,'Official language of')+L2('🗣️',t('languages'),data.langs,'Languages of');
   h+=`<div class="cats">`+lg+sec('💃',t('dances'),dances)+sec('🎉',t('festivals'),[...data.festivals,...k.festivals])+
      sec('🍛',t('foods'),[...(data.foods||[]),...k.foods])+sec('🐾',t('stateAnimal'),data.animal?[data.animal]:[])+sec('🦌',t('wildlife'),k.wildlife)+
      sec('🏛️',t('famous'),[...data.famous,...k.famous])+`</div>`;
