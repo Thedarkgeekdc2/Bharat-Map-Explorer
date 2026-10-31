@@ -98,3 +98,10 @@
 - Added source links to newly added card entries, exposed verified wildlife and review-only regional dance items in Discover/cards, and added source metadata to the Question Details report.
 - Existing state-animal values were not overwritten. Conflicting candidates are display-only Review notes and are excluded from scored State Animal questions.
 - Added `docs/M10_2_DATA_AUDIT.json` and `.md` to document item-level decisions and sources.
+
+
+## M10.4 — Privacy, Terms & decorative footer (31 Oct 2026)
+- Added in-app Privacy Policy and Terms & Conditions pages using the supplied `legal.js` content, available from footer links and the app hash routes `#/privacy` and `#/terms`.
+- Added a responsive footer with a tricolour accent, project identity, source attribution, bilingual footer labels, legal navigation cards, developer credit and the existing install-app control.
+- Added English and Hindi footer labels; legal page content includes the supplied English policy and Hindi summary.
+- Updated the service-worker cache to `bme-m10-4` and precached `js/legal.js` for offline use.

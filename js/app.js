@@ -45,7 +45,7 @@ function route(){
   if(a==='mode'&&!S.grade){location.hash='#/home';return;}
   app.onclick=app.oninput=app.onchange=app.onsubmit=app.onkeydown=null;
   if(a==='teacher'){app.innerHTML='';TEACHER.render(app,ctx());} else if(a==='thelp'){app.innerHTML=THELP.html();} else if(a==='squiz'){const r=regionById(b);app.innerHTML=`<h2 class="sec">🎯 ${r?esc(name(r)):''}</h2><div id="sqv"></div>`;STATEQUIZ.render(document.getElementById('sqv'),ctx(),b);}
-  else if(a==='class') modes(); else if(a==='mode') mode(b); else if(a==='discover') discover(b); else if(a==='state') stateView(b); else home();
+  else if(a==='class') modes(); else if(a==='mode') mode(b); else if(a==='discover') discover(b); else if(a==='state') stateView(b); else if(a==='privacy'||a==='terms') app.innerHTML=LEGAL.html(a); else home();
   chrome(a||'home'); app.focus({preventScroll:true}); window.scrollTo(0,0);
 }
 function chrome(a){
@@ -53,12 +53,22 @@ function chrome(a){
   document.getElementById('brandName').textContent=t('brand');
   document.getElementById('langBtn').textContent=t('lang');
   document.getElementById('footNote').textContent=t('foot');
-  const back=document.getElementById('backBtn'); back.hidden=!['class','mode','discover','state','teacher','squiz','thelp'].includes(a); back.setAttribute('aria-label',t('back'));
+  const back=document.getElementById('backBtn'); back.hidden=!['class','mode','discover','state','teacher','squiz','thelp','privacy','terms'].includes(a); back.setAttribute('aria-label',t('back'));
   const g=document.getElementById('gradeBadge'); g.hidden=!(a==='class'||a==='mode'); g.textContent=`${t('cls')} ${S.grade}`;
-  document.title=t('brand')+' | Classes I–V';
+  document.getElementById('footTagline').textContent=t('footTagline');
+  document.getElementById('footProjectLabel').textContent=t('footProjectLabel');
+  document.getElementById('footBoundary').textContent=t('footBoundary');
+  document.getElementById('footPrivacy').textContent=t('footPrivacy');
+  document.getElementById('footPrivacyDesc').textContent=t('footPrivacyDesc');
+  document.getElementById('footTerms').textContent=t('footTerms');
+  document.getElementById('footTermsDesc').textContent=t('footTermsDesc');
+  document.getElementById('footCopyright').textContent=t('footCopyright');
+  document.getElementById('footNav').setAttribute('aria-label',t('footNavLabel'));
+  const pageTitle=a==='privacy'?t('footPrivacy'):a==='terms'?t('footTerms'):'Classes I–V';
+  document.title=t('brand')+' | '+pageTitle;
 }
 document.getElementById('backBtn').onclick=()=>{const a=location.hash.split('/')[1];
-  if(a==='mode')location.hash='#/class/'+S.grade; else if(a==='thelp')location.hash='#/teacher'; else if(a==='teacher')location.hash=S.grade?'#/class/'+S.grade:'#/home'; else if((a==='state'||a==='squiz')&&history.length>1)history.back(); else location.hash='#/home';};
+  if(a==='mode')location.hash='#/class/'+S.grade; else if(a==='privacy'||a==='terms')location.hash='#/home'; else if(a==='thelp')location.hash='#/teacher'; else if(a==='teacher')location.hash=S.grade?'#/class/'+S.grade:'#/home'; else if((a==='state'||a==='squiz')&&history.length>1)history.back(); else location.hash='#/home';};
 document.getElementById('langBtn').onclick=()=>{S.lang=S.lang==='en'?'hi':'en';ls.set('bme.lang',S.lang);route();};
 addEventListener('hashchange',route); route();
 })();

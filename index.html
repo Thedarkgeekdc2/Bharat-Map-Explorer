@@ -13,7 +13,7 @@
 <meta name="apple-mobile-web-app-title" content="Bharat Map">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 <title>Bharat Map Explorer | Classes I–V</title>
-<link rel="stylesheet" href="css/style.css?v=m10.3">
+<link rel="stylesheet" href="css/style.css?v=m10.4">
 </head>
 <body>
 <header class="top">
@@ -23,9 +23,44 @@
   <button class="lang" id="langBtn" aria-label="Language">हिन्दी</button>
 </header>
 <main id="app" tabindex="-1"></main>
-<footer class="foot"><span id="footNote"></span><nav class="legalnav"><a id="fPriv" href="#/privacy">Privacy Policy</a><a id="fTerms" href="#/terms">Terms &amp; Conditions</a><span id="fBeta" class="betatag">Learning &amp; Improving mode</span></nav><span>Map: @svg-maps/india (based on MapSVG), CC BY 4.0. Not an official government map.</span><button class="pwabtn" id="pwaBtn" type="button" hidden></button><a class="credit" href="https://thedarkgeekdc2.github.io" target="_blank" rel="noopener">THEDARKGEEKDC · Mr DK CHAUDHARY</a></footer>
+<footer class="foot" id="siteFooter">
+  <div class="foot-top-accent" aria-hidden="true"></div>
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <div class="foot-brand-icon" aria-hidden="true"><span>✺</span></div>
+      <div class="foot-brand-copy">
+        <strong>Bharat Map Explorer</strong>
+        <span id="footTagline">Discover the colours, culture and stories of India.</span>
+      </div>
+    </div>
+    <div class="foot-info">
+      <span class="foot-label" id="footProjectLabel">A classroom learning project for Classes I–V</span>
+      <p id="footNote"></p>
+      <small id="footBoundary">Map boundary data: Survey of India / Esri India · cached after a successful map load.</small>
+    </div>
+    <nav class="foot-nav" id="footNav" aria-label="Legal information">
+      <a class="foot-link" href="#/privacy">
+        <span class="foot-link-icon" aria-hidden="true">🔐</span>
+        <span class="foot-link-copy"><b id="footPrivacy">Privacy Policy</b><small id="footPrivacyDesc">How information is handled</small></span>
+        <span class="foot-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a class="foot-link" href="#/terms">
+        <span class="foot-link-icon" aria-hidden="true">📜</span>
+        <span class="foot-link-copy"><b id="footTerms">Terms &amp; Conditions</b><small id="footTermsDesc">Rules for using this project</small></span>
+        <span class="foot-arrow" aria-hidden="true">↗</span>
+      </a>
+    </nav>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-credit-wrap">
+      <a class="credit" href="https://thedarkgeekdc2.github.io" target="_blank" rel="noopener">✦ THEDARKGEEKDC · Mr DK CHAUDHARY</a>
+      <small id="footCopyright">© 2026 · An independent educational project.</small>
+    </div>
+    <button class="pwabtn" id="pwaBtn" type="button" hidden></button>
+  </div>
+</footer>
 <script src="js/data/regions.js?v=m10.3"></script>
-<script src="js/i18n.js?v=m10.3"></script>
+<script src="js/i18n.js?v=m10.4"></script>
 <script src="js/data/capitals.js?v=m10.3"></script>
 <script src="js/data/cards.js?v=m10.3"></script>
 <script src="js/data/cards-dk.js?v=m10.3"></script>
@@ -51,7 +86,8 @@
 <script src="js/teacher.js?v=m10.3"></script>
 <script src="js/thelp.js?v=m10.3"></script>
 <script src="js/discover.js?v=m10.3"></script>
-<script src="js/app.js?v=m10.3"></script>
+<script src="js/legal.js?v=m10.4"></script>
+<script src="js/app.js?v=m10.4"></script>
 <script src="js/pwa.js?v=m10.3"></script>
 </body>
 </html>
