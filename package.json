@@ -1,0 +1,16 @@
+{
+  "name": "bharat-map-explorer",
+  "version": "10.5.0-review.1",
+  "private": true,
+  "description": "Static classroom app; npm is required only for development browser tests.",
+  "scripts": {
+    "test": "node tools/test_m103_ui.js && node tools/test_m104_legal.js && node tools/test_review.js",
+    "test:browser": "node tools/test_browser_review.js",
+    "build:sw": "python3 tools/build_sw.py",
+    "serve": "python3 -m http.server 8000 --bind 127.0.0.1"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.64.1"
+  }
+}

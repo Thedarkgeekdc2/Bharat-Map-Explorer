@@ -2,7 +2,12 @@
 
 # 🇮🇳 Bharat Map Explorer
 
+<<<<<<< HEAD
 ### Discover India. Explore States. Learn Through Play.
+=======
+**An interactive India-map learning tool for Classes I–V**  
+**Build:** M10.5-review · reliability, security, performance and accessibility fixes
+>>>>>>> 7d16038 (Final updates)
 
 **An interactive India-map learning experience for Classes I–V**
 

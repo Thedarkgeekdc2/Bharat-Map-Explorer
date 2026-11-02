@@ -10,13 +10,14 @@ MODE_VIEWS.explore=function(el,c){
   const fit=()=>{body.style.fontSize='';if(!panel()||!body.querySelector('.cats'))return;let lo=13,hi=Math.max(lo,Math.min(72,Math.round(innerWidth/46)));
     const ok=px=>{body.style.fontSize=px+'px';return body.scrollHeight<=body.clientHeight+1;};
     if(ok(hi))return;while(hi-lo>1){const m=(lo+hi)>>1;if(ok(m))lo=m;else hi=m;}body.style.fontSize=lo+'px';};
-  addEventListener('resize',()=>{if(cur&&body.querySelector('.cats'))fit();});
+  const resize=()=>{if(cur&&body.isConnected&&body.querySelector('.cats'))fit();};
+  addEventListener('resize',resize);if(c.onCleanup)c.onCleanup(()=>removeEventListener('resize',resize));
   const show=id=>{const r=regionById(id);if(!r)return;cur=id;try{BMap.mark(id,'selected');}catch(e){}sel.value=id;
     const sh=(BMap.info()||{}).shared||{},mk=Object.keys(sh).find(k=>sh[k]===id),mate=sh[id]?regionById(sh[id]):(mk?regionById(mk):null);
     body.innerHTML=`<h3 class="xt">${esc(name(r))} ${spk(name(r))}</h3><p class="kind ${r.type}">${t(r.type)}</p> <span class="alt">${t('alsoCalled')}: <b>${esc(other(r))}</b></span>`+(mate?`<p class="note">${t('sharedNote')}: <b>${esc(name(mate))}</b></p>`:'')+renderCard(r,c);body.scrollTop=0;fit();};
   sel.onchange=()=>show(sel.value);
   el.querySelector('#xside').addEventListener('click',e=>{const q=e.target.closest&&e.target.closest('a.quizbtn');if(q&&cur){e.preventDefault();body.style.fontSize='';STATEQUIZ.render(body,c,cur);return;}
     const b=e.target.closest&&e.target.closest('a[href^="#/state/"]');if(b&&cur){e.preventDefault();show(cur);}});
-  BMap.load().then(()=>{BMap.draw(el.querySelector('#mapArea'),{onTap:show});if(cur)BMap.mark(cur,'selected');})
-   .catch(e=>{console.error(e);el.querySelector('#mapArea').innerHTML=`<p class="fail">${t('mapFail')}<br><small>${esc(e.message||e)}</small></p>`;});
+  BMap.load().then(()=>{if(!el.isConnected)return;BMap.draw(el.querySelector('#mapArea'),{onTap:show});if(cur)BMap.mark(cur,'selected');})
+   .catch(e=>{if(!el.isConnected)return;console.error(e);el.querySelector('#mapArea').innerHTML=`<p class="fail">${t('mapFail')}<br><small>${esc(e.message||e)}</small></p>`;});
 };

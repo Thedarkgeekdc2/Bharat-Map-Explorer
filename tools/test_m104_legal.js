@@ -72,7 +72,7 @@ assert.equal(location.hash, '#/home');
 const html = fs.readFileSync('index.html', 'utf8');
 assert.match(html, /href="#\/privacy"/);
 assert.match(html, /href="#\/terms"/);
-assert.ok(html.indexOf('js/legal.js?v=m10.4') < html.indexOf('js/app.js?v=m10.4'));
+assert.ok(html.indexOf('js/legal.js?v=') < html.indexOf('js/app.js?v='));
 assert.ok(fs.readFileSync('sw.js', 'utf8').includes('"js/legal.js"'));
 
 console.log('M10.4 legal pages, routing, footer language toggle and offline asset checks: PASS');

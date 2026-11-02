@@ -56,7 +56,7 @@ function make(b,type,o){o=o||{};const lg=o.lg||'en',sp=!!o.sp,np=o.nopt||4,r=b.r
   return tf(t,tx(lg,sp?`${b.label} is from ${x2.en}. True or False?`:`True or False: ${PH[b.topic](b.label)} ${x2.en}.`,`सही या गलत: ${lh} का संबंध ${x2.hi} से है।`),ex);}
 /* ---------- map questions (use the real clickable map) ---------- */
 const TINY=['delhi','chandigarh','goa','dadra-and-nagar-haveli-and-daman-and-diu','lakshadweep','puducherry'];
-function mapTargets(grade){const d=window.BMap&&BMap.info&&BMap.info();if(!d)return null;return REGIONS.filter(r=>r.id!=='ladakh'&&d.groups[r.id]&&(grade>=4||!TINY.includes(r.id)));}
+function mapTargets(grade){const d=window.BMap&&BMap.info&&BMap.info();if(!d)return null;return REGIONS.filter(r=>d.groups[r.id]&&(grade>=4||!TINY.includes(r.id)));}
 const mapQ=(r,lg)=>({id:'map|'+r.id+'|map',topic:'map',type:'map',difficulty:'medium',text:tx(lg||'en',`Tap ${r.en} on the map.`,`नक्शे पर ${r.hi} को छुओ।`),options:[],correct:r.id,explanation:`${r.en} on the map.`,base:'map|'+r.id,target:r.id});
 /* ---------- generation: each roll gets its own form with the same topic / type / map mix ---------- */
 function makePlanFor(s,R){const mcq=s.typeMode==='mcq'?R:s.typeMode==='tf'?0:Math.ceil(R/2);return{mcq,tf:R-mcq};}
@@ -95,10 +95,10 @@ function create({kind,school,code,year,cls,section,students,settings,gen,baselin
     baseline:baseline?{assessmentId:baseline.assessmentId,createdAt:baseline.createdAt,data:baseline}:null};}
 const QM=new WeakMap();
 function formQs(a,roll){let m=QM.get(a);if(!m||m.n!==a.questions.length){m={n:a.questions.length,o:Object.fromEntries(a.questions.map(q=>[q.id,q]))};QM.set(a,m);}return(a.forms[roll]||[]).map(id=>m.o[id]).filter(Boolean);}
-function normalize(o){if(o&&!o.forms&&Array.isArray(o.questions)&&o.records){o.forms={};Object.keys(o.records).forEach(r=>{o.forms[r]=o.questions.map(q=>q.id);});o.reused={};o.schema=2;o.settings=o.settings||{};if(o.settings.mapN===undefined)o.settings.mapN=0;if(!o.settings.total)o.settings.total=o.questions.length;}return o;}
+function normalize(o){if(o&&!o.forms&&Array.isArray(o.questions)&&o.questions.every(q=>q&&typeof q.id==='string')&&o.records){o.forms={};Object.keys(o.records).forEach(r=>{o.forms[r]=o.questions.map(q=>q.id);});o.reused={};o.schema=2;o.settings=o.settings||{};if(o.settings.mapN===undefined)o.settings.mapN=0;if(!o.settings.total)o.settings.total=o.questions.length;}return o;}
 const done=r=>r.status==='completed'||r.status==='absent';
-function setAnswer(a,roll,qid,sel){const r=a.records[roll];if(r.status==='completed'||r.status==='absent')return false;if(!r.startedAt){r.startedAt=new Date().toISOString();}r.status='in-progress';r.answers[qid]=sel;return true;}
-function finish(a,roll){const r=a.records[roll];if(r.status==='completed'||r.status==='absent')return false;if(!r.startedAt)r.startedAt=new Date().toISOString();r.status='completed';r.finishedAt=new Date().toISOString();
+function setAnswer(a,roll,qid,sel){const r=a.records[roll];if(!r||r.status==='completed'||r.status==='absent')return false;const q=formQs(a,roll).find(q=>q.id===qid);if(!q||(q.type==='map'?!regionById(sel):!q.options.includes(sel)))return false;if(!r.startedAt){r.startedAt=new Date().toISOString();}r.status='in-progress';r.answers[qid]=sel;return true;}
+function finish(a,roll){const r=a.records[roll];if(!r||r.status==='completed'||r.status==='absent')return false;if(!r.startedAt)r.startedAt=new Date().toISOString();r.status='completed';r.finishedAt=new Date().toISOString();
   if(Object.values(a.records).every(done))a.completedAt=new Date().toISOString();return true;}
 function markAbsent(a,roll){const r=a.records[roll];if(r.status==='completed')return false;r.status='absent';r.answers={};r.finishedAt=new Date().toISOString();if(Object.values(a.records).every(done))a.completedAt=new Date().toISOString();return true;}
 function score(a,roll){const r=a.records[roll],topic={},qs=formQs(a,roll);let c=0,att=0;
@@ -107,14 +107,63 @@ function score(a,roll){const r=a.records[roll],topic={},qs=formQs(a,roll);let c=
   return{attempted:att,correct:c,incorrect:att-c,unanswered:max-att,max,acc:max?Math.round(1000*c/max)/10:0,topic,status:r.status};}
 const counts=a=>{let c=0,i=0,p=0,ab=0;Object.values(a.records).forEach(r=>{if(r.status==='completed')c++;else if(r.status==='absent')ab++;else if(r.status==='in-progress')i++;else p++;});return{completed:c,absent:ab,inProgress:i,pending:p,total:a.students,incomplete:i+p};};
 /* ---------- validation / compatibility ---------- */
-function validate(o,kind){const e=[];if(!o||typeof o!=='object')return['The file is not a valid JSON object.'];
-  if(o.app!=='BharatMapExplorer')e.push('This file was not created by Bharat Map Explorer.');
-  if(kind&&o.kind!==kind)e.push(`Expected a ${kind.toUpperCase()} file but this is "${o.kind}".`);
-  ['school','academicYear','class','section','students','settings','questions','records'].forEach(k=>{if(o[k]===undefined)e.push('Missing field: '+k);});
-  if(!e.length){normalize(o);if(!Array.isArray(o.questions)||!o.questions.length)e.push('The file has no questions.');
-    if(!o.records||Object.keys(o.records).length!==o.students)e.push('The number of student records does not match the student count.');
-    if(!o.settings||!Array.isArray(o.settings.topics)||!o.settings.plan)e.push('The assessment settings are incomplete.');}
-  return e;}
+function validate(o,kind,depth){
+  const e=[],obj=x=>!!x&&typeof x==='object'&&!Array.isArray(x),str=(x,max=500)=>typeof x==='string'&&x.length<=max;
+  const own=(x,k)=>Object.prototype.hasOwnProperty.call(x,k);
+  const integer=(x,min,max)=>Number.isInteger(x)&&x>=min&&x<=max;
+  const fail=m=>{if(!e.includes(m))e.push(m);};
+  if(!obj(o))return['The file is not a valid JSON object.'];
+  if(o.app!=='BharatMapExplorer')fail('This file was not created by Bharat Map Explorer.');
+  if(!['before','after'].includes(o.kind)||kind&&o.kind!==kind)fail('Unexpected assessment type.');
+  if(o.schema!==undefined&&![1,2].includes(o.schema))fail('Unsupported backup version.');
+  if(!str(o.assessmentId,200)||!o.assessmentId||!str(o.createdAt,100)||!Number.isFinite(Date.parse(o.createdAt)))fail('Invalid assessment identification or date.');
+  if(!obj(o.school)||!str(o.school.name,500)||!o.school.name.trim()||!str(o.school.code,100))fail('Invalid school details.');
+  if(!str(o.academicYear,50)||!o.academicYear||!CFG.classes.includes(o.class)||!CFG.sections.includes(o.section)||!integer(o.students,1,CFG.maxStudents))fail('Invalid class, section, year or student count.');
+  const s=o.settings;
+  if(!obj(s)||!Array.isArray(s.topics)||!s.topics.length||s.topics.some(t=>!TOPICS.some(x=>x.id===t))||new Set(s.topics).size!==s.topics.length||!obj(s.plan))fail('The assessment settings are incomplete.');
+  if(obj(s)){
+    if(!['mcq','tf','mixed'].includes(s.typeMode)||!['en','hi','both'].includes(s.lang||'en')||!CFG.counts.includes(s.total)||!integer(s.mapN===undefined?0:s.mapN,0,s.total||20))fail('Invalid question settings.');
+    if(s.thresholds&&(!obj(s.thresholds)||!Number.isFinite(s.thresholds.strong)||s.thresholds.strong>100||!Number.isFinite(s.thresholds.practice)||s.thresholds.practice<0||s.thresholds.practice>=s.thresholds.strong))fail('Invalid performance thresholds.');
+  }
+  if(!Array.isArray(o.questions)||!o.questions.length||o.questions.length>CFG.maxStudents*20)fail('Invalid question bank size.');
+  if(!obj(o.records)||!integer(o.students,1,CFG.maxStudents)||Object.keys(o.records).length!==o.students)fail('The number of student records does not match the student count.');
+  if(e.length)return e;
+  if(Object.entries(s.plan).some(([topic,v])=>!s.topics.includes(topic)||!obj(v)||!integer(v.mcq,0,s.total)||!integer(v.tf,0,s.total))||Object.values(s.plan).reduce((n,v)=>n+(obj(v)&&Number.isFinite(v.mcq)&&Number.isFinite(v.tf)?v.mcq+v.tf:0),0)!==s.total-(s.mapN||0))return ['Invalid topic question plan.'];
+  // Migrate known legacy shared-question backups only after checking container types.
+  normalize(o);
+  const byId=new Map();
+  for(const q of o.questions){
+    if(!obj(q)||!str(q.id,500)||!q.id||['__proto__','constructor','prototype'].includes(q.id)||byId.has(q.id)||!str(q.text,5000)||!q.text||!str(q.correct,1000)||!str(q.explanation,5000)||!str(q.base,500)){
+      fail('Invalid or duplicate question details.');continue;
+    }
+    byId.set(q.id,q);
+    if(!['mcq','tf','map'].includes(q.type)||!TOPICS.some(t=>t.id===q.topic)&&q.topic!=='map')fail('Invalid question type or topic.');
+    if(!Array.isArray(q.options)||q.options.length>10||q.options.some(v=>!str(v,1000))||new Set(q.options).size!==q.options.length)fail('Invalid question options.');
+    else if(q.type==='map'){
+      if(q.topic!=='map'||!regionById(q.target)||q.correct!==q.target||q.options.length)fail('Invalid map target.');
+    }else if(q.options.length<2||!q.options.includes(q.correct)||!s.topics.includes(q.topic))fail('Invalid correct answer or topic.');
+  }
+  if(e.length)return e; // Do not inspect answers against malformed question options.
+  if(!obj(o.forms)||Object.keys(o.forms).length!==o.students)fail('Invalid per-student forms.');
+  if(!obj(o.reused))fail('Invalid repeated-question details.');
+  for(let r=1;r<=o.students;r++){
+    const form=obj(o.forms)&&own(o.forms,r)?o.forms[r]:null,rec=own(o.records,r)?o.records[r]:null;
+    if(!Array.isArray(form)||form.length!==s.total||new Set(form).size!==form.length||form.some(id=>!byId.has(id))){fail('A student form contains missing, duplicate or unknown questions.');continue;}
+    if(form.filter(id=>byId.get(id).type==='map').length!==(s.mapN||0))fail('Map-question count does not match the settings.');
+    if(!obj(rec)||rec.roll!==r||!['pending','in-progress','completed','absent'].includes(rec.status)||!obj(rec.answers)){fail('Invalid student record.');continue;}
+    if(Object.keys(rec.answers).some(id=>!form.includes(id)||typeof rec.answers[id]!=='string'||(byId.get(id).type==='map'?!regionById(rec.answers[id]):!byId.get(id).options.includes(rec.answers[id]))))fail('A student answer is not valid for its question.');
+    if(o.reused&&o.reused[r]!==undefined&&(!Array.isArray(o.reused[r])||o.reused[r].some(id=>!form.includes(id))))fail('Invalid repeated-question details.');
+  }
+  if(o.kind==='after'){
+    if(depth||!obj(o.baseline)||!obj(o.baseline.data))fail('This AFTER file has no valid BEFORE baseline.');
+    else{
+      const errors=validate(o.baseline.data,'before',1);
+      if(errors.length)fail('The embedded BEFORE baseline is invalid: '+errors.join(' '));
+      else if(!e.length&&(o.baseline.assessmentId!==o.baseline.data.assessmentId||compat(o.baseline.data,o).length))fail('The embedded BEFORE baseline does not match this assessment.');
+    }
+  }
+  return e;
+}
 function compat(b,a){const w=[];const same=(x,y,n)=>{if(x!==y)w.push(`${n} differs: BEFORE "${x}" vs AFTER "${y}".`);};
   same(b.school.name,a.school.name,'School name');same(b.school.code,a.school.code,'KV code');same(b.academicYear,a.academicYear,'Academic year');same(b.class,a.class,'Class');same(b.section,a.section,'Section');same(b.students,a.students,'Student count');
   same(JSON.stringify(b.settings.topics),JSON.stringify(a.settings.topics),'Topics');same(b.settings.typeMode,a.settings.typeMode,'Question type');same(b.questions.length>0&&Object.values(b.forms)[0].length,Object.values(a.forms)[0].length,'Questions per student');same(b.settings.mapN||0,a.settings.mapN||0,'Map questions');same(b.settings.lang||'en',a.settings.lang||'en','Question language');return w;}

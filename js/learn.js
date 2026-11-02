@@ -13,7 +13,7 @@ const EMO=[['lion','🦁'],['rhinoceros','🦏'],['elephant','🐘'],['buffalo',
 const emo=r=>{const a=((CONTENT[r.id].animal||{}).en||'').toLowerCase();const m=EMO.find(x=>a.includes(x[0]));return m?m[1]:(a?'🐾':'🗺️');};
 MODE_VIEWS.learn=function(el,c){
   const {t,esc,name,lang,grade}=c, g=grade||1, L=o=>esc(o[lang]||o.en);
-  el.innerHTML=`<div class="xsplit lsplit"><div class="xmap card"><div class="maparea" id="lmapArea"></div></div><div class="xside" id="lui"></div></div>`;
+  el.innerHTML=`<div class="xsplit lsplit"><div class="xmap card"><div class="maparea" id="lmapArea"><p class="load">${t('mapLoading')}</p></div></div><div class="xside" id="lui"></div></div>`;
   const ui=el.querySelector('#lui');
   const S={reg:'all',i:0,open:false};
   const deck=()=>REGIONS.filter(r=>S.reg==='all'||G[S.reg].includes(r.id));
@@ -38,13 +38,13 @@ MODE_VIEWS.learn=function(el,c){
     <div class="lcard">${card}</div><div class="nav"><button data-a="prev">← ${t('prev')}</button><span>${S.i+1} / ${d.length}</span><button data-a="next">${t('next')} →</button></div></div>`;fitUI();
   }
   const fitUI=()=>{ui.style.zoom='';if(!(document.body.classList.contains('fill')&&matchMedia('(min-width:1200px) and (min-height:640px)').matches))return;let lo=0.78,hi=Math.max(1,Math.min(2.6,innerWidth/1700));const ok=z=>{ui.style.zoom=z;return ui.scrollHeight<=ui.clientHeight+2;};if(ok(hi))return;for(let i=0;i<7;i++){const mid=(lo+hi)/2;if(ok(mid))lo=mid;else hi=mid;}ui.style.zoom=lo;};
-  addEventListener('resize',()=>{if(ui.isConnected)fitUI();});
+  const resize=()=>{if(ui.isConnected)fitUI();};addEventListener('resize',resize);if(c.onCleanup)c.onCleanup(()=>removeEventListener('resize',resize));
   const mapMark=()=>{try{if(BMap.info())BMap.mark(deck()[S.i].id,'selected');}catch(e){}};
   ui.onclick=e=>{const b=e.target.closest&&e.target.closest('[data-a]');if(!b)return;const a=b.dataset.a,n=deck().length;
     if(a==='reg'){S.reg=b.dataset.v;S.i=0;S.open=false;}else if(a==='open')S.open=true;
     else if(a==='next'){S.i=(S.i+1)%n;S.open=false;}else if(a==='prev'){S.i=(S.i-1+n)%n;S.open=false;}
     view();mapMark();};
   view();
-  BMap.load().then(()=>{BMap.draw(el.querySelector('#lmapArea'),{onTap:id=>{S.reg='all';S.i=Math.max(0,REGIONS.findIndex(r=>r.id===id));S.open=false;view();mapMark();}});mapMark();}).catch(()=>{});
+  BMap.load().then(()=>{if(!el.isConnected)return;BMap.draw(el.querySelector('#lmapArea'),{onTap:id=>{S.reg='all';S.i=Math.max(0,REGIONS.findIndex(r=>r.id===id));S.open=false;view();mapMark();}});mapMark();}).catch(e=>{if(!el.isConnected)return;el.querySelector('#lmapArea').innerHTML=`<p class="fail">${t('mapFail')}<br><small>${esc(e.message||e)}</small></p>`;});
 };
 })();

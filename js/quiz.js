@@ -5,7 +5,7 @@ MODE_VIEWS.quiz=function(el,c){
   let game='',Q=[],qi=0,score=0,missed=[],useDK=false,answered=false,mapOk=false;
   const shuf=a=>a.slice().sort(()=>Math.random()-.5), pick=(a,n)=>shuf(a).slice(0,n), lab=s=>s.replace(/\s*\(.*?\)\s*/g,' ').trim();
   const cap=r=>CAPITALS[r.id][lang]||CAPITALS[r.id].en, tpl=(k,x)=>t(k).replace('{x}',x);
-  BMap.load().then(()=>{mapOk=true;}).catch(()=>{});
+  BMap.load().then(()=>{if(!el.isConnected)return;mapOk=true;}).catch(()=>{});
   function pool(){const items=[];REGIONS.forEach(r=>{const D=CONTENT[r.id],K=useDK?(D.dk||{}):{};
     const add=(cat,a)=>(a||[]).forEach(x=>items.push({cat,r,text:x.en,hi:x.hi,key:itemKey(x.en)}));
     add('dance',[...D.classical,...(K.classical||[])]);add('festival',[...D.festivals,...(K.festivals||[])]);add('food',[...(D.foods||[]),...(K.foods||[])]);
@@ -18,9 +18,9 @@ MODE_VIEWS.quiz=function(el,c){
     if(type==='cap'){const r=pick(REGIONS.filter(x=>!['chandigarh','puducherry'].includes(x.id)),1)[0];
       const o=[r];shuf(REGIONS).forEach(x=>{if(o.length<NOPT&&x.id!==r.id&&cap(x)!==cap(r)&&!o.some(y=>cap(y)===cap(x)))o.push(x);});
       return{text:tpl('qcap',name(r)),opts:shuf(o).map(x=>({k:x.id,l:cap(x)})),ans:r.id,info:`${name(r)} → ${cap(r)}`};}
-    if(type==='capRev'){const L=REGIONS.filter(x=>!['chandigarh','haryana','punjab','jammu-and-kashmir','ladakh'].includes(x.id)),r=pick(L,1)[0];
+    if(type==='capRev'){const L=REGIONS.filter(x=>REGIONS.filter(y=>cap(y)===cap(x)).length===1),r=pick(L,1)[0];
       return{text:tpl('qcapRev',cap(r)),opts:stateOpts(r),ans:r.id,info:`${cap(r)} → ${name(r)}`};}
-    if(type==='find'){const L=REGIONS.filter(x=>x.id!=='ladakh'&&(g>=4||!TINY.includes(x.id))&&BMap.info()&&BMap.info().groups[x.id]),r=pick(L,1)[0];
+    if(type==='find'){const L=REGIONS.filter(x=>(g>=4||!TINY.includes(x.id))&&BMap.info()&&BMap.info().groups[x.id]),r=pick(L,1)[0];
       return{map:true,text:tpl('qfind',name(r)),ans:r.id,info:name(r)};}
     return mkItem(type,P);}
   const types=()=>{const base=['cap','animal'];if(mapOk)base.push('find');if(g>=3)base.push('dance','festival','food','place');if(g>=4)base.push('capRev');return base;};
@@ -45,7 +45,7 @@ MODE_VIEWS.quiz=function(el,c){
     else el.querySelectorAll('.opt').forEach(b=>{b.disabled=true;if(b.dataset.k===q.ans)b.classList.add('right');else if(b.dataset.k===k)b.classList.add('bad');});
     fb.className='fb '+(ok?'ok':'no');fb.innerHTML=(ok?'✔ '+t('qRight'):'✖ '+t('qWrong'))+` <b>${esc(q.info)}</b> <button class="act" data-a="next">${t('next')} →</button>`;}
   el.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('button');if(!b)return;
-    if(b.dataset.g){const d=el.querySelector('#dk');if(d)useDK=d.checked;if(b.dataset.g==='find'&&!mapOk)BMap.load().then(()=>{mapOk=true;start('find');}).catch(()=>{el.insertAdjacentHTML('afterbegin',`<p class="fail">${t('mapFail')}</p>`);});else start(b.dataset.g);}
+    if(b.dataset.g){const d=el.querySelector('#dk');if(d)useDK=d.checked;if(b.dataset.g==='find'&&!mapOk)BMap.load().then(()=>{if(!el.isConnected)return;mapOk=true;start('find');}).catch(()=>{el.insertAdjacentHTML('afterbegin',`<p class="fail">${t('mapFail')}</p>`);});else start(b.dataset.g);}
     else if(b.dataset.a==='menu')menu();else if(b.dataset.a==='next'){qi++;show();}else if(b.classList.contains('opt'))answer(b.dataset.k);});
   menu();
 };

@@ -2,11 +2,13 @@
 const app=document.getElementById('app');
 const ls={get(k,d){try{return localStorage.getItem(k)||d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
 /* Only class + language are stored. No personal data. */
-const S={lang:ls.get('bme.lang','en'),grade:Number(ls.get('bme.grade','0'))};
+const savedGrade=Number(ls.get('bme.grade','0'));
+const S={lang:ls.get('bme.lang','en')==='hi'?'hi':'en',grade:[1,2,3,4,5].includes(savedGrade)?savedGrade:0};
+let cleanups=[];
 const t=k=>I18N[S.lang][k];
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const name=r=>S.lang==='hi'?r.hi:r.en;
-const ctx=()=>({lang:S.lang,t,name,esc,grade:S.grade});
+const ctx=()=>({lang:S.lang,t,name,esc,grade:S.grade,onCleanup:fn=>cleanups.push(fn)});
 /* Each ready module registers MODE_VIEWS[id]=(el,ctx)=>{...} in its own file. */
 window.MODE_VIEWS=window.MODE_VIEWS||{};
 const THEMES=[['festivals','🎉','tFestivals','green'],['calendar','📅','tCalendar','blue'],['dance','💃','tDance','plum'],['food','🍛','tFood','saffron'],['places','🏛️','tPlaces','blue'],['languages','🗣️','tLanguages','plum']];
@@ -39,9 +41,11 @@ function stateView(id){
   app.innerHTML=`<section class="card statecard"><h3>${esc(name(r))} ${spk(name(r))}</h3>${renderCard(r,ctx())}</section>`;
 }
 function route(){
+  cleanups.splice(0).forEach(fn=>{try{fn();}catch(e){console.error(e);}});
+  if(window.speechSynthesis)window.speechSynthesis.cancel();
   const [,a,b]=(location.hash||'#/home').split('/');
   document.body.classList.toggle('fill',a==='mode'&&['explore','learn'].includes(b));
-  if(a==='class'){const n=Number(b); if(n>=1&&n<=5){S.grade=n;ls.set('bme.grade',n);} else {location.hash='#/home';return;}}
+  if(a==='class'){const n=Number(b); if(Number.isInteger(n)&&n>=1&&n<=5){S.grade=n;ls.set('bme.grade',n);} else {location.hash='#/home';return;}}
   if(a==='mode'&&!S.grade){location.hash='#/home';return;}
   app.onclick=app.oninput=app.onchange=app.onsubmit=app.onkeydown=null;
   if(a==='teacher'){app.innerHTML='';TEACHER.render(app,ctx());} else if(a==='thelp'){app.innerHTML=THELP.html();} else if(a==='squiz'){const r=regionById(b);app.innerHTML=`<h2 class="sec">🎯 ${r?esc(name(r)):''}</h2><div id="sqv"></div>`;STATEQUIZ.render(document.getElementById('sqv'),ctx(),b);}
@@ -69,6 +73,7 @@ function chrome(a){
 }
 document.getElementById('backBtn').onclick=()=>{const a=location.hash.split('/')[1];
   if(a==='mode')location.hash='#/class/'+S.grade; else if(a==='privacy'||a==='terms')location.hash='#/home'; else if(a==='thelp')location.hash='#/teacher'; else if(a==='teacher')location.hash=S.grade?'#/class/'+S.grade:'#/home'; else if((a==='state'||a==='squiz')&&history.length>1)history.back(); else location.hash='#/home';};
-document.getElementById('langBtn').onclick=()=>{S.lang=S.lang==='en'?'hi':'en';ls.set('bme.lang',S.lang);route();};
+document.getElementById('langBtn').onclick=()=>{S.lang=S.lang==='en'?'hi':'en';ls.set('bme.lang',S.lang);route();if(typeof CustomEvent==='function')window.dispatchEvent(new CustomEvent('bme:languagechange'));};
+const skip=document.getElementById('skipMain');if(skip)skip.onclick=e=>{e.preventDefault();app.focus();};
 addEventListener('hashchange',route); route();
 })();

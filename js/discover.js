@@ -25,7 +25,7 @@ window.DISCOVER=(function(){
   function search(q,tab,lang,t,month){
     if(!IDX)build(); q=norm(q).trim();
     return IDX.filter(it=>(tab==='all'||(TAB_CATS[tab]||[TAB_CAT[tab]]).includes(it.cat))&&(tab!=='calendar'||(it.info&&it.info.m.includes(month)))&&
-      (!q||norm(it.en+' '+(it.hi||'')+' '+(it.r?(it.r.en+' '+it.r.hi):'India')+' '+((it.detail||it.detailHi)||'')+' '+((it.info&&it.info.d)||'')+' '+t(CAT_KEY[it.cat])).includes(q)))
+      (!q||norm(it.en+' '+(it.hi||'')+' '+(it.r?(it.r.en+' '+it.r.hi):'India')+' '+(it.detail||'')+' '+(it.detailHi||'')+' '+((it.info&&it.info.d)||'')+' '+t(CAT_KEY[it.cat])).includes(q)))
       .sort((a,b)=>tab==='dance'?(a.order||0)-(b.order||0):tab==='languages'?(a.number||0)-(b.number||0):(a.r?a.r.en:'India').localeCompare(b.r?b.r.en:'India')||a.en.localeCompare(b.en));
   }
   function render(el,c,tab){

@@ -5,18 +5,19 @@
   const T=k=>I18N[document.documentElement.lang==='hi'?'hi':'en'][k];
   const ok=location.protocol==='https:'||location.hostname==='localhost'||location.hostname==='127.0.0.1';
   if('serviceWorker' in navigator&&ok)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
-  let dp=null;const seen=()=>{try{return sessionStorage.getItem('bme.pwa')==='1';}catch(e){return false;}},mark=()=>{try{sessionStorage.setItem('bme.pwa','1');}catch(e){}};
+  let previousFocus=null;let dp=null;const seen=()=>{try{return sessionStorage.getItem('bme.pwa')==='1';}catch(e){return false;}},mark=()=>{try{sessionStorage.setItem('bme.pwa','1');}catch(e){}};
   const foot=()=>document.getElementById('pwaBtn');
-  function close(){const p=document.getElementById('pwaPop');if(p)p.remove();mark();}
-  function popup(ios){if(document.getElementById('pwaPop')||standalone())return;const d=document.createElement('div');d.id='pwaPop';d.className='pwapop';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');
-    d.innerHTML=`<div class="pwabox"><img src="icons/icon-192.png" alt="" width="84" height="84"><div><h3>${T('pwaTitle')}</h3><p>${ios?T('pwaIos'):T('pwaText')}</p>
+  function close(){const p=document.getElementById('pwaPop');if(p)p.remove();if(previousFocus&&previousFocus.isConnected)previousFocus.focus();previousFocus=null;mark();}
+  function popup(ios){if(document.getElementById('pwaPop')||standalone())return;const d=document.createElement('div');d.id='pwaPop';d.className='pwapop';d.setAttribute('role','dialog');d.setAttribute('aria-modal','true');d.setAttribute('aria-labelledby','pwaTitle');previousFocus=document.activeElement;
+    d.innerHTML=`<div class="pwabox"><img src="icons/icon-192.png" alt="" width="84" height="84"><div><h3 id="pwaTitle">${T('pwaTitle')}</h3><p>${ios?T('pwaIos'):T('pwaText')}</p>
       <div class="pwabtns">${ios?'':`<button class="act" id="pwaYes">📲 ${T('pwaInstall')}</button>`}<button class="tb2" id="pwaNo">${ios?T('pwaOk'):T('pwaLater')}</button></div></div></div>`;
-    document.body.appendChild(d);document.getElementById('pwaNo').onclick=close;
+    document.body.appendChild(d);document.getElementById('pwaNo').onclick=close;d.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();close();return;}if(e.key==='Tab'){const buttons=[...d.querySelectorAll('button')],first=buttons[0],last=buttons[buttons.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});d.querySelector('button').focus();
     const y=document.getElementById('pwaYes');if(y)y.onclick=install;}
-  async function install(){if(!dp){close();return;}close();dp.prompt();try{await dp.userChoice;}catch(e){}dp=null;if(foot())foot().hidden=true;}
+  async function install(){if(!dp){close();return;}const prompt=dp;close();dp=null;try{await prompt.prompt();await prompt.userChoice;}catch(e){}if(foot())foot().hidden=true;}
   addEventListener('beforeinstallprompt',e=>{e.preventDefault();dp=e;if(foot())foot().hidden=false;if(!standalone()&&!seen())setTimeout(()=>popup(false),700);});
   addEventListener('appinstalled',()=>{dp=null;close();if(foot())foot().hidden=true;});
   addEventListener('DOMContentLoaded',()=>{const b=foot();if(b){b.textContent='📲 '+T('pwaInstall');b.onclick=()=>{if(dp)install();else popup(true);};}
     const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)&&!standalone();if(ios){if(b){b.hidden=false;}if(!seen())setTimeout(()=>popup(true),1500);}});
+  window.addEventListener('bme:languagechange',()=>{const b=foot();if(b)b.textContent='📲 '+T('pwaInstall');});
   window.addEventListener('hashchange',()=>{const b=foot();if(b&&!b.hidden)b.textContent='📲 '+T('pwaInstall');});
 })();

@@ -17,7 +17,7 @@ function note(m,e){T.msg=e?'':m;T.err=e?m:'';render();}
 /* ---------- screens ---------- */
 const hdr=()=>`<div class="tbar"><b>👩‍🏫 TEACHER CORNER</b><span><a class="tbh" href="#/thelp">❓ Help</a> <button class="tb" data-t="logout">Logout</button></span></div>`;
 const banner=()=>(T.msg?`<p class="tmsg ok">${esc(T.msg)}</p>`:'')+(T.err?`<p class="tmsg no">${esc(T.err)}</p>`:'');
-function login(){el.innerHTML=`<div class="tcard narrow"><h2>👩‍🏫 Teacher Corner</h2><p class="small">Enter the teacher username and password.</p>
+function login(){el.innerHTML=`<div class="tcard narrow"><h2>👩‍🏫 Teacher Corner</h2><p class="small">Enter the classroom access code. This browser-only gate is not secure authentication; do not rely on it to protect assessment records.</p>
  <form id="lf"><label>Username<input id="lu" autocomplete="username" autocapitalize="characters"></label>
  <label>Password<span class="pw"><input id="lp" type="password" autocomplete="current-password"><button type="button" class="tb2" data-t="showpw">Show</button></span></label>
  ${T.err?`<p class="tmsg no">${esc(T.err)}</p>`:''}<button class="act" type="submit">Login</button></form>
@@ -36,8 +36,8 @@ function topicBox(f){const P=Q.prof(T.grade),cap=Q.capacity(Q.TOPICS.map(t=>t.id
 function setup(){const f=T.form,m=T.mode;T.lastLive=liveHtml(f);
   el.innerHTML=`${hdr()}<div class="tcard"><h2>${m.toUpperCase()} — Assessment setup</h2>${banner()}
   <div class="tmsg warn">Is the class big, or did you stop halfway? <button class="tb2" data-t="resBefore">Resume BEFORE from backup JSON</button><input type="file" id="fresB" accept=".json,application/json" hidden></div>
-  <fieldset><legend>School</legend><label>School Name / Kendriya Vidyalaya Name *<input name="school" value="${esc(f.school)}" placeholder="Kendriya Vidyalaya …"></label>
-  <label>KV Code (optional)<input name="code" value="${esc(f.code)}"></label>
+  <fieldset><legend>School</legend><label>School Name / Kendriya Vidyalaya Name *<input name="school" maxlength="500" value="${esc(f.school)}" placeholder="Kendriya Vidyalaya …"></label>
+  <label>KV Code (optional)<input name="code" maxlength="100" value="${esc(f.code)}"></label>
   <label>Academic Year<select name="year">${CFG.years.map(y=>`<option ${y===f.year?'selected':''}>${y}</option>`).join('')}</select></label>
   <label>Assessment Type<input value="${m.toUpperCase()}" disabled></label></fieldset>
   <fieldset><legend>Class</legend>${T.grade?`<p class="classro">Class <b>${T.grade}</b> <small>(taken from the main class selector; to change it, choose another class on the <a href="#/home">Home page</a> and come back)</small></p>`:`<p class="tmsg no">Choose Class 1–5 on the <a href="#/home">Home page</a> first, then open Teacher Corner again.</p>`}
@@ -60,16 +60,16 @@ function liveHtml(f){const sel=f.topics.length,caps=Q.capacity(f.topics,f.includ
   ${errs.map(e=>`<p class="tmsg no">${esc(e)}</p>`).join('')}
   <div class="rowbtn"><button class="tb2" data-t="home">← Back</button><button class="act" data-t="toWarn" ${errs.length?'disabled':''}>Continue</button></div>`;}
 function chk(f){const e=[];
-  if(!T.grade)e.push('Choose a class on the Home page first.');if(!f.school.trim())e.push('School name is required.');if(!(f.students>=1&&f.students<=CFG.maxStudents))e.push(`Number of students must be 1 to ${CFG.maxStudents}.`);
+  if(!T.grade)e.push('Choose a class on the Home page first.');if(!f.school.trim())e.push('School name is required.');if(!(Number.isInteger(f.students)&&f.students>=1&&f.students<=CFG.maxStudents))e.push(`Number of students must be 1 to ${CFG.maxStudents}.`);
   if(!f.topics.length)e.push('Select at least one topic.');if(f.topics.some(t=>!Q.prof(T.grade).rec.includes(t)))e.push('A selected topic is not part of the list for this class.');
-  if(!(f.strong>f.practice&&f.practice>=0&&f.strong<=100))e.push('Thresholds must satisfy 0 ≤ practise < strong ≤ 100.');
+  if(!(Number.isFinite(f.strong)&&Number.isFinite(f.practice)&&f.strong>f.practice&&f.practice>=0&&f.strong<=100))e.push('Thresholds must satisfy 0 ≤ practise < strong ≤ 100.');
   const mapN=Math.round(f.total*f.mapShare/100),R=f.total-mapN;
   if(f.topics.length&&R>=1){const mix=f.typeMode==='mcq'?[R,0]:f.typeMode==='tf'?[0,R]:[Math.ceil(R/2),R-Math.ceil(R/2)],p=Q.makePlan({topics:f.topics,includeDK:f.includeDK,grade:T.grade,mcq:mix[0],tf:mix[1]});if(p.shortfall>0)e.push(`The data bank has only ${R-p.shortfall} non-map questions for these topics. Reduce the number of questions or add topics.`);}
   if(f.topics.length&&R<1)e.push('Map share leaves no questions for the chosen topics. Lower the map share.');
   return e;}
 const mkSettings=f=>({topics:f.topics.slice(),typeMode:f.typeMode,total:f.total,mapShare:f.mapShare,includeDK:f.includeDK,lang:f.lang,nopt:Q.prof(T.grade).opts,thresholds:{strong:f.strong,practice:f.practice}});
 function warn(){el.innerHTML=`${hdr()}<div class="tcard"><div class="tmsg no big"><h3>IMPORTANT — READ BEFORE STARTING</h3>
- <p>This application does not use an online database. Assessment records are temporarily held in your browser until you download the report and backup files.</p>
+ <p>This application does not use an online database. Assessment records stay in this browser tab; downloading creates a separate copy and does not clear the tab. Keep a JSON backup and close the tab when finished.</p>
  <p>Complete the planned assessment and download the files before refreshing, closing or navigating away from this page.</p><p>Do not depend on browser storage as your only permanent backup.</p>
  <p>Once the assessment is completed, download both the report and JSON backup. Keep the JSON backup safely for the next stage.</p></div>
  <label class="chk"><input type="checkbox" id="ack" ${T.ack?'checked':''}> I have read this and understand.</label>
@@ -86,7 +86,7 @@ function student(){const a=T.a,r=a.records[T.roll],qs=Q.formQs(a,T.roll),q=qs[T.
   <h3 class="qt">${esc(q.text)}</h3>${q.type==='map'?`<div class="quizmap" id="qm"><p class="small">Loading the map…</p></div>`:`<div class="opts">${q.options.map(o=>`<button class="opt ${sel===o?'right':''}" data-t="ans" data-o="${esc(o)}" ${locked?'disabled':''}>${esc(o)}</button>`).join('')}</div>`}
   <div class="rowbtn"><button class="tb2" data-t="prevq" ${T.qi===0?'disabled':''}>← Previous</button>${T.qi<qs.length-1?`<button class="tb2" data-t="nextq">Next →</button>`:''}
   <button class="act" data-t="finishRoll" ${locked?'disabled':''}>Finish Roll ${T.roll}</button><button class="tb2" data-t="absent" ${locked?'disabled':''}>Mark Roll Absent</button><button class="tb2" data-t="dash">Class overview</button></div></div>`;
-  if(q.type==='map')BMap.load().then(()=>{const m=el.querySelector('#qm');if(!m)return;BMap.draw(m,{onTap:id=>{if(locked)return;if(Q.setAnswer(T.a,T.roll,q.id,id)){T.exported=false;save();render();}}});if(sel)BMap.mark(sel,'selected');}).catch(()=>{const m=el.querySelector('#qm');if(m)m.innerHTML='<p class="tmsg no">The map could not load. Connect to the internet once, or use a saved offline map file.</p>';});}
+  if(q.type==='map'){const m=el.querySelector('#qm');BMap.load().then(()=>{if(!m.isConnected)return;BMap.draw(m,{onTap:id=>{if(locked)return;if(Q.setAnswer(T.a,T.roll,q.id,id)){T.exported=false;save();render();}}});if(sel)BMap.mark(sel,'selected');}).catch(()=>{if(m.isConnected)m.innerHTML='<p class="tmsg no">The map could not load. Connect to the internet once, or use a saved offline map file.</p>';});}}
 function rollDone(){const a=T.a,s=Q.score(a,T.roll),c=Q.counts(a);
   el.innerHTML=`${hdr()}<div class="tcard"><h2>Roll Number ${T.roll} completed ✔</h2><p class="score">Score: <b>${s.correct} / ${s.max}</b> (${s.acc}%)${s.unanswered?` · Unanswered: ${s.unanswered}`:''}</p>
   <p class="small">${Object.keys(s.topic).map(t=>`${esc(Q.tname(t))}: ${s.topic[t].correct}/${s.topic[t].n}`).join(' · ')}</p><p><b>Completed: ${c.completed} of ${c.total} students</b></p>
@@ -121,7 +121,7 @@ function render(){if(!el)return;if(!logged()){login();return;}
   ({home,setup,warn,dash,student,rollDone,export:exportView,afterImport}[T.view]||home)();}
 function openRoll(r){T.roll=r;const rec=T.a.records[r];const un=Q.formQs(T.a,r).findIndex(q=>rec.answers[q.id]===undefined);T.qi=rec.status==='completed'||rec.status==='absent'||un<0?0:un;T.view='student';save();render();}
 function nextPending(){const a=T.a,p=Object.values(a.records).find(r=>!['completed','absent'].includes(r.status)&&r.roll>T.roll)||Object.values(a.records).find(r=>!['completed','absent'].includes(r.status));if(p)openRoll(p.roll);else{note('All roll numbers are completed.');}}
-function readFile(file,cb){const fr=new FileReader();fr.onload=()=>{try{cb(JSON.parse(fr.result));}catch(e){note('This file could not be read: it is not valid JSON.',1);}};fr.onerror=()=>note('The file could not be opened.',1);fr.readAsText(file);}
+function readFile(file,cb){if(!file||file.size>10*1024*1024){note('Choose a JSON backup no larger than 10 MB.',1);return;}const fr=new FileReader();fr.onload=()=>{try{cb(JSON.parse(fr.result));}catch(e){note('This file could not be read: it is not valid JSON.',1);}};fr.onerror=()=>note('The file could not be opened.',1);fr.readAsText(file);}
 function loadAny(o,expect){const e=Q.validate(o);if(e.length)return note(e.join(' '),1);
   if(expect&&o.kind!==expect)return note(expect==='after'?'This is a BEFORE file. To start the AFTER assessment, use "Import Previous BEFORE Assessment JSON". To resume AFTER, choose your AFTER backup file.':'This is an AFTER file. To resume it, open AFTER and use "Resume AFTER from backup JSON".',1);
   if(o.kind==='after'){if(!o.baseline||!o.baseline.data)return note('This AFTER file has no BEFORE baseline inside, so it cannot be resumed.',1);}
@@ -134,7 +134,7 @@ function onClick(e){const b=e.target.closest&&e.target.closest('[data-t]');if(!b
   if(a==='resBefore'){el.querySelector('#fresB').click();return;}
   if(a==='resAfter'){el.querySelector('#fresA').click();return;}
   if(a==='loadjson'){el.querySelector('#fjson').click();return;}
-  if(a==='resumeDraft'){try{const d=JSON.parse(ss.get(DK));T.roll=0;T.mode=d.mode;T.a=d.a;T.base=d.base;T.exported=d.exported;T.view=d.view==='student'?'dash':d.view;T.th={...(d.a.settings.thresholds||CFG.thresholds)};T.msg='Session restored from this tab.';render();}catch(x){note('The saved session could not be restored.',1);}return;}
+  if(a==='resumeDraft'){try{const d=JSON.parse(ss.get(DK));const errors=Q.validate(d.a);if(errors.length)throw new Error(errors.join(' '));if(d.a.kind==='after'){if(!d.base||Q.validate(d.base,'before').length)throw new Error('Invalid baseline');}T.roll=0;T.mode=d.mode;T.a=d.a;T.base=d.base;T.exported=d.exported;T.view='dash';T.th={...(d.a.settings.thresholds||CFG.thresholds)};T.msg='Session restored from this tab.';render();}catch(x){note('The saved session could not be restored.',1);}return;}
   if(a==='discardDraft'){if(confirm('Discard the unsaved session in this tab? This cannot be undone.')){ss.del(DK);render();}return;}
   if(a==='home'){if(T.a&&!T.exported&&!confirm('Go to the start? Un-downloaded assessment data stays in this tab, use "Resume".'))return;T.view='home';T.a=null;T.msg=T.err='';render();return;}
   if(a==='toSetup'){T.view='setup';render();return;}
